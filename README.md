@@ -1,0 +1,2 @@
+# rgb-wallet
+Squad RGBWallet
