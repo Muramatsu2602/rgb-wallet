@@ -1,7 +1,8 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import express from "express";
+// import routes from './routes';
 
+const server = express();
 
-const server = express(); 
-
-server.listen(3000);
+server.listen(3333, () => {
+  console.log("Server started!");
+});
