@@ -10,6 +10,7 @@ function Header() {
   return (
     <div className="header">
       <h1 className="title">RGBWallet</h1>
+      
     </div>
   );
 }
