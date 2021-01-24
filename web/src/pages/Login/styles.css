@@ -1,9 +1,32 @@
 #login-page {
-    width: 100vw;
-    height: 100vh;
-    background-color:#42BECF ;
-  
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  } 
+  width: 100vw;
+  height: 100vh;
+  background-color: #42becf;
+
+  display: flex;
+}
+
+.content-wrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo-portion {
+  width: 50vw;
+  height: 100vh;
+
+  background-color: transparent;
+}
+
+.form-portion {
+  width: 40vw;
+  height: 100vh;
+
+  background-color: white;
+  align-self: flex-end;
+}

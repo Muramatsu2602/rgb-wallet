@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { FaArrowRight } from 'react-icons/fa';
+
 
 import "./styles.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,7 +12,10 @@ export default function Login() {
   return (
     <div id="login-page">
       <div className="content-wrapper">
-        <div className=""> 
+        <div className="logo-portion"> 
+          
+        </div>
+        <div className="form-portion">
 
         </div>
       </div>
