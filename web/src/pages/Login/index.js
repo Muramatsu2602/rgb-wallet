@@ -17,8 +17,11 @@ import {
   Accordion,
   useAccordionToggle,
 } from "react-bootstrap/";
-import Switch from "react-switch";
 
+/**
+ * Custom Toggle Button to Collapse/Show Password Accordeon
+ * @param {*} param0
+ */
 function CustomToggle({ children, eventKey }) {
   const decoratedOnClick = useAccordionToggle(eventKey, () =>
     console.log("totally custom!")
@@ -35,12 +38,15 @@ function CustomToggle({ children, eventKey }) {
   );
 }
 
-function ForgotPasswordOnClick() {
+/**
+ * simple onclick-triggered function that shows an alert
+ */
+function ForgotPassword() {
   Swal.fire({
     icon: "error",
     title: "Oops...",
-    text: "Something went wrong!",
-    footer: `<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO'>Why do I have this issue?</a>`,
+    text: "Deu Mer**!",
+    footer: `<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO'>Por que estou vendo isso?</a>`,
   });
 }
 
@@ -86,7 +92,7 @@ export default function Login() {
               <Button className="custom-btn" variant="primary" type="submit">
                 Entrar
               </Button>
-              <a onClick={ForgotPasswordOnClick}>Esqueci a senha...</a>
+              <a onClick={ForgotPassword}>Esqueci a senha...</a>
             </div>
           </Form>
         </div>
