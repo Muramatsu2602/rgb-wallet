@@ -6,7 +6,7 @@
   display: flex;
 }
 
-.content-wrapper {
+#login-page .content-wrapper {
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
@@ -53,7 +53,7 @@
   border-radius: 25px;
 
   width: 45vw;
-  height: 90vh;
+  max-height: 90vh;
   padding: 4rem;
 
   display: block;
@@ -93,7 +93,7 @@
   padding-top: 1rem !important;
 }
 
-.custom-btn {
+#login-page .custom-btn {
   width: 252px !important;
   height: 66px !important;
 
@@ -126,8 +126,8 @@
 }
 
 .custom-input {
-  height: 6rem !important;
-  border-radius: 8px !important;
+  height: 6.5rem !important;
+  border-radius: 25px !important;
 
   font-size: var(--text-medium) !important;
 
@@ -138,7 +138,7 @@
   box-sizing: border-box !important;
 }
 
-/*Sweet Alert II*/
+/*Sweet Alert II Override*/
 .swal2-popup {
   font-size: var(--color-text-medium) !important;
 }

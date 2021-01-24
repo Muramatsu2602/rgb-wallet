@@ -1,20 +1,65 @@
 #user-page {
   width: 100vw;
   height: 100vh;
+
   background-color: var(--color-background);
 
   display: flex;
 }
 
-.content-wrapper {
+#user-page .content-wrapper {
   width: 100vw;
   height: 100vh;
-  margin: 0 auto;
 
-  padding-top: 3rem;
-  padding-right: 3rem;
+  padding: 0;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
+}
+
+.header-wrapper {
+  width: 100vw;
+  height: 366px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-primary-medium);
+  color: var(--color-box-base);
+}
+
+.top-icons {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+/*Overriding Bootstrap Component Styles*/
+.custom-btn {
+  width: 360px !important;
+  height: 131px !important;
+
+  border-radius: 25px !important;
+
+  border-style: none !important;
+
+  font-size: var(--text-titan) !important;
+  font-weight: 700;
+  background: var(--color-primary-medium) !important;
+  color: var(--color-button-text) !important;
+
+  transition: background-color 0.2s !important;
+}
+
+#solicitar {
+  background-color: var(--color-secondary-medium) !important;
+}
+
+/*Sweet Alert II Override*/
+.swal2-popup {
+  font-size: var(--color-text-medium) !important;
 }
