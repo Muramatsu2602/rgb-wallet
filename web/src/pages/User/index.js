@@ -18,9 +18,9 @@ export default function User() {
         <div className="header-wrapper">
           <div className="top-icons">
             <Link to="/" className="exit-app">
-              <img src={CornerArrow} alt="logo RGBWallet" />
-              <img src={CornerLogo} alt="arrow de retorno" />
+              <img src={CornerArrow} id="arrow" alt="arrow de retorno" />
             </Link>
+            <img src={CornerLogo} alt="logo RGBWallet" />
           </div>
           <div className="hello-user">
             <h1>Olá, usuário</h1>

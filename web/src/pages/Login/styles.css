@@ -120,8 +120,9 @@
 
   transition: background-color 0.2s !important;
 }
+
 .custom-btn-small:hover,
-.custom-btn:hover {
+#login-page .custom-btn:hover {
   background: var(--color-primary-light) !important;
 }
 
