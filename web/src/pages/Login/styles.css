@@ -18,17 +18,30 @@
 
 .logo-portion {
   width: 50vw;
+
+  max-width: 50vw;
   height: 80vh;
 
   display: flex;
   justify-content: center;
+  flex-direction: column;
 
   background-color: transparent;
 }
 
 .logo-portion img {
   align-self: center;
-  min-height: 25rem;
+  min-height: 22rem;
+}
+
+.logo-portion p {
+  color: var(--color-box-footer);
+
+  padding-left: 2rem;
+  align-self: flex-start;
+
+  position: absolute;
+  bottom: 0;
 }
 
 .form-portion {
@@ -36,7 +49,7 @@
   height: 100vh;
   padding: 3rem;
 
-  background-color: var(--color-background);
+  background-color: var(--color-white-background);
 }
 
 .form-portion h1 {
@@ -46,4 +59,29 @@
   font-size: 46px;
   color: var(--color-text-title);
   font-weight: bold;
+}
+
+.custom-lbl {
+  color: var(--color-text-base) !important;
+}
+
+.custom-btn {
+  width: 252px;
+  height: 66px;
+
+  border-radius: 25px !important;
+
+  font-size: var(--text-big) !important;
+  background: var(--color-primary-medium) !important;
+  color: var(--color-button-text) !important;
+}
+
+.custom-input {
+  height: 6rem !important;
+  border-radius: 8px !important;
+
+  font-size: var(--text-medium) !important;
+
+  background-color: var(--color-input-background) !important;
+  box-sizing: border-box !important;
 }
