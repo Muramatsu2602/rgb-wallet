@@ -34,6 +34,8 @@
 
 .logo-portion img {
   align-self: center;
+
+  height: 22rem;
   min-height: 15rem;
 }
 
@@ -87,6 +89,7 @@
 .custom-lbl {
   color: var(--color-text-base) !important;
   padding-bottom: 2rem !important;
+  padding-top: 1rem !important;
 }
 
 .custom-btn {
@@ -104,6 +107,19 @@
   transition: background-color 0.2s !important;
 }
 
+.custom-btn-small {
+  width: 150px !important;
+
+  border-radius: 25px !important;
+  border-style: none !important;
+
+  font-size: var(--text-medium) !important;
+  background: var(--color-primary-medium) !important;
+  color: var(--color-button-text) !important;
+
+  transition: background-color 0.2s !important;
+}
+.custom-btn-small:hover,
 .custom-btn:hover {
   background: var(--color-primary-light) !important;
 }

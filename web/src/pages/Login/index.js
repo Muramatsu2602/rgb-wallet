@@ -7,8 +7,32 @@ import logoImg from "../../assets/images/login-logo.svg";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { Button, Container, Form, Row, Col, Accordion } from "react-bootstrap/";
+import {
+  Button,
+  Container,
+  Form,
+  Row,
+  Col,
+  Accordion,
+  useAccordionToggle,
+} from "react-bootstrap/";
 import Switch from "react-switch";
+
+function CustomToggle({ children, eventKey }) {
+  
+  const decoratedOnClick = useAccordionToggle(eventKey, () =>
+    console.log("totally custom!")
+  );
+
+  return (
+    <Button 
+      className="custom-btn-small" onClick={decoratedOnClick}
+      // disabled={status}
+    >
+      {children}
+    </Button>
+  );
+}
 
 export default function Login() {
   return (
@@ -34,9 +58,7 @@ export default function Login() {
             </Form.Group>
 
             <Accordion defaultActiveKey="0">
-              <Accordion.Toggle as={Button} variant="link" eventKey="1">
-                
-              </Accordion.Toggle>
+              <CustomToggle eventKey="1">Sou Admin</CustomToggle>
 
               <Accordion.Collapse eventKey="1">
                 <Form.Group controlId="formBasicPassword">
