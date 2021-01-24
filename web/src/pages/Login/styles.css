@@ -11,6 +11,9 @@
   height: 100vh;
   margin: 0 auto;
 
+  padding-top: 3rem;
+  padding-right: 3rem;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -45,15 +48,20 @@
 }
 
 .form-portion {
+  border-radius: 25px;
+
   width: 45vw;
-  height: 100vh;
-  padding: 3rem;
+  height: 90vh;
+  padding: 4rem;
+
+  display: block;
 
   background-color: var(--color-white-background);
 }
 
 .form-portion h1 {
   padding-top: 2rem;
+  padding-bottom: 10rem;
   text-align: center;
 
   font-size: 46px;
@@ -61,19 +69,43 @@
   font-weight: bold;
 }
 
+.form-portion a {
+  text-decoration: none !important;
+  cursor: pointer !important;
+  color: var(--color-small-info);
+}
+
+.form-buttons {
+  padding-top: 6rem;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
 .custom-lbl {
   color: var(--color-text-base) !important;
+  padding-bottom: 2rem !important;
 }
 
 .custom-btn {
-  width: 252px;
-  height: 66px;
+  width: 252px !important;
+  height: 66px !important;
 
   border-radius: 25px !important;
+
+  border-style: none !important;
 
   font-size: var(--text-big) !important;
   background: var(--color-primary-medium) !important;
   color: var(--color-button-text) !important;
+
+  transition: background-color 0.2s !important;
+}
+
+.custom-btn:hover {
+  background: var(--color-primary-light) !important;
 }
 
 .custom-input {
@@ -81,6 +113,9 @@
   border-radius: 8px !important;
 
   font-size: var(--text-medium) !important;
+
+  border: none !important;
+  align-self: center;
 
   background-color: var(--color-input-background) !important;
   box-sizing: border-box !important;

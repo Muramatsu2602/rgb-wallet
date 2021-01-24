@@ -23,20 +23,30 @@ export default function Login() {
 
           <Form>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label className="custom-lbl">Email address</Form.Label>
-              <Form.Control className="custom-input" type="email" placeholder="Enter email" />
-              <Form.Text className="text-muted">
-              </Form.Text>
+              <Form.Label className="custom-lbl">Nome</Form.Label>
+              <Form.Control
+                className="custom-input"
+                type="email"
+                placeholder="Digite seu nome"
+              />
+              <Form.Text className="text-muted"></Form.Text>
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword">
-              <Form.Label className="custom-lbl">Password</Form.Label>
-              <Form.Control className="custom-input" type="password" placeholder="Password" />
+              <Form.Label className="custom-lbl">Senha</Form.Label>
+              <Form.Control
+                className="custom-input"
+                type="password"
+                placeholder="Digite sua senha"
+              />
             </Form.Group>
- 
-            <Button className="custom-btn" variant="primary" type="submit">
-              Submit
-            </Button>
+
+            <div className="form-buttons">
+              <Button className="custom-btn" variant="primary" type="submit">
+                Entrar
+              </Button>
+              <a>Esqueci a senha...</a>
+            </div>
           </Form>
         </div>
       </div>
