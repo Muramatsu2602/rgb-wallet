@@ -17,7 +17,8 @@ export default function Login() {
           <img src={logoImg} alt="logo RGBWallet"/>
         </div>
         <div className="form-portion">
-
+          <h1>Form</h1>
+          
         </div>
       </div>
       
