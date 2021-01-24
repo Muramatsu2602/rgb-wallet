@@ -2,43 +2,19 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 
 import "./styles.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-/**
- * displays header for our application
- */
-function Header() {
+import { Button, Container, Row, Col } from "react-bootstrap/";
+
+export default function Login() {
   return (
-    <div className="header">
-      <h1 className="title">RGBWallet</h1>
+    <div id="login-page">
+      <div className="content-wrapper">
+        <div className=""> 
+
+        </div>
+      </div>
       
     </div>
   );
 }
-
-
-/**
- * handles all the CRUD functions regarding the functionality of the site
- * @param {*} props
- */
-function Body(props) {
-
-  return (
-    <div className="body">
-        <h1>Lorem Ipsum</h1>
-    </div>
-  );
-}
-
-function Login() {
-  return (
-    <div>
-      <Header />
-      <h2 className="subtitle">Sua lista de pokemons</h2>
-      <div>
-        <Body className="corpo" />
-      </div>
-    </div>
-  );
-}
-
-export default Login;
