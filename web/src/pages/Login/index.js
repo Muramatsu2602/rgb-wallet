@@ -1,4 +1,5 @@
 import axios from "axios";
+import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 // import { FaArrowRight } from 'react-icons/fa';
 
@@ -8,15 +9,7 @@ import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Swal from "sweetalert2";
-import {
-  Button,
-  Container,
-  Form,
-  Row,
-  Col,
-  Accordion,
-  useAccordionToggle,
-} from "react-bootstrap/";
+import { Button, Form, Accordion, useAccordionToggle } from "react-bootstrap/";
 
 /**
  * Custom Toggle Button to Collapse/Show Password Accordeon
@@ -89,9 +82,13 @@ export default function Login() {
             </Accordion>
 
             <div className="form-buttons">
-              <Button className="custom-btn" variant="primary" type="submit">
-                Entrar
-              </Button>
+              {/* This will change soon  */}
+              <Link to="/user" className="enter-app">
+                <Button className="custom-btn" variant="primary" type="submit">
+                  Entrar
+                </Button>{" "}
+              </Link>
+
               <a onClick={ForgotPassword}>Esqueci a senha...</a>
             </div>
           </Form>

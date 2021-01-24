@@ -1,0 +1,20 @@
+#user-page {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-background);
+
+  display: flex;
+}
+
+.content-wrapper {
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
+
+  padding-top: 3rem;
+  padding-right: 3rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
