@@ -59,7 +59,7 @@
 
   border-style: none !important;
 
-  font-size: var(--text-titan) !important;
+  font-size: var(--text-bigger) !important;
   font-weight: 700;
   background: var(--color-primary-medium) !important;
   color: var(--color-button-text) !important;
@@ -69,6 +69,10 @@
 
 .custom-btn:hover {
   background: var(--color-primary-light) !important;
+}
+
+.custom-table {
+  font-size: var(--text-medium);
 }
 
 .hello-user {
@@ -95,12 +99,35 @@
 }
 
 .wallet-wrapper {
-  padding: 10rem;
+  display: flex;
+  flex-direction: column;
+
+  padding: 8rem;
   height: auto;
-  width: 1130px;
+
+  width: 1200px;
 
   background-color: var(--color-white-background);
   border-radius: 25px;
+}
+
+.current-balance {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.current-balance h1 {
+  font-size: var(--text-titan);
+  color: var(--color-primary-dark);
+
+  border-bottom: 3px solid var(--color-input-background);
+}
+
+.user-buttons {
+  display: flex;
+  justify-content: space-between;
 }
 
 /*Sweet Alert II Override*/

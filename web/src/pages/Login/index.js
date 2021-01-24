@@ -9,27 +9,8 @@ import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import Swal from "sweetalert2";
-import { Button, Form, Accordion, useAccordionToggle } from "react-bootstrap/";
-
-/**
- * Custom Toggle Button to Collapse/Show Password Accordeon
- * @param {*} param0
- */
-function CustomToggle({ children, eventKey }) {
-  const decoratedOnClick = useAccordionToggle(eventKey, () =>
-    console.log("totally custom!")
-  );
-
-  return (
-    <Button
-      className="custom-btn-small"
-      onClick={decoratedOnClick}
-      // disabled={status}
-    >
-      {children}
-    </Button>
-  );
-}
+import { Button, Form, Accordion } from "react-bootstrap/";
+import CustomToggle from "../../Components/CustomToggle/index";
 
 /**
  * simple onclick-triggered function that shows an alert

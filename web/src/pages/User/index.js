@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import { FaAngleDown } from "react-icons/fa";
 import CornerLogo from "../../assets/images/corner-logo.svg";
 import CornerArrow from "../../assets/images/corner-arrow-left.svg";
 
 import Swal from "sweetalert2";
 
-import { Button, Table } from "react-bootstrap/";
+import CustomToggle from "../../Components/CustomToggle/index";
+import { Button, Table,Accordion } from "react-bootstrap/";
 
 export default function User() {
   return (
@@ -36,7 +38,45 @@ export default function User() {
 
             <div className="transaction-history">
               <h2>Histório de Transações</h2>
-              {/* <Table striped bordered hover size="sm"></Table> */}
+              <Accordion defaultActiveKey="0">
+                <CustomToggle eventKey="1"></CustomToggle>
+
+                <Accordion.Collapse eventKey="1">
+                  <Table
+                    className="custom-table"
+                    striped
+                    responsive
+                    bordered
+                    hover
+                    size="sm"
+                  >
+                    <thead>
+                      <tr>
+                        <th>#</th>
+                        <th>Valor</th>
+                        <th>Data</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>$400,00</td>
+                        <td>05/10/19</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>$400,00</td>
+                        <td>14/12/20</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>$500,00</td>
+                        <td>14/12/20</td>
+                      </tr>
+                    </tbody>
+                  </Table>
+                </Accordion.Collapse>
+              </Accordion>
             </div>
 
             <div className="user-buttons">

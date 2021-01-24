@@ -28,8 +28,9 @@
   --text-small: 16px;
   --text-medium: 18px;
   --text-big: 24px;
-  --text-titan: 36px;
+  --text-bigger: 36px;
   --text-thicc: 48px;
+  --text-titan: 144px;
 }
 
 * {
