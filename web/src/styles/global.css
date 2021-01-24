@@ -1,3 +1,30 @@
+:root {
+  --color-background: #ebebeb;
+  --color-primary-light: #a1dfe7;
+  --color-primary-medium: #42becf; /*Blue from ICMC Jr*/
+  --color-primary-dark: #2d828d;
+  --color-secondary-light: #fadc7a;
+  --color-secondary-medium: #f9d14e; /*Yellow from ICMC-jr*/
+  --color-secondary-dark: #e2be47;
+
+  --color-green: #04d361;
+  --color-another-green: #24ef7f;
+  --color-red: #e33d3d;
+
+  --color-text-title: #000000;
+  --color-text-complement: #9b9b9b;
+  --color-text-base: #777777;
+  --color-text-inputs: #101011;
+
+  --color-line-in-white: #e6e6f0;
+  --color-hover: #ebebf5;
+  --color-input-background: #f8f8fc;
+  --color-button-text: #ffffff;
+  --color-box-base: #ffffff;
+  --color-box-footer: #fafafc;
+  --color-small-info: #c1bccc;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -13,5 +40,5 @@ body,
 input,
 button,
 textarea {
-  font: 400 18px 'Poppins', sans-serif;
+  font: 400 18px "Poppins", sans-serif;
 }

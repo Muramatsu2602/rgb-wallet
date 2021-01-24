@@ -1,7 +1,7 @@
 #login-page {
   width: 100vw;
   height: 100vh;
-  background-color: #42becf;
+  background-color: var(--color-primary-medium);
 
   display: flex;
 }
@@ -18,27 +18,32 @@
 
 .logo-portion {
   width: 50vw;
-  height: 100vh;
+  height: 80vh;
 
-  align-items: center;
+  display: flex;
+  justify-content: center;
 
   background-color: transparent;
 }
 
 .logo-portion img {
-  height: 25rem;
+  align-self: center;
+  min-height: 25rem;
 }
 
 .form-portion {
-  width: 40vw;
+  width: 45vw;
   height: 100vh;
-
   padding: 3rem;
 
-  background-color: white;
+  background-color: var(--color-background);
 }
 
 .form-portion h1 {
+  padding-top: 2rem;
+  text-align: center;
+
   font-size: 46px;
-  color: black;
+  color: var(--color-text-title);
+  font-weight: bold;
 }
