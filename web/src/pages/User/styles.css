@@ -43,6 +43,14 @@
 }
 
 /*Overriding Bootstrap Component Styles*/
+#solicitar {
+  background-color: var(--color-secondary-medium) !important;
+}
+
+#solicitar:hover {
+  background-color: var(--color-secondary-light) !important;
+}
+
 .custom-btn {
   width: 360px !important;
   height: 131px !important;
@@ -59,8 +67,40 @@
   transition: background-color 0.2s !important;
 }
 
-#solicitar {
-  background-color: var(--color-secondary-medium) !important;
+.custom-btn:hover {
+  background: var(--color-primary-light) !important;
+}
+
+.hello-user {
+  padding-top: 2rem;
+  padding-left: 10rem;
+}
+
+.hello-user h1 {
+  font-size: var(--text-thicc);
+}
+
+.hello-user p {
+  font-size: var(--text-medium);
+}
+
+.body-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.wallet-wrapper {
+  padding: 10rem;
+  height: auto;
+  width: 1130px;
+
+  background-color: var(--color-white-background);
+  border-radius: 25px;
 }
 
 /*Sweet Alert II Override*/
