@@ -2,6 +2,8 @@ import React from 'react';
 import { Button,useAccordionToggle } from "react-bootstrap/";
 
 
+import "./styles.css";
+
 /**
  * Custom Toggle Button to Collapse/Show Password Accordeon
  * @param {*} param0
@@ -13,7 +15,7 @@ export default function CustomToggle({ children, eventKey }) {
   
     return (
       <Button
-        className="custom-btn-small"
+        className="custom-toggle-btn"
         onClick={decoratedOnClick}
         // disabled={status}
       >

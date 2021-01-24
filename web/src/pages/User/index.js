@@ -11,7 +11,7 @@ import CornerArrow from "../../assets/images/corner-arrow-left.svg";
 import Swal from "sweetalert2";
 
 import CustomToggle from "../../Components/CustomToggle/index";
-import { Button, Table,Accordion } from "react-bootstrap/";
+import { Button, Table, Accordion } from "react-bootstrap/";
 
 export default function User() {
   return (
@@ -32,14 +32,15 @@ export default function User() {
         <div className="body-wrapper">
           <div className="wallet-wrapper">
             <div className="current-balance">
-              <p>Saldo Atual</p>
+              <h2>Saldo Atual</h2>
               <h1>R$ 100,00</h1>
             </div>
 
             <div className="transaction-history">
-              <h2>Histório de Transações</h2>
               <Accordion defaultActiveKey="0">
-                <CustomToggle eventKey="1"></CustomToggle>
+                <CustomToggle eventKey="1">
+                  Histório de Transações <FaAngleDown />
+                </CustomToggle>
 
                 <Accordion.Collapse eventKey="1">
                   <Table
