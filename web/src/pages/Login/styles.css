@@ -86,6 +86,7 @@
   align-items: center;
 }
 
+/*React-Bootstrap*/
 .custom-lbl {
   color: var(--color-text-base) !important;
   padding-bottom: 2rem !important;
@@ -135,4 +136,9 @@
 
   background-color: var(--color-input-background) !important;
   box-sizing: border-box !important;
+}
+
+/*Sweet Alert II*/
+.swal2-popup {
+  font-size: var(--color-text-medium) !important;
 }

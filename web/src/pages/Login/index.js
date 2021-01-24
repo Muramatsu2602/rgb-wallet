@@ -7,6 +7,7 @@ import logoImg from "../../assets/images/login-logo.svg";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import Swal from "sweetalert2";
 import {
   Button,
   Container,
@@ -19,19 +20,28 @@ import {
 import Switch from "react-switch";
 
 function CustomToggle({ children, eventKey }) {
-  
   const decoratedOnClick = useAccordionToggle(eventKey, () =>
     console.log("totally custom!")
   );
 
   return (
-    <Button 
-      className="custom-btn-small" onClick={decoratedOnClick}
+    <Button
+      className="custom-btn-small"
+      onClick={decoratedOnClick}
       // disabled={status}
     >
       {children}
     </Button>
   );
+}
+
+function ForgotPasswordOnClick() {
+  Swal.fire({
+    icon: "error",
+    title: "Oops...",
+    text: "Something went wrong!",
+    footer: `<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO'>Why do I have this issue?</a>`,
+  });
 }
 
 export default function Login() {
@@ -76,7 +86,7 @@ export default function Login() {
               <Button className="custom-btn" variant="primary" type="submit">
                 Entrar
               </Button>
-              <a>Esqueci a senha...</a>
+              <a onClick={ForgotPasswordOnClick}>Esqueci a senha...</a>
             </div>
           </Form>
         </div>
