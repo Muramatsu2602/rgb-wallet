@@ -25,10 +25,12 @@
   --color-box-footer: #fafafc;
   --color-small-info: #c1bccc;
 
-  --text-small: 14px;
+  --text-small: 16px;
   --text-medium: 18px;
   --text-big: 24px;
-  --text-titan: 36px;
+  --text-bigger: 36px;
+  --text-thicc: 48px;
+  --text-titan: 144px;
 }
 
 * {
@@ -47,4 +49,8 @@ input,
 button,
 textarea {
   font: 400 18px "Poppins", sans-serif;
+}
+
+button:focus {
+  outline: none !important;
 }
