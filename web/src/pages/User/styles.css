@@ -27,14 +27,14 @@
 }
 
 .custom-btn {
-  width: 330px !important;
+  width: 230px !important;
   height: 101px !important;
 
   border-radius: 25px !important;
 
   border-style: none !important;
 
-  font-size: var(--text-bigger) !important;
+  font-size: var(--text-big) !important;
   font-weight: 700;
   background: var(--color-primary-medium) !important;
   color: var(--color-button-text) !important;
@@ -107,7 +107,7 @@
 
 .user-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 /*Sweet Alert II Override*/

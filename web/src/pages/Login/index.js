@@ -24,6 +24,17 @@ function ForgotPassword() {
   });
 }
 
+async function handleLogin(e) {
+  e.preventDefault();
+
+  try {
+    // const response = await api
+    console.log("only a sketch of the handle the login form");
+  } catch (e) {
+    Swal.fire("Erro no Login", `Detalhes=${e.message}`, "error");
+  }
+}
+
 export default function Login() {
   return (
     <div id="login-page">
@@ -36,7 +47,7 @@ export default function Login() {
         <div className="form-portion">
           <h1>Login</h1>
 
-          <Form onSubmit={() => {}}>
+          <Form onSubmit={(e) => handleLogin(e)}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label className="custom-lbl">Nome</Form.Label>
               <Form.Control

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
@@ -8,7 +8,6 @@ import CornerArrow from "../../assets/images/corner-arrow-left.svg";
 import "./styles.css";
 
 async function confirmExit(e) {
-  
   Swal.fire({
     title: "Vai vazar?",
     text: "Veja se terminou o que veio aqui fazer!",
@@ -30,6 +29,13 @@ async function confirmExit(e) {
 }
 
 export default function Header() {
+  // const [name, setName] = useState(""); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
+  // const [is_admin, setIsAdmin] = useState(false);
+
+  // TESTING
+  const [name, setName] = useState("Teste"); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
+  const [is_admin, setIsAdmin] = useState(true);
+
   return (
     <div className="header-wrapper">
       <div className="top-icons">
@@ -40,8 +46,12 @@ export default function Header() {
         <img src={CornerLogo} alt="logo RGBWallet" />
       </div>
       <div className="hello-user">
-        <h1>Olá, Fulano</h1>
-        <p>Esta é sua carteira virtual</p>
+        <h1>{!is_admin ? `Olá, ${name}` : "Painel de Usuários"}</h1>
+        <p>
+          {!is_admin
+            ? "Esta é sua carteira virtual"
+            : "Consulte e altere os dados dos usuários"}
+        </p>
       </div>
     </div>
   );

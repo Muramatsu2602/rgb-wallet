@@ -68,10 +68,10 @@ export default function User() {
 
             <div className="user-buttons">
               <Button className="custom-btn" id="solicitar" variant="primary">
-                Solicitar
+                Imprimir Extrato
               </Button>{" "}
               <Button className="custom-btn" id="extrato" variant="warning">
-                Extrato
+                Requisitar $
               </Button>{" "}
             </div>
           </div>
