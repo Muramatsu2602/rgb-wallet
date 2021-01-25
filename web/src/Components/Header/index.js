@@ -40,7 +40,7 @@ export default function Header() {
         <img src={CornerLogo} alt="logo RGBWallet" />
       </div>
       <div className="hello-user">
-        <h1>Olá, usuário</h1>
+        <h1>Olá, Fulano</h1>
         <p>Esta é sua carteira virtual</p>
       </div>
     </div>

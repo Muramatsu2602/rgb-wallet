@@ -3,4 +3,6 @@
 
   background-color: var(--color-primary-medium) !important;
   font-size: var(--text-medium) !important;
+
+  border-style: none !important;
 }
