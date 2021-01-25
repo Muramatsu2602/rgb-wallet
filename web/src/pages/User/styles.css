@@ -17,31 +17,6 @@
   flex-direction: column;
 }
 
-.header-wrapper {
-  width: 100vw;
-  height: 366px;
-
-  display: flex;
-  flex-direction: column;
-
-  background-color: var(--color-primary-medium);
-  color: var(--color-box-base);
-}
-
-.top-icons {
-  display: flex;
-  flex-direction: row;
-
-  justify-content: space-between;
-
-  padding: 2rem;
-  transition: opacity 0.5s;
-}
-
-#arrow:hover {
-  opacity: 0.5;
-}
-
 /*Overriding Bootstrap Component Styles*/
 #solicitar {
   background-color: var(--color-secondary-medium) !important;
@@ -125,9 +100,9 @@
   border-bottom: 3px solid var(--color-input-background);
 }
 
-.transaction-history{
+.transaction-history {
   padding-top: 2rem;
-  padding-bottom:4rem ;
+  padding-bottom: 4rem;
 }
 
 .user-buttons {
