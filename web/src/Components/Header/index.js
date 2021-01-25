@@ -7,7 +7,8 @@ import CornerArrow from "../../assets/images/corner-arrow-left.svg";
 
 import "./styles.css";
 
-function confirmExit() {
+async function confirmExit(e) {
+  
   Swal.fire({
     title: "Vai vazar?",
     text: "Veja se terminou o que veio aqui fazer!",
@@ -20,19 +21,22 @@ function confirmExit() {
   }).then((result) => {
     if (result.isConfirmed) {
       Swal.fire("Tchau!", "Até a próxima", "success");
-    }else{
-      Swal.fire("EEEUE","iu","error");
+
+      e.preventDefault();
     }
   });
+
+  console.log("ASSAS");
 }
 
 export default function Header() {
   return (
     <div className="header-wrapper">
       <div className="top-icons">
-        <Link onClick={confirmExit} to="/" className="exit-app">
+        <Link onClick={(e) => confirmExit(e)} to="/" className="exit-app">
           <img src={CornerArrow} id="arrow" alt="arrow de retorno" />
         </Link>
+
         <img src={CornerLogo} alt="logo RGBWallet" />
       </div>
       <div className="hello-user">

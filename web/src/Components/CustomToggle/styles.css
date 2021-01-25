@@ -1,6 +1,6 @@
-.custom-toggle-btn{
-    border-radius: 25px !important;
-    
-    background-color: var(--color-primary-medium) !important;
-    font-size: var(--text-medium) !important;
+.custom-toggle-btn {
+  border-radius: 25px !important;
+
+  background-color: var(--color-primary-medium) !important;
+  font-size: var(--text-medium) !important;
 }

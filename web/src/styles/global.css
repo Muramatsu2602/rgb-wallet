@@ -50,3 +50,7 @@ button,
 textarea {
   font: 400 18px "Poppins", sans-serif;
 }
+
+button:focus {
+  outline: none !important;
+}
