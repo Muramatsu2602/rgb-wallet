@@ -10,6 +10,7 @@ import EraseMoney from "../../assets/images/no-money.svg";
 
 import Header from "../../components/Header/index";
 import CustomToggle from "../../components/CustomToggle/index";
+import UserCard from "../../components/UserCard/index";
 
 import {
   Navbar,
@@ -45,21 +46,26 @@ export default function Admin() {
           </div>
 
           <div className="control-buttons">
-            <Button className="custom-btn " variant="primary">
+            <Button className="custom-btn " id="btnCadUser" variant="primary">
               Cadastrar Usuário 
               <img src={CreateUserPic} alt="search arrow" />
             </Button>{" "}
-            <Button className="custom-btn " variant="secondary">
+            <Button className="custom-btn" id="btnAddCred"  variant="secondary">
               Adicionar Crédito 
               <img src={AddMoneyPic} alt="search arrow" />
             </Button>{" "}
-            <Button className="custom-btn " variant="success">
+            <Button className="custom-btn " id="btnZeraCred" variant="success">
               Zerar Crédito 
               <img src={EraseMoney} alt="search arrow" />
             </Button>{" "}
           </div>
         </div>
-        <div className="body-wrapper"></div>
+        <div className="body-wrapper">
+          <UserCard/>
+          <UserCard/>
+          <UserCard/>
+
+        </div>
       </div>
     </div>
   );

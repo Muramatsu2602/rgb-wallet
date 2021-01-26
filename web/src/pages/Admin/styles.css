@@ -10,9 +10,6 @@
   height: 100vh;
 
   padding: 0;
-
-  /* display: flex;
-  flex-direction: column; */
 }
 
 .navbar-wrapper {
@@ -22,17 +19,17 @@
   display: flex;
   flex-direction: row;
 
-  padding: 2rem;
+  padding: 0rem 8rem 0rem 8rem;
 
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
 
-  /* background-color: var(--color-text-base-lighter); */
   background-color: var(--color-primary-light);
 }
 
 .custom-input {
   height: 3.5rem !important;
+  width: 50rem !important;
   border-radius: 25px !important;
 
   font-size: var(--text-medium) !important;
@@ -65,14 +62,36 @@
   transition: background-color 0.2s !important;
 }
 
-.navbar-wrapper .custom-btn:hover {
-  background: var(--color-text-base-lighter) !important;
+.navbar-wrapper .custom-btn img {
+  margin-left: 1rem;
 }
 
+/* Specific customization  */
 #btn_search {
   padding: 0%;
 
   width: 3.5rem !important;
   height: 3.5rem !important;
   border-radius: 25px !important;
+}
+
+#btnCadUser {
+  background-color: var(--color-green) !important;
+}
+
+#btnZeraCred {
+  background-color: var(--color-red) !important;
+}
+
+.navbar-wrapper .custom-btn:hover,
+#btnCadUser:hover,
+#btnZeraCred:hover {
+  background: var(--color-text-base-lighter) !important;
+}
+
+.body-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  padding: 5rem;
 }
