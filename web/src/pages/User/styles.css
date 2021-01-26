@@ -28,7 +28,7 @@
 
 .custom-btn {
   width: 230px !important;
-  height: 101px !important;
+  height: 90px !important;
 
   border-radius: 25px !important;
 
@@ -47,7 +47,10 @@
 }
 
 .custom-table {
-  font-size: var(--text-medium);
+  font-size: var(--text-medium) !important;
+  margin-top: 1rem !important;
+
+  width: 40vw;
 }
 
 .hello-user {
@@ -100,7 +103,11 @@
   border-bottom: 3px solid var(--color-input-background);
 }
 
-.transaction-history {
+.transaction-history-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
   padding-top: 2rem;
   padding-bottom: 4rem;
 }

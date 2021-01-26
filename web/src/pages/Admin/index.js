@@ -4,6 +4,9 @@ import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import MagnifyingGlass from "../../assets/images/magnifying-glass-1.svg";
+import AddMoneyPic from "../../assets/images/adicionar-credito.svg";
+import CreateUserPic from "../../assets/images/cadastrar-usuario.svg";
+import EraseMoney from "../../assets/images/no-money.svg";
 
 import Header from "../../components/Header/index";
 import CustomToggle from "../../components/CustomToggle/index";
@@ -35,16 +38,25 @@ export default function Admin() {
                   aria-describedby="basic-addon1"
                 />
               </InputGroup>
-              <Button className="custom-btn" type="submit">
+              <Button className="custom-btn " id="btn_search" type="submit">
                 <img src={MagnifyingGlass} alt="search arrow" />
               </Button>
             </Form>
           </div>
 
           <div className="control-buttons">
-            <Button variant="primary">Primary</Button>{" "}
-            <Button variant="secondary">Secondary</Button>{" "}
-            <Button variant="success">Success</Button>{" "}
+            <Button className="custom-btn " variant="primary">
+              Cadastrar Usuário 
+              <img src={CreateUserPic} alt="search arrow" />
+            </Button>{" "}
+            <Button className="custom-btn " variant="secondary">
+              Adicionar Crédito 
+              <img src={AddMoneyPic} alt="search arrow" />
+            </Button>{" "}
+            <Button className="custom-btn " variant="success">
+              Zerar Crédito 
+              <img src={EraseMoney} alt="search arrow" />
+            </Button>{" "}
           </div>
         </div>
         <div className="body-wrapper"></div>

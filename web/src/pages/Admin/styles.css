@@ -27,7 +27,8 @@
   align-items: center;
   justify-content: space-around;
 
-  background-color: var(--color-text-base-lighter);
+  /* background-color: var(--color-text-base-lighter); */
+  background-color: var(--color-primary-light);
 }
 
 .custom-input {
@@ -42,19 +43,36 @@
   box-sizing: border-box !important;
 }
 
-.custom-btn {
-  width: 3.5rem !important;
-  height: 3.5rem !important;
+.control-buttons {
+  display: flex;
+  flex-direction: row;
+}
 
-  padding: 0%;
-  border-radius: 25px !important;
-
+.navbar-wrapper .custom-btn {
+  height: 4rem !important;
   border-style: none !important;
 
-  font-size: var(--text-big) !important;
-  font-weight: 400;
+  justify-content: space-between;
+
+  padding: 0 !important;
+  margin: 1rem;
+
+  font-size: var(--text-snall) !important;
+  font-weight: 700;
   background: var(--color-primary-medium) !important;
   color: var(--color-button-text) !important;
 
   transition: background-color 0.2s !important;
+}
+
+.navbar-wrapper .custom-btn:hover {
+  background: var(--color-text-base-lighter) !important;
+}
+
+#btn_search {
+  padding: 0%;
+
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  border-radius: 25px !important;
 }

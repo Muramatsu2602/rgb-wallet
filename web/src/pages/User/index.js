@@ -11,7 +11,6 @@ import CustomToggle from "../../Components/CustomToggle/index";
 import { Button, Table, Accordion } from "react-bootstrap/";
 
 export default function User() {
-  
   const [saldo, setSaldo] = useState(100.5); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
 
   return (
@@ -25,46 +24,46 @@ export default function User() {
               <h1>R$ {saldo}</h1>
             </div>
 
-            <div className="transaction-history">
+            <div className="transaction-history-wrapper">
               <Accordion defaultActiveKey="0">
                 <CustomToggle eventKey="1">
                   Histório de Transações <FaAngleDown />
                 </CustomToggle>
 
                 <Accordion.Collapse eventKey="1">
-                  <Table
-                    className="custom-table"
-                    striped
-                    responsive
-                    bordered
-                    hover
-                    size="sm"
-                  >
-                    <thead>
-                      <tr>
-                        <th>#</th>
-                        <th>Valor</th>
-                        <th>Data</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>1</td>
-                        <td>$400,00</td>
-                        <td>05/10/19</td>
-                      </tr>
-                      <tr>
-                        <td>2</td>
-                        <td>$400,00</td>
-                        <td>14/12/20</td>
-                      </tr>
-                      <tr>
-                        <td>3</td>
-                        <td>$500,00</td>
-                        <td>14/12/20</td>
-                      </tr>
-                    </tbody>
-                  </Table>
+                  <div className="custom-table">
+                    <Table striped responsive bordered hover size="sm">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Valor</th>
+                          <th>Data</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>$400,00</td>
+                          <td>05/10/19</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>$400,00</td>
+                          <td>14/12/20</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>$500,00</td>
+                          <td>14/12/20</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>$9900,00</td>
+                          <td>23/12/20</td>
+                        </tr>
+                      </tbody>
+                    </Table>
+                  </div>
                 </Accordion.Collapse>
               </Accordion>
             </div>
