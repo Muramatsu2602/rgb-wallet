@@ -47,24 +47,24 @@ export default function Admin() {
 
           <div className="control-buttons">
             <Button className="custom-btn " id="btnCadUser" variant="primary">
-              Cadastrar Usuário 
+              Cadastrar Usuário
               <img src={CreateUserPic} alt="search arrow" />
             </Button>{" "}
-            <Button className="custom-btn" id="btnAddCred"  variant="secondary">
-              Adicionar Crédito 
+            <Button className="custom-btn" id="btnAddCred" variant="secondary">
+              Adicionar Crédito
               <img src={AddMoneyPic} alt="search arrow" />
             </Button>{" "}
             <Button className="custom-btn " id="btnZeraCred" variant="success">
-              Zerar Crédito 
+              Zerar Crédito
               <img src={EraseMoney} alt="search arrow" />
             </Button>{" "}
           </div>
         </div>
-        <div className="body-wrapper">
-          <UserCard/>
-          <UserCard/>
-          <UserCard/>
 
+        <div className="body-wrapper">
+          <UserCard />
+          <UserCard />
+          <UserCard />
         </div>
       </div>
     </div>

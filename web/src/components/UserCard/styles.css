@@ -1,10 +1,42 @@
-.custom-card {
-  width: 20rem;
+#custom-card {
+  width: 30rem;
 
   margin: 1rem;
   background-color: var(--color-box-base);
   border-radius: 25px;
 
+  display: flex;
+  flex-direction: column;
+
   border: 0.2rem solid var(--color-primary-light);
   padding: 2rem;
+}
+
+#btn-delete {
+  padding: 0% !important;
+
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+  border-radius: 25px !important;
+
+  background-color: var(--color-red) !important;
+}
+
+#custom-card .current-balance {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-start;
+}
+
+#custom-card h1 {
+  font-size: var(--text-medium);
+}
+
+#custom-card p {
+  color: var(--color-text-title);
+  font-size: var(--text-big);
+  font-weight: 500;
+
+  margin: 0;
 }
