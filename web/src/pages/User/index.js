@@ -11,6 +11,9 @@ import CustomToggle from "../../Components/CustomToggle/index";
 import { Button, Table, Accordion } from "react-bootstrap/";
 
 export default function User() {
+  
+  const [saldo, setSaldo] = useState(100.5); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
+
   return (
     <div id="user-page">
       <div className="content-wrapper">
@@ -19,7 +22,7 @@ export default function User() {
           <div className="wallet-wrapper">
             <div className="current-balance">
               <h2>Saldo Atual</h2>
-              <h1>R$ 100,00</h1>
+              <h1>R$ {saldo}</h1>
             </div>
 
             <div className="transaction-history">
