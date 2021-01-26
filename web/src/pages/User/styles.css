@@ -82,6 +82,8 @@
   display: flex;
   flex-direction: column;
 
+  margin-top: 4rem;
+  margin-bottom: 2rem;
   padding: 8rem;
   height: auto;
 

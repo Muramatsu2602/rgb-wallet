@@ -1,5 +1,5 @@
 #custom-card {
-  width: 30rem;
+  width: 35rem;
 
   margin: 1rem;
   background-color: var(--color-box-base);
@@ -10,6 +10,11 @@
 
   border: 0.2rem solid var(--color-primary-light);
   padding: 2rem;
+}
+
+.card-header {
+  width: 30rem;
+  display: flex;
 }
 
 #btn-delete {
@@ -39,4 +44,8 @@
   font-weight: 500;
 
   margin: 0;
+}
+
+#custom-btn {
+  align-self: flex-end;
 }
