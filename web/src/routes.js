@@ -24,11 +24,10 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" exact component={Login} />
+        {/* private route to user page */}
         <PrivateRoute exact path="/user" component={User} />
         <PrivateRoute path="/admin" component={Admin} />
-        {/* private route to user page */}
-        {/* <Route path="/admin" component={Admin} />
-        <Route path="/admin/create" component={CreateUser} /> */}
+        {/*<Route path="/admin/create" component={CreateUser} /> */}
       </Switch>
     </BrowserRouter>
   );

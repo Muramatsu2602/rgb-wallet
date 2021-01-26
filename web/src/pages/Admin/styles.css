@@ -1,0 +1,60 @@
+#admin-page {
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+}
+
+#admin-page .content-wrapper {
+  width: 100vw;
+  height: 100vh;
+
+  padding: 0;
+
+  /* display: flex;
+  flex-direction: column; */
+}
+
+.navbar-wrapper {
+  width: 100vw;
+  height: 8vh;
+
+  display: flex;
+  flex-direction: row;
+
+  padding: 2rem;
+
+  align-items: center;
+  justify-content: space-around;
+
+  background-color: var(--color-text-base-lighter);
+}
+
+.custom-input {
+  height: 3.5rem !important;
+  border-radius: 25px !important;
+
+  font-size: var(--text-medium) !important;
+
+  border: none !important;
+
+  background-color: var(--color-input-background) !important;
+  box-sizing: border-box !important;
+}
+
+.custom-btn {
+  width: 3.5rem !important;
+  height: 3.5rem !important;
+
+  padding: 0%;
+  border-radius: 25px !important;
+
+  border-style: none !important;
+
+  font-size: var(--text-big) !important;
+  font-weight: 400;
+  background: var(--color-primary-medium) !important;
+  color: var(--color-button-text) !important;
+
+  transition: background-color 0.2s !important;
+}
