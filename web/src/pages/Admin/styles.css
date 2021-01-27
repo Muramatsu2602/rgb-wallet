@@ -89,7 +89,7 @@
   background: var(--color-text-base-lighter) !important;
 }
 
-.body-wrapper {
+#admin-page .body-wrapper {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
 

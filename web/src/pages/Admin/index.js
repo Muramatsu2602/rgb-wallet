@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Swal from "sweetalert2";
 
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -21,6 +22,30 @@ import {
   NavDropdown,
   Nav,
 } from "react-bootstrap/";
+
+async function confirmZeraCred(e) {
+  Swal.fire({
+    title: `Zerar Crédito`,
+    text: `Deseja mesmo zerar o crédito de TODOS os usuários?`,
+    icon: "error",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sim!",
+    cancelButtonText: "Cancelar!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Crédito Zerado com Sucesso!",
+        text: "LET IT BUUURN!!!!",
+        imageUrl: "https://media4.giphy.com/media/d3MMyApsVs3Vpuvu/giphy.gif",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Burning Money...",
+      });
+    }
+  });
+}
 
 export default function Admin() {
   return (
@@ -54,7 +79,12 @@ export default function Admin() {
               Adicionar Crédito
               <img src={AddMoneyPic} alt="search arrow" />
             </Button>{" "}
-            <Button className="custom-btn " id="btnZeraCred" variant="success">
+            <Button
+              className="custom-btn "
+              id="btnZeraCred"
+              onClick={(e) => confirmZeraCred(e)}
+              variant="success"
+            >
               Zerar Crédito
               <img src={EraseMoney} alt="search arrow" />
             </Button>{" "}
@@ -67,7 +97,7 @@ export default function Admin() {
           <UserCard />
           <UserCard />
           <UserCard />
-         
+
           <UserCard />
           <UserCard />
           <UserCard />

@@ -11,7 +11,7 @@ import CustomToggle from "../../Components/CustomToggle/index";
 import { Button, Table, Accordion } from "react-bootstrap/";
 
 export default function User() {
-  const [saldo, setSaldo] = useState(100.5); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
+  const [saldo, setSaldo] = useState(1030.5); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
 
   return (
     <div id="user-page">

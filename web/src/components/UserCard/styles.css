@@ -91,3 +91,7 @@
 .custom-card-btn:hover {
   background-color: var(--color-primary-light) !important;
 }
+
+.form-buttons {
+  padding: 0;
+}

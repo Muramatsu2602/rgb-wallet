@@ -34,14 +34,44 @@ async function handleUserUpdate(e) {
   }
 }
 
+async function confirmDelete(e, name) {
+  Swal.fire({
+    title: `Deletar Usuário`,
+    text: `Deseja mesmo deletar ${name}?`,
+    icon: "error",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Sim!",
+    cancelButtonText: "Cancelar!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        `Usuário deletado com sucesso!`,
+        `Tchau, '${name}'...`,
+        "success"
+      );
+    }
+  });
+
+  console.log("ASSAS");
+}
+
 export default function UserCard() {
+  const [name, setName] = useState("Fulano da Silva");
+  const [userName, setUserName] = useState("Fulanex2593");
   const [isExecutingProj, setIsExecutingProj] = useState(false); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
   const [didSellProj, setDidSellProj] = useState(true);
+  const [weeklyHours, setWeeklyHours] = useState(1000);
 
   return (
     <div id="custom-card">
       <div className="btn-delete-container">
-        <Button className="custom-btn " id="btn-delete">
+        <Button
+          className="custom-btn "
+          id="btn-delete"
+          onClick={(e) => confirmDelete(e, name)}
+        >
           <img src={TrashIcon} alt="trash icon" />
         </Button>
       </div>
@@ -74,7 +104,7 @@ export default function UserCard() {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder="Digite seu nome"
+                    placeholder={name}
                   />
                 </Form.Group>
 
@@ -85,7 +115,7 @@ export default function UserCard() {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder="Digite seu nome"
+                    placeholder={userName}
                   />
                 </Form.Group>
 
@@ -110,7 +140,7 @@ export default function UserCard() {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder="Digite seu nome"
+                    placeholder={weeklyHours}
                   />
                 </Form.Group>
 
