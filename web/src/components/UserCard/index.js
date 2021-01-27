@@ -146,6 +146,8 @@ export default function UserCard() {
 
                 <div className="form-buttons">
                   <Button
+                    // Disable if one of the fields is untouched
+                    // {disabled}
                     className="custom-card-btn"
                     variant="primary"
                     type="submit"
