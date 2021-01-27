@@ -3,26 +3,40 @@
 
   margin: 1rem;
   background-color: var(--color-box-base);
-  border-radius: 25px;
+  border-radius: 10px;
 
   display: flex;
   flex-direction: column;
 
   border: 0.2rem solid var(--color-primary-light);
-  padding: 2rem;
+  padding: 1rem;
 }
 
 .card-header {
-  width: 30rem;
+  width: 32rem;
   display: flex;
+
+  justify-content: space-between;
+}
+
+.btn-delete-container {
+  width: 32rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  border-bottom: 2px solid var(--color-input-background);
 }
 
 #btn-delete {
   padding: 0% !important;
 
-  width: 3.5rem !important;
-  height: 3.5rem !important;
-  border-radius: 25px !important;
+  width: 4.5rem !important;
+  height: 4.5rem !important;
+  border-radius: 10px !important;
 
   background-color: var(--color-red) !important;
 }
@@ -44,8 +58,4 @@
   font-weight: 500;
 
   margin: 0;
-}
-
-#custom-btn {
-  align-self: flex-end;
 }

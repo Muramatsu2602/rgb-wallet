@@ -13,10 +13,13 @@ import "./styles.css";
 export default function UserCard() {
   return (
     <div id="custom-card">
-      <div className="card-header">
+      <div className="btn-delete-container">
         <Button className="custom-btn " id="btn-delete">
           <img src={TrashIcon} alt="trash icon" />
         </Button>
+      </div>
+
+      <div className="card-header">
         <div className="current-balance">
           <p>Fulano Da Silva</p>
           <h1>R$ 1000,00</h1>
