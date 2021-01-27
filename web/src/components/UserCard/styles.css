@@ -53,6 +53,11 @@
   align-items: flex-start;
 }
 
+.custom-card-lbl {
+  color: var(--color-text-base);
+  padding-right: 0.5rem;
+}
+
 #custom-card h1 {
   font-size: var(--text-medium);
 }
@@ -70,4 +75,19 @@
   flex-direction: column;
 
   align-items: center;
+}
+
+.custom-card-btn {
+  border-radius: 25px !important;
+
+  background-color: var(--color-primary-medium) !important;
+  font-size: var(--text-medium) !important;
+
+  border-style: none !important;
+
+  transition: background-color 0.2s !important;
+}
+
+.custom-card-btn:hover {
+  background-color: var(--color-primary-light) !important;
 }
