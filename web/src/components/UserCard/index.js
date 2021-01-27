@@ -3,6 +3,8 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 import CustomToggle from "../CustomToggle/index";
+import ContextAwareToggle from "../ContextAwareToggle/index";
+
 import {
   Button,
   Card,
@@ -51,6 +53,10 @@ export default function UserCard() {
           <CustomToggle eventKey="1">
             Detalhes <FaAngleDown />
           </CustomToggle>
+          {/* <ContextAwareToggle eventKey="1">
+            {" "}
+            Detalhes <FaAngleDown />
+          </ContextAwareToggle> */}
 
           <Accordion.Collapse eventKey="1">
             <div className="card-details">
