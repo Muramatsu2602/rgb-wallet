@@ -39,6 +39,11 @@
   border-radius: 10px !important;
 
   background-color: var(--color-red) !important;
+  transition: background-color 0.2s !important;
+}
+
+#btn-delete:hover {
+  background-color: var(--color-red-lighter) !important;
 }
 
 #custom-card .current-balance {
@@ -60,7 +65,7 @@
   margin: 0;
 }
 
-.card-body{
+.card-body {
   display: flex;
   flex-direction: column;
 
