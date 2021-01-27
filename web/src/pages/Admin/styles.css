@@ -90,12 +90,9 @@
 }
 
 .body-wrapper {
-  display: flex;
-  flex-direction: row;
+  gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
 
-  width: 100vw;
-
-  padding: 0rem 4rem 0rem 4rem;
-
-  background-color: red;
+  grid-auto-rows: 15rem 30rem;
 }

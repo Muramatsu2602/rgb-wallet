@@ -31,7 +31,7 @@ async function handleLogin(e) {
     // const response = await api
     console.log("only a sketch of the handle the login form");
   } catch (e) {
-    Swal.fire("Erro no Login", `Detalhes=${e.message}`, "error");
+    await Swal.fire("Erro no Login", `Detalhes=${e.message}`, "error");
   }
 }
 
