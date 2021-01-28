@@ -27,6 +27,12 @@
   background-color: var(--color-primary-light);
 }
 
+.sticky {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
 #admin-page .custom-input {
   height: 3.5rem !important;
   width: 50rem !important;

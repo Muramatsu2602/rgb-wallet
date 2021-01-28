@@ -100,7 +100,7 @@ export default function Admin() {
       <div className="content-wrapper">
         <Header />
         {/* Make search bar a component too? */}
-        <div className="navbar-wrapper">
+        <div className="navbar-wrapper sticky">
           <div className="search-bar">
             <Form inline>
               <InputGroup>
@@ -154,7 +154,17 @@ export default function Admin() {
           <UserCard />
           <UserCard />
           <UserCard />
-
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
+          <UserCard />
           <UserCard />
           <UserCard />
           <UserCard />
