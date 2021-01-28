@@ -1,0 +1,18 @@
+controllers -> quem trata a requisicao (orquestrador do resto do seu codigo)
+    - acessa o banco
+    - chama classes que executam funcoes
+    - pega requisicao, filtra campos e manda pra algum lugar
+
+database
+    - models
+    - conexao com banco
+    
+Middlewares
+- antes do controller
+- serve pra autenticacao, principalmente
+
+Services
+- servico externo ou algo que nao se encaixa no controller
+    - o que nao eh CRUD
+- ex: email service, download de arquivos 
+- Controler chama o Service e tals
