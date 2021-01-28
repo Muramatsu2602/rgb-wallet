@@ -20,8 +20,8 @@ import { Form, InputGroup, FormControl, Button } from "react-bootstrap/";
  */
 async function confirmAddUser(e) {
   console.log("Confirm user");
-
-  //  this.myMethod(); // this should execute now
+  
+  // TODO: add a big modal here or a huge-ass alert
 }
 
 /**
