@@ -58,6 +58,7 @@ async function confirmDelete(e, name) {
 }
 
 export default function UserCard() {
+  const [id, setId] = useState(1);
   const [name, setName] = useState("Fulano da Silva");
   const [userName, setUserName] = useState("Fulanex2593");
   const [isExecutingProj, setIsExecutingProj] = useState(false); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
@@ -67,6 +68,7 @@ export default function UserCard() {
   return (
     <div id="custom-card">
       <div className="btn-delete-container">
+        <p>ID: {id}</p>
         <Button
           className="custom-btn "
           id="btn-delete"
