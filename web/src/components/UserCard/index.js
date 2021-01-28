@@ -137,7 +137,7 @@ export default function UserCard() {
                   </Form.Label>
                   <Form.Control
                     className="custom-card-input"
-                    type="text"
+                    type="number"
                     placeholder={weeklyHours}
                   />
                 </Form.Group>

@@ -11,6 +11,7 @@ import EraseMoney from "../../assets/images/no-money.svg";
 
 import Header from "../../components/Header/index";
 import UserCard from "../../components/UserCard/index";
+import ModalForm from "../../components/ModalForm/index";
 
 import { Form, InputGroup, FormControl, Button } from "react-bootstrap/";
 
@@ -19,8 +20,6 @@ import { Form, InputGroup, FormControl, Button } from "react-bootstrap/";
  * @param {*} e
  */
 async function confirmAddUser(e) {
-  console.log("Confirm user");
-  
   // TODO: add a big modal here or a huge-ass alert
 }
 

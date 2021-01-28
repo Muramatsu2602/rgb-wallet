@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button,useAccordionToggle } from "react-bootstrap/";
+import { Modal,Button,useAccordionToggle } from "react-bootstrap/";
 
 
 import "./styles.css";

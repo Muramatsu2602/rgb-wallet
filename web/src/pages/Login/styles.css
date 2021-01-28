@@ -54,6 +54,7 @@
 
   width: 45vw;
   max-height: 90vh;
+  max-height: 90vh;
   padding: 4rem;
 
   display: block;
@@ -84,6 +85,10 @@
   flex-direction: column;
 
   align-items: center;
+}
+
+.enter-app {
+  padding-top: 5rem;
 }
 
 /*React-Bootstrap*/
