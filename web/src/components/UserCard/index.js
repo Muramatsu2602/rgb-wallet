@@ -91,10 +91,6 @@ export default function UserCard() {
           <CustomToggle eventKey="1">
             Detalhes <FaAngleDown />
           </CustomToggle>
-          {/* <ContextAwareToggle eventKey="1">
-            {" "}
-            Detalhes <FaAngleDown />
-          </ContextAwareToggle> */}
 
           <Accordion.Collapse eventKey="1">
             <div className="card-details">

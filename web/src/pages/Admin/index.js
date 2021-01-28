@@ -10,21 +10,66 @@ import CreateUserPic from "../../assets/images/cadastrar-usuario.svg";
 import EraseMoney from "../../assets/images/no-money.svg";
 
 import Header from "../../components/Header/index";
-import CustomToggle from "../../components/CustomToggle/index";
 import UserCard from "../../components/UserCard/index";
 
-import {
-  Navbar,
-  Form,
-  InputGroup,
-  FormControl,
-  Button,
-  NavDropdown,
-  Nav,
-} from "react-bootstrap/";
+import { Form, InputGroup, FormControl, Button } from "react-bootstrap/";
 
+/**
+ * Cadastrar Usuario button alert
+ * @param {*} e
+ */
+async function confirmAddUser(e) {
+  console.log("Confirm user");
+
+  //  this.myMethod(); // this should execute now
+}
+
+/**
+ * Adicionar Credito button alert
+ * @param {*} e
+ */
+async function confirmAddCred(e) {
+  Swal.fire({
+    allowOutsideClick: false,
+    title: "Adicionar Crédito",
+    html: `<input type="number" id="credito" class="swal2-input"  placeholder="Insira um valor em R$">
+          `,
+    showCancelButton: true,
+    confirmButtonText: "Adicionar!",
+    cancelButtonText: "Nem!",
+    cancelButtonColor: "#d33",
+    focusConfirm: false,
+    preConfirm: () => {
+      const credito = Swal.getPopup().querySelector("#credito").value;
+      if (!credito) {
+        Swal.showValidationMessage(`Por Favor insira um valor!`);
+      }
+      return { credito: credito };
+    },
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Crédito Adicionado com Sucesso!",
+        text: "Todos os usuários receberão a quantia escolhida",
+        imageUrl:
+          "https://i.pinimg.com/originals/7e/f0/3b/7ef03bc1737fdcd05cbd8f02e9b0be86.gif",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Burning Money...",
+      });
+
+      //  this.myMethod(); // this should execute now
+    }
+  });
+}
+
+/**
+ * Zerar credito confirmation button Alert
+ * @param {*} e
+ */
 async function confirmZeraCred(e) {
   Swal.fire({
+    allowOutsideClick: false,
     title: `Zerar Crédito`,
     text: `Deseja mesmo zerar o crédito de TODOS os usuários?`,
     icon: "error",
@@ -38,11 +83,14 @@ async function confirmZeraCred(e) {
       Swal.fire({
         title: "Crédito Zerado com Sucesso!",
         text: "LET IT BUUURN!!!!",
-        imageUrl: "https://media4.giphy.com/media/d3MMyApsVs3Vpuvu/giphy.gif",
+        imageUrl:
+          "https://thumbs.gfycat.com/CheerfulEllipticalEstuarinecrocodile-max-1mb.gif",
         imageWidth: 400,
         imageHeight: 200,
         imageAlt: "Burning Money...",
       });
+
+      //  this.myMethod(); // this should execute now
     }
   });
 }
@@ -71,11 +119,21 @@ export default function Admin() {
           </div>
 
           <div className="control-buttons">
-            <Button className="custom-btn " id="btnCadUser" variant="primary">
+            <Button
+              className="custom-btn "
+              id="btnCadUser"
+              onClick={(e) => confirmAddUser(e)}
+              variant="primary"
+            >
               Cadastrar Usuário
               <img src={CreateUserPic} alt="search arrow" />
             </Button>{" "}
-            <Button className="custom-btn" id="btnAddCred" variant="secondary">
+            <Button
+              className="custom-btn"
+              id="btnAddCred"
+              onClick={(e) => confirmAddCred(e)}
+              variant="secondary"
+            >
               Adicionar Crédito
               <img src={AddMoneyPic} alt="search arrow" />
             </Button>{" "}
