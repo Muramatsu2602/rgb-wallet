@@ -70,6 +70,21 @@
   margin: 0;
 }
 
+.custom-card-input {
+  height: 3.5rem !important;
+  /* width: 50rem !important; */
+  border-radius: 25px !important;
+
+  font-size: var(--text-medium) !important;
+
+  border: none !important;
+
+  background-color: var(--color-input-background) !important;
+  box-sizing: border-box !important;
+}
+.form-control::-webkit-input-placeholder {
+  color:var(--color-text-base);
+}
 .card-body {
   display: flex;
   flex-direction: column;
