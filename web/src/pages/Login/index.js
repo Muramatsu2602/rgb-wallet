@@ -25,11 +25,10 @@ function ForgotPassword() {
 }
 
 async function handleLogin(e) {
-  e.preventDefault();
 
   try {
-    // const response = await api
     console.log("only a sketch of the handle the login form");
+    
   } catch (e) {
     await Swal.fire("Erro no Login", `Detalhes=${e.message}`, "error");
   }
