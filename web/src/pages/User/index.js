@@ -5,8 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { FaAngleDown } from "react-icons/fa";
 
-import Header from "../../Components/Header/index";
-import CustomToggle from "../../Components/CustomToggle/index";
+import Header from "../../components/Header/index";
+import CustomToggle from "../../components/CustomToggle/index";
 
 import { Button, Table, Accordion } from "react-bootstrap/";
 

@@ -7,5 +7,5 @@ const uri = "mongodb/kenzoooo";
 mongoose.connect(uri, {
     useNewUrlParser: true,
     useCreateIndex: true,
-    
-})
+
+});

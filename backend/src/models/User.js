@@ -2,8 +2,6 @@ import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
-// export default class User {}
-
 const userSchema = new mongoose.Schema({
     login: {
         type: String,
@@ -16,3 +14,5 @@ const userSchema = new mongoose.Schema({
 //     const user = this;
 //     const token = jwt.
 // }
+
+export const User = mongoose.model('User', userSchema);

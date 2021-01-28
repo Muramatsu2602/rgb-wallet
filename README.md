@@ -14,6 +14,6 @@ The document containing the client's description for this project's features can
 ## 👥 The Team
 The project shall be assembled by 2 trainee developers and a senior ICMC Jr member, who will act as the SCRUM Master:
 
-* **Kibe*
+* **Kibe**
 * Beneti
 * Kenzo

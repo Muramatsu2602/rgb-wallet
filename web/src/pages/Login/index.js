@@ -10,7 +10,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import Swal from "sweetalert2";
 import { Button, Form, Accordion } from "react-bootstrap/";
-import CustomToggle from "../../Components/CustomToggle/index";
+import CustomToggle from "../../components/CustomToggle/index";
 
 /**
  * simple onclick-triggered function that shows an alert

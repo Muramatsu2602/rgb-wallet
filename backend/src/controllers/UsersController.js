@@ -1,7 +1,9 @@
-import { Request, Response } from "express";
-import { getRepository } from "typeorm";
-import * as Yup from 'yup';
+import User from '../models/User';
 
-export default {
-  
+const login = async (req, res) => {
+    try {
+        let user = await User.findByCredentials(req.body.login, req.body.password);
+    } catch (error) {
+        
+    }
 }
