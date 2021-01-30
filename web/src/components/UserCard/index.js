@@ -3,7 +3,6 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 
 import CustomToggle from "../CustomToggle/index";
-import ContextAwareToggle from "../ContextAwareToggle/index";
 
 import {
   Button,
