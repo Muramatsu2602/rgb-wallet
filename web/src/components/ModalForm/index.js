@@ -4,8 +4,7 @@ import { Modal,Button,useAccordionToggle } from "react-bootstrap/";
 
 import "./styles.css";
 
-
-export default function ModelForm() {
+export default function ModalForm() {
     
     console.log("Spawning some fancy modal form!");
   
