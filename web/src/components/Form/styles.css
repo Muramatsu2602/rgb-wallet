@@ -1,8 +1,28 @@
-.cad-form-container {
-  width: 60rem;
-  padding: 2rem;
+.form-custom-btn {
+  width: 15rem;
+  height: 5rem !important;
+  border-style: none !important;
 
-  background-color: var(--color-white-background) !important;
+  justify-content: space-between;
+
+  padding: 0 !important;
+  margin: 1rem;
+
+  font-size: var(--text-medium) !important;
+  font-weight: 700;
+  background: var(--color-primary-medium) !important;
+  color: var(--color-button-text) !important;
   border-radius: 25px;
-  border: 0.2rem solid var(--color-primary-light);
+
+  transition: background-color 0.2s !important;
+}
+
+.form-custom-btn:hover {
+  background: var(--color-primary-light) !important;
+}
+
+.form-group-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

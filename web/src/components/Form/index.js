@@ -17,8 +17,8 @@ export const Form = ({ onSubmit }) => {
           placeholder="name@example.com"
         />
       </div>
-      <div className="form-group">
-        <button className="form-control btn btn-primary" type="submit">
+      <div className="form-group-btn">
+        <button className="form-custom-btn" type="submit">
           Submit
         </button>
       </div>
