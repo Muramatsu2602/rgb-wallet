@@ -12,9 +12,18 @@ import EraseMoney from "../../assets/images/no-money.svg";
 import Header from "../../components/Header/index";
 import UserCard from "../../components/UserCard/index";
 
-// import ModalForm from "../../components/ModalForm/index";
-
 import { Form, InputGroup, FormControl, Button } from "react-bootstrap/";
+import { Container } from "../../components/Container";
+
+/**
+ * onSubmit function for addUserForm
+ * @param {*} event
+ */
+function onSubmit(event) {
+  event.preventDefault(event);
+  console.log(event.target.name.value);
+  console.log(event.target.email.value);
+}
 
 /**
  * Cadastrar Usuario button alert
@@ -22,7 +31,6 @@ import { Form, InputGroup, FormControl, Button } from "react-bootstrap/";
  */
 async function confirmAddUser(e) {
   // TODO: add a big modal here or a huge-ass alert
-  
 }
 
 /**
@@ -120,15 +128,21 @@ export default function Admin() {
           </div>
 
           <div className="control-buttons">
-            <Button
+            {/* <Button
               className="custom-btn "
               id="btnCadUser"
               onClick={(e) => confirmAddUser(e)}
               variant="primary"
             >
-              Cadastrar Usuário
               <img src={CreateUserPic} alt="search arrow" />
-            </Button>{" "}
+            </Button>{" "} */}
+            <Container
+              triggerText="Cadastrar Usuário"
+              id="btnCadUser"
+              onSubmit={onSubmit}
+            >
+              <img src={CreateUserPic} alt="search arrow" />
+            </Container>
             <Button
               className="custom-btn"
               id="btnAddCred"

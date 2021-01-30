@@ -1,8 +1,8 @@
 import "./styles.css";
 
-import React, { Component } from 'react';
-import { Modal } from '../Modal';
-import TriggerButton from '../TriggerButton';
+import React, { Component } from "react";
+import { Modal } from "../Modal";
+import TriggerButton from "../TriggerButton";
 
 export class Container extends Component {
   state = { isShown: false };
@@ -13,25 +13,28 @@ export class Container extends Component {
     });
     this.toggleScrollLock();
   };
+
   closeModal = () => {
     this.setState({ isShown: false });
     this.TriggerButton.focus();
     this.toggleScrollLock();
   };
+
   onKeyDown = (event) => {
     if (event.keyCode === 27) {
       this.closeModal();
     }
   };
+
   onClickOutside = (event) => {
     if (this.modal && this.modal.contains(event.target)) return;
     this.closeModal();
   };
 
   toggleScrollLock = () => {
-    document.querySelector('html').classList.toggle('scroll-lock');
+    document.querySelector("html").classList.toggle("scroll-lock");
   };
-  
+
   render() {
     return (
       <React.Fragment>

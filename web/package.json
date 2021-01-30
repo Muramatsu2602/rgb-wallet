@@ -10,6 +10,7 @@
     "body-parser": "^1.19.0",
     "bootstrap": "^3.4.1",
     "express": "^4.17.1",
+    "focus-trap-react": "^8.4.1",
     "mongo-db": "^1.0.2",
     "mongodb": "^2.2.36",
     "react": "^17.0.1",
