@@ -6,7 +6,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import MagnifyingGlass from "../../assets/images/magnifying-glass-1.svg";
 import AddMoneyPic from "../../assets/images/adicionar-credito.svg";
-import CreateUserPic from "../../assets/images/cadastrar-usuario.svg";
 import EraseMoney from "../../assets/images/no-money.svg";
 
 import Header from "../../components/Header/index";
@@ -141,7 +140,6 @@ export default function Admin() {
               id="btnCadUser"
               onSubmit={onSubmit}
             >
-              <img src={CreateUserPic} alt="search arrow" />
             </Container>
             <Button
               className="custom-btn"
