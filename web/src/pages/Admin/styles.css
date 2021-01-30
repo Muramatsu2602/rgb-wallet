@@ -28,7 +28,7 @@
 }
 
 .sticky {
-  position: -webkit-sticky; /* Safari */
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
 }
@@ -89,10 +89,15 @@
   background-color: var(--color-red) !important;
 }
 
-.navbar-wrapper .custom-btn:hover,
-#btnCadUser:hover,
-#btnZeraCred:hover {
+#btnAddCred:hover,
+#btn_search:hover {
   background: var(--color-text-base-lighter) !important;
+}
+#btnCadUser:hover {
+  background: var(--color-green-lighter) !important;
+}
+#btnZeraCred:hover {
+  background: var(--color-red-lighter) !important;
 }
 
 #admin-page .body-wrapper {
@@ -106,8 +111,8 @@
 }
 
 @media (max-width: 1366px) {
-  #admin-page .custom-input{
-    width: 35rem !important;
+  #admin-page .custom-input {
+    width: 40rem !important;
   }
 
   .control-buttons {
