@@ -103,5 +103,26 @@
   grid-auto-flow: dense;
 
   padding: 0;
-  /* grid-auto-rows: 15rem 33rem; */
+}
+
+@media (max-width: 1366px) {
+  #admin-page .custom-input{
+    width: 35rem !important;
+  }
+
+  .control-buttons {
+    font-size: var(--text-small) !important;
+  }
+
+  .navbar-wrapper .custom-btn {
+    height: 3rem !important;
+    width: 19.1rem !important;
+  }
+
+  #admin-page .body-wrapper {
+    padding-right: 9rem;
+    padding-left: 11rem;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 1rem !important;
+  }
 }

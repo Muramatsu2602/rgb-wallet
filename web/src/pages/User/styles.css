@@ -93,6 +93,24 @@
   border-radius: 25px;
 }
 
+@media (max-height: 768px) {
+  .body-wrapper {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .wallet-wrapper {
+    margin-top: 1rem;
+    padding: 2rem;
+  }
+
+  .custom-btn {
+    width: 170px !important;
+    height: 70px !important;
+    font-size: var(--text-medium) !important;
+  }
+}
+
 .current-balance {
   display: flex;
   flex-direction: column;

@@ -4,6 +4,8 @@
   background-color: var(--color-primary-medium);
 
   display: flex;
+
+  flex-direction: column;
 }
 
 #login-page .content-wrapper {
@@ -147,4 +149,15 @@
 /*Sweet Alert II Override*/
 .swal2-popup {
   font-size: var(--color-text-medium) !important;
+}
+
+@media (max-width: 1540px) {
+  #login-page .custom-btn {
+    width: 200px !important;
+    height: 50px !important;
+  }
+  .logo-portion img {
+    align-self: center;
+    height: 15rem;
+  }
 }
