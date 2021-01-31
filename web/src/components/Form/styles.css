@@ -1,3 +1,14 @@
+.cad-form-container {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+.cad-form-container h1 {
+  padding-bottom: 3rem !important;
+  color: var(--color-text-title);
+}
+
 .form-custom-btn {
   width: 15rem;
   height: 5rem !important;
@@ -25,4 +36,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.form-control {
+  height: 3.5rem !important;
+  /* width: 50rem !important; */
+  border-radius: 25px !important;
+
+  font-size: var(--text-medium) !important;
+
+  border: none !important;
+
+  background-color: var(--color-input-background) !important;
+  box-sizing: border-box !important;
 }

@@ -38,14 +38,22 @@
 
 ._modal-close {
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 1rem;
+  right: 1rem;
   padding: 0.5em;
   line-height: 1;
-  background: #f6f6f7;
+  background: var(--color-red);
   border: 0;
   box-shadow: 0;
   cursor: pointer;
+
+  border-radius: 8px;
+
+  transition: background-color 0.2s !important;
+}
+
+._modal-close:hover {
+  background: var(--color-red-lighter);
 }
 
 .modal-body {
@@ -56,9 +64,9 @@
   width: 25px;
   height: 25px;
   fill: transparent;
-  stroke: black;
+  stroke: var(--color-white-background);
   stroke-linecap: round;
-  stroke-width: 2;
+  stroke-width: 5;
 }
 
 ._hide-visual {

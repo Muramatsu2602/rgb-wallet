@@ -32,7 +32,7 @@ export const Modal = ({
             onClick={closeModal}
           >
             <span id="close-modal" className="_hide-visual">
-              Close
+              x
             </span>
             <svg className="_modal-close-icon" viewBox="0 0 40 40">
               <path d="M 10,10 L 30,30 M 30,10 L 10,30" />
