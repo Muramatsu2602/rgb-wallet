@@ -17,12 +17,12 @@ export default function User() {
 
   //   const [redirect, setRedirect] = useState(false); // IN HEADER!
   const [response, setResponse] = useState("");
-  const [userName, setUserName] = useState(""); // login, setLogin --> in Notion
 
+  const [userName, setUserName] = useState(""); // login, setLogin --> in Notion
   useEffect(() => {
     const loadData = async () => {
       try {
-        const res = await axios.get("/user");
+        const res = await axios.get("/test");
         setResponse(res.data);
       } catch (err) {
         setResponse("Error");

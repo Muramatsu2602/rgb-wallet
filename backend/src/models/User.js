@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 const userSchema = new mongoose.Schema({
-  login: {
+  userName: {
     type: String,
     required: true,
     trim: true,
@@ -14,11 +14,12 @@ const userSchema = new mongoose.Schema({
     trim: true,
     minlength: 6,
   },
-  name: {
-    type: String,
-    required: true,
-    trim: false,
-  },
+  // TODO: adding other fields that constitute the User
+  // name: {
+  //   type: String,
+  //   required: true,
+  //   trim: false,
+  // },
 });
 
 /**
@@ -32,12 +33,12 @@ userSchema.methods.generateAuthToken = async function () {
 
 /**
  * Method to create an User based on their username and password
- * @param {*} login
+ * @param {*} userName
  * @param {*} password
  */
 
-userSchema.statics.findByCredentials = async (login, password) => {
-  const user = await User.findOne({ login });
+userSchema.statics.findByCredentials = async (userName, password) => {
+  const user = await User.findOne({ userName });
   if (!user) return undefined;
 
   const isMatch = await bcrypt.compare(password, user.password);

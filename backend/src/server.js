@@ -9,7 +9,7 @@ const server = express();
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended: true}));
 
-server.post('/login', UserController.login);
+server.post('/', UserController.login);
 server.post('/user', UserController.createUser);
 server.get('/test', auth, UserController.testRoute);
 
