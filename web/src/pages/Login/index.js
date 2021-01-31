@@ -35,14 +35,14 @@ export default function Login() {
   const [success, setSuccess] = useState(false);
 
   /**
-   * função que é executada no início do componente, para 
+   * função que é executada no início do componente, para
    * verificar se o usuário já não está logado, se estiver,
    *  redirecionamos para a página /user  (/private, no Notion)
    */
   useEffect(() => {
     const user = Auth.isLogged();
-    if(user) setSuccess(true);
-  }, [])
+    if (user) setSuccess(true);
+  }, []);
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -68,12 +68,18 @@ export default function Login() {
         </div>
         <div className="form-portion">
           <h1>Login</h1>
+          <div className="login-status">
+            {/* TODO: maybe a Swal? */}
+            {error && <span style={{ color: "red" }}>Erro ao logar !!</span>}
+            {success && <Redirect to="/user" />}
+          </div>
           <Form onSubmit={onSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label className="custom-lbl">Nome</Form.Label>
               <Form.Control
+                required
                 className="custom-input"
-                type="email"
+                type="text"
                 placeholder="Digite seu nome"
               />
               <Form.Text className="text-muted"></Form.Text>
@@ -99,20 +105,15 @@ export default function Login() {
                  - this button will redirect to either: User or Admin pages
               */}
 
-              <Link to="/user" className="enter-app">
+              <div to="/user" className="enter-app">
                 <Button className="custom-btn" variant="primary" type="submit">
                   Entrar
                 </Button>{" "}
-              </Link>
+              </div>
 
               <a onClick={ForgotPasswordAlert}>Esqueci a senha...</a>
             </div>
           </Form>
-          {/* TODO: Make this look appealing! */}
-          {error && <span style={{ color: "red" }}>Erro ao logar !!</span>}
-
-          {/* /private --> in Notion */}
-          {success && <Redirect to="/user" />}
         </div>
       </div>
     </div>

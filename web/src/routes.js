@@ -18,9 +18,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
       const user = Auth.isLogged();
       if (!user) {
         return (
-          <Redirect
-            to={{ pathname: "/login", state: { from: props.location } }}
-          />
+          <Redirect to={{ pathname: "/", state: { from: props.location } }} />
         );
       }
       return <Component />;
@@ -33,11 +31,11 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route exact path="/" exact component={Login} />
-        {/* <PrivateRoute path="/user" exact component={User}></PrivateRoute>
-        <PrivateRoute path="/admin" exact component={Admin}></PrivateRoute> */}
+        <PrivateRoute path="/user" exact component={User}></PrivateRoute>
+        <PrivateRoute path="/admin" exact component={Admin}></PrivateRoute>
 
-        <Route exact path="/user" component={User} />
-        <Route path="/admin" component={Admin} />
+        {/* <Route exact path="/user" component={User} />
+        <Route path="/admin" component={Admin} /> */}
       </Switch>
     </BrowserRouter>
   );
