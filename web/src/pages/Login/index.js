@@ -1,10 +1,8 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-// import { FaArrowRight } from 'react-icons/fa';
 
 import logoImg from "../../assets/images/login-logo.svg";
-
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -29,6 +27,10 @@ async function handleLogin(e) {
 }
 
 export default function Login() {
+
+  const [userName, setUserName] = useState(""); //  const [login, setLogin] --> notion
+  const [password, setPassword] = useState("");
+
   return (
     <div id="login-page">
       <div className="content-wrapper">
