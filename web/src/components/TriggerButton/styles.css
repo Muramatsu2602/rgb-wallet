@@ -1,0 +1,9 @@
+#triggerButton{
+    background-color: var(--color-green) !important;
+    transition: background-color 0.2s !important;
+
+}
+
+#triggerButton:hover{
+    background-color: var(--color-green-lighter) !important;
+}

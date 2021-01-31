@@ -60,7 +60,7 @@
   padding: 0 !important;
   margin: 1rem;
 
-  font-size: var(--text-snall) !important;
+  font-size: var(--text-medium) !important;
   font-weight: 700;
   background: var(--color-primary-medium) !important;
   color: var(--color-button-text) !important;
@@ -93,9 +93,7 @@
 #btn_search:hover {
   background: var(--color-text-base-lighter) !important;
 }
-#btnCadUser:hover {
-  background: var(--color-green-lighter) !important;
-}
+
 #btnZeraCred:hover {
   background: var(--color-red-lighter) !important;
 }
