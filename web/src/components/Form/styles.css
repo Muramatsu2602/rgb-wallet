@@ -41,7 +41,7 @@
   justify-content: space-around;
 }
 
-.form-control {
+.cad-form-container .form-control {
   height: 3.5rem !important;
   width: 45rem !important;
   border-radius: 25px !important;

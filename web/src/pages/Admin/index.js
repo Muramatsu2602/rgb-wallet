@@ -18,18 +18,13 @@ import { Container } from "../../components/Container";
  * onSubmit function for addUserForm
  * @param {*} event
  */
-function onSubmit(event) {
+function addUserOnSubmit(event) {
   event.preventDefault(event);
   console.log(event.target.name.value);
   console.log(event.target.userName.value);
-}
-
-/**
- * Cadastrar Usuario button alert
- * @param {*} e
- */
-async function confirmAddUser(e) {
-  // TODO: add a big modal here or a huge-ass alert
+  // console.log(event.target.didSellProj.checked);
+  // console.log(event.target.isExecutingProj.checked);
+  console.log(event.target.weeklyHours.value);
 }
 
 /**
@@ -127,20 +122,11 @@ export default function Admin() {
           </div>
 
           <div className="control-buttons">
-            {/* <Button
-              className="custom-btn "
-              id="btnCadUser"
-              onClick={(e) => confirmAddUser(e)}
-              variant="primary"
-            >
-              <img src={CreateUserPic} alt="search arrow" />
-            </Button>{" "} */}
             <Container
               triggerText="Cadastrar Usuário"
               id="btnCadUser"
-              onSubmit={onSubmit}
-            >
-            </Container>
+              onSubmit={addUserOnSubmit}
+            ></Container>
             <Button
               className="custom-btn"
               id="btnAddCred"
