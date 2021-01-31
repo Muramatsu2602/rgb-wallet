@@ -41,6 +41,8 @@ export default function Header() {
       <div className="top-icons">
         <Link onClick={(e) => confirmExit(e)} to="/" className="exit-app">
           <img src={CornerArrow} id="arrow" alt="arrow de retorno" />
+          {/* <button onClick={logOut}>Logout</button>
+          {redirect && <Redirect to="/" />} */}
         </Link>
 
         <img src={CornerLogo} alt="logo RGBWallet" />

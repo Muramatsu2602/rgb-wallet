@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {Link} from 'react-router-dom';
+import Auth from "../../services/AuthService";
+
+import { Redirect } from "react-router-dom";
+import axios from "axios";
 
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,6 +16,31 @@ import { Button, Table, Accordion } from "react-bootstrap/";
 
 export default function User() {
   const [saldo, setSaldo] = useState(1030.5); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
+
+  const [redirect, setRedirect] = useState(false);
+  const [response, setResponse] = useState("");
+  const [login, setLogin] = useState("");
+
+  const logOut = (e) => {
+    e.preventDefault();
+    Auth.logOut();
+    setRedirect(true);
+  };
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const res = await axios.get("/test"); // FIXME:
+        setResponse(res.data);
+      } catch (err) {
+        setResponse("Error");
+      }
+    };
+    const user = Auth.isLogged();
+    setLogin(user.login);
+
+    loadData();
+  }, []);
 
   return (
     <div id="user-page">
