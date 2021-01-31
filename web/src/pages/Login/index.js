@@ -77,6 +77,8 @@ export default function Login() {
             <Form.Group controlId="formBasicEmail">
               <Form.Label className="custom-lbl">Nome</Form.Label>
               <Form.Control
+                value={userName}
+                onChange={(e) => setUserName(e.target.value)}
                 required
                 className="custom-input"
                 type="text"
@@ -92,6 +94,8 @@ export default function Login() {
                 <Form.Group controlId="formBasicPassword">
                   <Form.Label className="custom-lbl">Senha</Form.Label>
                   <Form.Control
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className="custom-input"
                     type="password"
                     placeholder="Digite sua senha"
