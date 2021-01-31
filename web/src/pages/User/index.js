@@ -45,6 +45,11 @@ export default function User() {
               <h1>R$ {saldo}</h1>
             </div>
 
+            {/* BACKEND RESPONSE */}
+            <div>
+              <center>{response}</center>
+            </div>
+
             <div className="transaction-history-wrapper">
               <Accordion defaultActiveKey="0">
                 <CustomToggle eventKey="1">
