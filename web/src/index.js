@@ -7,6 +7,8 @@ import axios from 'axios';
 
 axios.defaults.baseURL = 'http://localhost:3003';
 
+// Configurando um interceptador de requisição para verificar 
+// se deu acesso negado e redirecionar para o login
 axios.interceptors.response.use(
   function (response) {
     return response;
@@ -18,7 +20,7 @@ axios.interceptors.response.use(
       error.response.status === 401
     ) {
       Auth.logOut(true);
-      window.location.href = '/login';
+      window.location.href = '/'; // '/login' --> de acordo com o Notion
     }
     return Promise.reject(error);
   }
