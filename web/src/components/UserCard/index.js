@@ -60,8 +60,8 @@ export default function UserCard() {
   const [id, setId] = useState(1);
   const [name, setName] = useState("Fulano da Silva");
   const [userName, setUserName] = useState("Fulanex2593");
-  const [isExecutingProj, setIsExecutingProj] = useState(false); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
   const [didSellProj, setDidSellProj] = useState(true);
+  const [isExecutingProj, setIsExecutingProj] = useState(false); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
   const [weeklyHours, setWeeklyHours] = useState(1000);
 
   return (

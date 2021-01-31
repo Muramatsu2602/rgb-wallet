@@ -25,13 +25,7 @@ function ForgotPassword() {
 }
 
 async function handleLogin(e) {
-
-  try {
-    console.log("only a sketch of the handle the login form");
-    
-  } catch (e) {
-    await Swal.fire("Erro no Login", `Detalhes=${e.message}`, "error");
-  }
+  // TODO: copy and paste Rabiola's code here!
 }
 
 export default function Login() {

@@ -10,12 +10,13 @@
 }
 
 .form-custom-btn {
-  width: 15rem;
-  height: 5rem !important;
+  width: 25rem;
+  height: 6rem !important;
   border-style: none !important;
 
   justify-content: space-between;
 
+  margin-top: 4rem !important;
   padding: 0 !important;
   margin: 1rem;
 
@@ -40,7 +41,7 @@
 
 .form-control {
   height: 3.5rem !important;
-  /* width: 50rem !important; */
+  width: 45rem !important;
   border-radius: 25px !important;
 
   font-size: var(--text-medium) !important;
