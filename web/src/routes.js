@@ -30,7 +30,7 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" exact component={Login} />
+        <Route path="/" exact component={Login} />
         <PrivateRoute path="/user" exact component={User}></PrivateRoute>
         <PrivateRoute path="/admin" exact component={Admin}></PrivateRoute>
         {/* 

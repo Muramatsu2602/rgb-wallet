@@ -1,16 +1,16 @@
 import axios from "axios"; //import axios to make
 
 const logInUser = async (userLogin, password) => {
+
   try {
+    const res = await axios.post("/", { userName: userLogin, password }); // FIXME: this line is causing a #404 error!
 
-  
-
-    const res = await axios.post("/", { userName: userLogin, password });
     const { token, userName } = res.data;
 
     localStorage.setItem("user", JSON.stringify({ userName, token }));
     return true;
   } catch (error) {
+
     console.log(error);
     localStorage.removeItem("user");
     return false;

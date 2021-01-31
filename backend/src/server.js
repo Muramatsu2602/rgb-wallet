@@ -17,5 +17,5 @@ server.post("/user", UserController.createUser);
 server.get("/test", auth, UserController.testRoute);
 
 server.listen(3003, () => {
-  console.log("Server running on 3003!");
+  console.log("App listening on 3003");
 });

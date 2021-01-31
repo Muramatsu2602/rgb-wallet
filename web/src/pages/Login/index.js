@@ -45,12 +45,13 @@ export default function Login() {
   }, []);
 
   const onSubmit = async (e) => {
-    e.preventDefault();
+
+    e.preventDefault()
 
     setError(false);
     setSuccess(false);
 
-    const res = await Auth.logInUser(userName, password);
+    const res = await Auth.logInUser(userName, password); //FIXME:
 
     console.log(res);
 
@@ -67,12 +68,14 @@ export default function Login() {
           <p>Programmed with ♡ by @Muramatsu2602 and @benetche.</p>
         </div>
         <div className="form-portion">
+
           <h1>Login</h1>
           <div className="login-status">
             {/* TODO: maybe a Swal? */}
             {error && <span style={{ color: "red" }}>Erro ao logar !!</span>}
             {success && <Redirect to="/user" />}
           </div>
+
           <Form onSubmit={onSubmit}>
             <Form.Group controlId="formBasicEmail">
               <Form.Label className="custom-lbl">Nome</Form.Label>
