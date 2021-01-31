@@ -19,7 +19,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: false,
   },
-
 });
 
 /**
@@ -27,7 +26,7 @@ const userSchema = new mongoose.Schema({
  */
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
-  const token = jwt.sign({ _id: user._id.toString() }, 'ICMCJR');
+  const token = jwt.sign({ _id: user._id.toString() }, "ICMCJR");
   return token;
 };
 
@@ -50,16 +49,17 @@ userSchema.statics.findByCredentials = async (login, password) => {
 /**
  * method that shall be called before saving the user, so that we cryptograph the password
  */
-userSchema.pre('save', async function (next) {
+userSchema.pre("save", async function (next) {
   const user = this;
 
-  if (user.isModified('password')) {
+  if (user.isModified("password")) {
     user.password = await bcrypt.hash(user.password, 8);
   }
   next();
 });
 
-
 // Creating the model and exporting it
-const User = mongoose.model('User', userSchema);
-module.exports = User;
+const User = mongoose.model("User", userSchema);
+// module.exports = User;
+
+export default User;
