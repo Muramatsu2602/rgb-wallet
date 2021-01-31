@@ -21,7 +21,7 @@ import { Container } from "../../components/Container";
 function onSubmit(event) {
   event.preventDefault(event);
   console.log(event.target.name.value);
-  console.log(event.target.email.value);
+  console.log(event.target.userName.value);
 }
 
 /**

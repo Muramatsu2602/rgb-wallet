@@ -1,6 +1,6 @@
 import "./styles.css";
 import React from "react";
-import {ToggleButton} from "../ToggleButton";
+import { ToggleButton } from "../ToggleButton";
 // import Switch from "react-switch";
 
 export const Form = ({ onSubmit }) => {
@@ -11,12 +11,12 @@ export const Form = ({ onSubmit }) => {
         {/* Nome Completo */}
         <div className="form-group">
           <label htmlFor="name">Nome Completo</label>
-          <input className="form-control" id="name" />
+          <input required className="form-control" id="name" />
         </div>
         {/* Nome de Usuário */}
         <div className="form-group">
           <label htmlFor="userName">Nome de Usuário</label>
-          <input className="form-control" id="userName" />
+          <input required className="form-control" id="userName" />
         </div>
         {/* Vendeu algum projeto esse mês? */}
         <div className="form-group">
@@ -35,7 +35,12 @@ export const Form = ({ onSubmit }) => {
           <label htmlFor="weeklyHours">
             Quantas semanas cumpriu as 10 horas semanais?
           </label>
-          <input type="number" className="form-control" id="weeklyHours" />
+          <input
+            required
+            type="number"
+            className="form-control"
+            id="weeklyHours"
+          />
         </div>
 
         {/* Salvar Cadastro */}

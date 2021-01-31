@@ -23,7 +23,6 @@ class ToggleButton extends Component {
           offColor="#e33d3d"
           offHandleColor='#e6e6f0'
           onHandleColor='#e6e6f0'
-
         />
       </div>
     );
