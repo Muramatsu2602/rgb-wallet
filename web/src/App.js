@@ -1,9 +1,8 @@
-import React from 'react';
-import Routes from './routes';
+import React from "react";
+import Routes from "./routes";
 
-import './styles/global.css'
-import 'bootstrap/dist/css/bootstrap.min.css';
-
+import "./styles/global.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
