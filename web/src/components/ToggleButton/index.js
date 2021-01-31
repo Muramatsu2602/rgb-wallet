@@ -1,4 +1,3 @@
-import "./styles.css";
 import React, { Component } from "react";
 import Switch from "react-switch";
 
@@ -15,12 +14,17 @@ class ToggleButton extends Component {
 
   render() {
     return (
-      <label>
-        {/* <span>Switch with default style</span> */}
-        <Switch onChange={this.handleChange} checked={this.state.checked} />
-      </label>
+      <div className="toggle-button-container">
+        <Switch
+          className="toggle-button"
+          onChange={this.handleChange}
+          checked={this.state.checked}
+          onColor="#04d361"
+          offColor="#e33d3d"
+        />
+      </div>
     );
   }
 }
 
-export  { ToggleButton };
+export { ToggleButton };
