@@ -22,7 +22,7 @@ function addUserOnSubmit(event) {
   event.preventDefault(event);
   console.log(event.target.name.value);
   console.log(event.target.userName.value);
-  // console.log(event.target.didSellProj.checked);
+  // console.log(event.target.didSellProj.value.checked);
   // console.log(event.target.isExecutingProj.checked);
   console.log(event.target.weeklyHours.value);
 }
