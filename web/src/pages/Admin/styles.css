@@ -19,7 +19,7 @@
   display: flex;
   flex-direction: row;
 
-  padding: 0rem 8rem 0rem 8rem;
+  padding: 0rem 5rem 0rem 8rem;
 
   align-items: center;
   justify-content: space-between;
@@ -55,7 +55,7 @@
   height: 4rem !important;
   border-style: none !important;
 
-  justify-content: space-between;
+  justify-content: space-between !important;
 
   padding: 0 !important;
   margin: 1rem;
@@ -108,18 +108,15 @@
   padding: 1rem 2rem 1rem 2rem;
 }
 
-@media (max-width: 1366px) {
+@media (max-width: 1466px) {
   #admin-page .custom-input {
     width: 40rem !important;
   }
 
-  .control-buttons {
-    font-size: var(--text-small) !important;
-  }
-
   .navbar-wrapper .custom-btn {
     height: 3rem !important;
-    width: 19.1rem !important;
+    width: 20.1rem !important;
+    font-size: var(--text-small) !important;
   }
 
   #admin-page .body-wrapper {

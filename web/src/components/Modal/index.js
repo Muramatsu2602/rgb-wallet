@@ -40,6 +40,8 @@ export const Modal = ({
             </svg>
           </button>
           <div className="modal-body">
+            
+            {/* onChange={onChange} */}
             <Form onSubmit={onSubmit} />
           </div>
         </div>

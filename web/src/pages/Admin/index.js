@@ -23,9 +23,11 @@ function addUserOnSubmit(event) {
 
   // alert(event.target.name.value);
   // alert(event.target.userName.value);
-  alert("didSellProj?: " + event.target.didSellProj.value.checked);
-  alert("isExecutingProj?: " + event.target.isExecutingProj.checked);
+  // alert("didSellProj?: " + event.target.didSellProj.value.checked);
+  // alert("isExecutingProj?: " + event.target.isExecutingProj.checked);
   // alert(event.target.weeklyHours.value);
+
+  alert("didSellProj?: " + event.target.didSellProj.checked);
 }
 
 /**
