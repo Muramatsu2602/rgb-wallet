@@ -51,13 +51,13 @@ export default function Login() {
     setSuccess(false);
 
     // FIXME:
-    // let res = false;
-    // if (password.length === 0) {
-    //   res = await Auth.logInUser(userName, password);
-    // } else {
-    //   res = await Auth.logInAdmin(userName, password);
-    // }
-    const res = await Auth.logInUser(userName, password);
+    let res = false;
+    if (password) {
+      res = await Auth.logInAdmin(userName, password);
+    } else {
+      res = await Auth.logInUser(userName, password);
+    }
+    // res = await Auth.logInUser(userName, password);
 
     console.log(res);
 
@@ -76,9 +76,10 @@ export default function Login() {
         <div className="form-portion">
           <h1>Login</h1>
           <div className="login-status">
-            {/* TODO: maybe a Swal? */}
             {error && <span style={{ color: "red" }}>Erro ao logar !!</span>}
-            {success && <Redirect to="/user" />}
+            {success &&
+              // Redireciona pro admin se deu certo E TEM SENHA
+              (password ? <Redirect to="/admin" /> : <Redirect to="/user" />)}
           </div>
 
           <Form onSubmit={onSubmit}>

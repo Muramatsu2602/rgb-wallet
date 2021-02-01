@@ -3,7 +3,9 @@ import axios from "axios"; //import axios to make
 // TODO: MAKE THIS WORK FOR ADMIN ROUTE!
 const logInAdmin = async (userLogin, password) => {
   try {
-    const res = await axios.post("/admin", { userName: userLogin, password });
+    alert("logInAdmin");
+
+    const res = await axios.post("/", { userName: userLogin, password });
 
     const { token, userName } = res.data;
 
@@ -18,7 +20,9 @@ const logInAdmin = async (userLogin, password) => {
 
 const logInUser = async (userLogin, password) => {
   try {
-    const res = await axios.post("/user", { userName: userLogin, password });
+    alert("logInUser");
+
+    const res = await axios.post("/", { userName: userLogin, password });
 
     const { token, userName } = res.data;
 
