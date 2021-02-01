@@ -13,7 +13,7 @@
   height: 100vh;
   margin: 0 auto;
 
-  padding-top: 3rem;
+  padding-top: 4rem;
   padding-right: 3rem;
 
   display: flex;
@@ -161,6 +161,9 @@
 }
 
 @media (max-width: 1540px) {
+  .enter-app {
+    padding-top: 1rem;
+  }
   #login-page .custom-btn {
     width: 200px !important;
     height: 50px !important;
