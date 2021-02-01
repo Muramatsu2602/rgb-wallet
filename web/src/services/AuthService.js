@@ -3,7 +3,7 @@ import axios from "axios"; //import axios to make
 // TODO: MAKE THIS WORK FOR ADMIN ROUTE!
 const logInAdmin = async (userLogin, password) => {
   try {
-    alert("logInAdmin");
+    alert("logInAdmin/n" + "Nome:" + userLogin + "\nSenha:" + password);
 
     const res = await axios.post("/", { userName: userLogin, password });
 
@@ -18,15 +18,15 @@ const logInAdmin = async (userLogin, password) => {
   }
 };
 
-const logInUser = async (userLogin, password) => {
+const logInUser = async (userLogin) => {
   try {
-    alert("logInUser");
+    alert("logInUser\n" + "Nome:" + userLogin);
 
-    const res = await axios.post("/", { userName: userLogin, password });
+    const res = await axios.post("/", { userName: userLogin }); // o user nao tem SENHA
 
-    const { token, userName } = res.data;
+    const { userName } = res.data;
 
-    localStorage.setItem("user", JSON.stringify({ userName, token }));
+    localStorage.setItem("user", JSON.stringify({ userName }));
     return true;
   } catch (error) {
     console.log(error);
