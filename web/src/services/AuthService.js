@@ -3,7 +3,8 @@ import axios from "axios"; //import axios to make
 const logInUser = async (userLogin, password) => {
 
   try {
-    const res = await axios.post("/", { userName: userLogin, password }); // FIXME: this line is causing a #404 error!
+    
+    const res = await axios.post("/user", { userName: userLogin, password }); // FIXME: this line is causing a #404 error!
 
     const { token, userName } = res.data;
 
