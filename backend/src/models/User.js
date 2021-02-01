@@ -1,6 +1,7 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+import { Decimal128, Double } from "mongodb";
 
 const userSchema = new mongoose.Schema({
   userName: {
@@ -10,10 +11,24 @@ const userSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true,
+    required: false,
     trim: true,
     minlength: 6,
   },
+  fullName: {
+    type: String,
+    required: true,
+    trim: false,
+  },
+  cash: {
+    type: Decimal128,
+    default: 0.0,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+
   // TODO: adding other fields that constitute the User
   // name: {
   //   type: String,
@@ -53,7 +68,7 @@ userSchema.statics.findByCredentials = async (userName, password) => {
 userSchema.pre("save", async function (next) {
   const user = this;
 
-  if (user.isModified("password")) {
+  if (user.password && user.isModified("password")) {
     user.password = await bcrypt.hash(user.password, 8);
   }
   next();

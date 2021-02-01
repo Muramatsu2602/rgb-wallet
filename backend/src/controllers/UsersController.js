@@ -22,7 +22,8 @@ const createUser = async (req, res) => {
   try {
     const user = new User({
       userName: req.body.userName,
-      password: req.body.password,
+      password: req.body.password, // #should I do that?
+      fullName: req.body.fullName,
       //TODO: adding other fields that constitute the User
     });
 
@@ -31,12 +32,15 @@ const createUser = async (req, res) => {
 
     return res.status(201).send({ token, userName: user.userName });
   } catch (error) {
+    console.log(error);
     return res.status(400).send({ error });
+    
   }
 };
 
 const testRoute = async (req, res) => {
   return res.status(200).send(`Saudações, ${req.user.userName}!`);
 };
+
 
 export default { login, createUser, testRoute };
