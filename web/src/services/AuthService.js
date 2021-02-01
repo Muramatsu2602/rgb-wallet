@@ -4,7 +4,13 @@ const logInUser = async (userLogin, password) => {
 
   try {
     
-    const res = await axios.post("/user", { userName: userLogin, password }); // FIXME: this line is causing a #404 error!
+    
+    /**
+     * TODO: logInAdmin?
+     * - pensar em logica com campo password
+     * 
+     */
+    const res = await axios.post("/user", { userName: userLogin, password }); 
 
     const { token, userName } = res.data;
 

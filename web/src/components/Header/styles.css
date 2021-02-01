@@ -19,12 +19,36 @@
   transition: opacity 0.5s;
 }
 
+.hello-user {
+  padding-top: 2rem;
+  padding-left: 10rem;
+  padding-bottom: 3rem;
+}
+
+.hello-user h1 {
+  font-size: var(--text-thicc);
+}
+
+.hello-user p {
+  font-size: var(--text-medium);
+}
+
 #arrow:hover {
   opacity: 0.5;
 }
 
 @media (max-height: 768px) {
-  .header-wrapper{
+  .header-wrapper {
     height: 250px;
+  }
+
+  .top-icons {
+    padding-bottom: 1rem;
+  }
+
+  .hello-user {
+    padding-top: 0rem;
+    padding-left: 10rem;
+    padding-bottom: 1rem;
   }
 }

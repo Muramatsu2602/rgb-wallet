@@ -40,14 +40,12 @@ export default function User() {
         <Header />
         <div className="body-wrapper">
           <div className="wallet-wrapper">
+            {/* BACKEND RESPONSE */}
+            <div className="welcome-msg">{response}</div>
+            
             <div className="current-balance">
               <h2>Saldo Atual</h2>
               <h1>R$ {saldo}</h1>
-            </div>
-
-            {/* BACKEND RESPONSE */}
-            <div>
-              <center>{response}</center>
             </div>
 
             <div className="transaction-history-wrapper">

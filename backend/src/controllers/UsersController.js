@@ -36,7 +36,7 @@ const createUser = async (req, res) => {
 };
 
 const testRoute = async (req, res) => {
-  return res.status(200).send(`Seja Bem-Vindo ${req.user.userName}!`);
+  return res.status(200).send(`Saudações, ${req.user.userName}!`);
 };
 
 export default { login, createUser, testRoute };

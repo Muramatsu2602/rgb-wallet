@@ -55,19 +55,6 @@
   width: 40vw;
 }
 
-.hello-user {
-  padding-top: 2rem;
-  padding-left: 10rem;
-}
-
-.hello-user h1 {
-  font-size: var(--text-thicc);
-}
-
-.hello-user p {
-  font-size: var(--text-medium);
-}
-
 .body-wrapper {
   display: flex;
   flex-direction: column;
@@ -82,7 +69,7 @@
   display: flex;
   flex-direction: column;
 
-  margin-top: 4rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   padding: 8rem;
   height: auto;
@@ -93,6 +80,10 @@
   border-radius: 25px;
 }
 
+.welcome-msg{
+  font-size: var(--text-big);
+}
+
 @media (max-height: 768px) {
   .body-wrapper {
     padding-top: 3rem;
@@ -100,7 +91,7 @@
   }
 
   .wallet-wrapper {
-    margin-top: 1rem;
+    margin-top: rem;
     padding: 2rem;
   }
 

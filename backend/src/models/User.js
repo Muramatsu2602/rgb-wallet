@@ -28,6 +28,7 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.generateAuthToken = async function () {
   const user = this;
   const token = jwt.sign({ _id: user._id.toString() }, "ICMCJR");
+
   return token;
 };
 
@@ -36,7 +37,6 @@ userSchema.methods.generateAuthToken = async function () {
  * @param {*} userName
  * @param {*} password
  */
-
 userSchema.statics.findByCredentials = async (userName, password) => {
   const user = await User.findOne({ userName });
   if (!user) return undefined;
