@@ -13,7 +13,7 @@ server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
 server.post("/", UserController.login);
-server.post("/user", UserController.createUser);
+server.post("/admin", UserController.createUser); // we create an user at /admin
 server.get("/test", auth, UserController.testRoute);
 
 server.listen(3003, () => {

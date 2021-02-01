@@ -50,15 +50,14 @@ export default function Login() {
     setError(false);
     setSuccess(false);
 
-    let res = false;
-
     // FIXME:
+    // let res = false;
     // if (password.length === 0) {
     //   res = await Auth.logInUser(userName, password);
     // } else {
     //   res = await Auth.logInAdmin(userName, password);
     // }
-    res = await Auth.logInUser(userName, password);
+    const res = await Auth.logInUser(userName, password);
 
     console.log(res);
 
