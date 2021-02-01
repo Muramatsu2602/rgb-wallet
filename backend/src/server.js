@@ -14,7 +14,11 @@ server.use(bodyParser.urlencoded({ extended: true }));
 
 server.post("/", UserController.login);
 server.post("/admin", UserController.createUser); // we create an user at /admin
-server.get("/test", auth, UserController.testRoute);
+
+/**
+ * Ela é só uma rota que o usuário precisa estar logado pra acessar
+ */
+server.get("/test", auth, UserController.testRoute); 
 
 server.listen(3003, () => {
   console.log("App listening on 3003");

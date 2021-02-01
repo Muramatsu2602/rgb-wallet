@@ -19,12 +19,13 @@ import { Container } from "../../components/Container";
  * @param {*} event
  */
 function addUserOnSubmit(event) {
-  event.preventDefault(event);
-  console.log(event.target.name.value);
-  console.log(event.target.userName.value);
-  // console.log(event.target.didSellProj.value.checked);
-  // console.log(event.target.isExecutingProj.checked);
-  console.log(event.target.weeklyHours.value);
+  // event.preventDefault(event);
+
+  // alert(event.target.name.value);
+  // alert(event.target.userName.value);
+  alert("didSellProj?: " + event.target.didSellProj.value.checked);
+  alert("isExecutingProj?: " + event.target.isExecutingProj.checked);
+  // alert(event.target.weeklyHours.value);
 }
 
 /**
