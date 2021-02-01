@@ -61,8 +61,8 @@
 
   align-items: center;
 
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .wallet-wrapper {
@@ -80,7 +80,7 @@
   border-radius: 25px;
 }
 
-.welcome-msg{
+.welcome-msg {
   font-size: var(--text-big);
 }
 
