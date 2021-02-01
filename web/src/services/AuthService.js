@@ -1,33 +1,25 @@
 import axios from "axios"; //import axios to make
 
 // TODO: MAKE THIS WORK FOR ADMIN ROUTE!
-const logInAdmin = async (userLogin, password) => {
+const logInUser = async (userLogin, password, isAdmin) => {
   try {
-    alert("logInAdmin/n" + "Nome:" + userLogin + "\nSenha:" + password);
+    if (isAdmin) {
+      alert("ADMIN! Senha: " + password);
+    } else {
+      alert("USER!");
+    }
 
-    const res = await axios.post("/", { userName: userLogin, password });
+    const res = await axios.post("/", {
+      userName: userLogin,
+      password,
+      isAdmin,
+    });
 
     const { token, userName } = res.data;
 
     localStorage.setItem("user", JSON.stringify({ userName, token }));
     return true;
-  } catch (error) {
-    console.log(error);
-    localStorage.removeItem("user");
-    return false;
-  }
-};
-
-const logInUser = async (userLogin) => {
-  try {
-    alert("logInUser\n" + "Nome:" + userLogin);
-
-    const res = await axios.post("/", { userName: userLogin }); // o user nao tem SENHA
-
-    const { userName } = res.data;
-
-    localStorage.setItem("user", JSON.stringify({ userName }));
-    return true;
+    
   } catch (error) {
     console.log(error);
     localStorage.removeItem("user");
@@ -51,4 +43,4 @@ const isLogged = () => {
   return user;
 };
 
-export default { isLogged, logInUser, logInAdmin, logOut };
+export default { isLogged, logInUser, logOut };

@@ -50,14 +50,11 @@ export default function Login() {
     setError(false);
     setSuccess(false);
 
-    // FIXME:
-    let res = false;
-    if (password) {
-      res = await Auth.logInAdmin(userName, password);
-    } else {
-      res = await Auth.logInUser(userName, password);
-    }
-    // res = await Auth.logInUser(userName, password);
+    // this will determine whether we go to /admin or /user page
+    let isAdmin = false;
+    if (password) isAdmin = true;
+
+    const res = await Auth.logInUser(userName, password, isAdmin);
 
     console.log(res);
 
@@ -86,7 +83,6 @@ export default function Login() {
             <Form.Group controlId="formBasicEmail">
               <Form.Label className="custom-lbl">Nome</Form.Label>
               <Form.Control
-                value={userName}
                 onChange={(e) => setUserName(e.target.value)}
                 required
                 className="custom-input"
@@ -103,7 +99,6 @@ export default function Login() {
                 <Form.Group controlId="formBasicPassword">
                   <Form.Label className="custom-lbl">Senha</Form.Label>
                   <Form.Control
-                    value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     className="custom-input"
                     type="password"

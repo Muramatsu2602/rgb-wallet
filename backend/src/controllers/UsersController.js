@@ -2,9 +2,11 @@ import User from "../models/User";
 
 const login = async (req, res) => {
   try {
+    // checks in db to see if credentials are valid
     let user = await User.findByCredentials(
       req.body.userName,
-      req.body.password
+      req.body.password,
+      req.body.isAdmin
     );
 
     if (!user) return res.status(404).send({ error: "Wrong Credentials" });
@@ -22,9 +24,8 @@ const createUser = async (req, res) => {
   try {
     const user = new User({
       userName: req.body.userName,
-      password: req.body.password, // #should I do that?
-      fullName: req.body.fullName,
-      //TODO: adding other fields that constitute the User
+      password: req.body.password,
+      isAdmin: req.body.isAdmin,
     });
 
     await user.save();
