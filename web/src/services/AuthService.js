@@ -1,23 +1,30 @@
 import axios from "axios"; //import axios to make
 
-const logInUser = async (userLogin, password) => {
-
+// TODO: MAKE THIS WORK FOR ADMIN ROUTE!
+const logInAdmin = async (userLogin, password) => {
   try {
-    
-    
-    /**
-     * TODO: logInAdmin?
-     * - pensar em logica com campo password
-     * 
-     */
-    const res = await axios.post("/user", { userName: userLogin, password }); 
+    const res = await axios.post("/admin", { userName: userLogin, password });
 
     const { token, userName } = res.data;
 
     localStorage.setItem("user", JSON.stringify({ userName, token }));
     return true;
   } catch (error) {
+    console.log(error);
+    localStorage.removeItem("user");
+    return false;
+  }
+};
 
+const logInUser = async (userLogin, password) => {
+  try {
+    const res = await axios.post("/user", { userName: userLogin, password });
+
+    const { token, userName } = res.data;
+
+    localStorage.setItem("user", JSON.stringify({ userName, token }));
+    return true;
+  } catch (error) {
     console.log(error);
     localStorage.removeItem("user");
     return false;
@@ -40,4 +47,4 @@ const isLogged = () => {
   return user;
 };
 
-export default { isLogged, logInUser, logOut };
+export default { isLogged, logInUser, logInAdmin, logOut };

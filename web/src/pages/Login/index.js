@@ -45,13 +45,20 @@ export default function Login() {
   }, []);
 
   const onSubmit = async (e) => {
-
-    e.preventDefault()
+    e.preventDefault();
 
     setError(false);
     setSuccess(false);
 
-    const res = await Auth.logInUser(userName, password); //FIXME:
+    let res = false;
+
+    // FIXME:
+    // if (password.length === 0) {
+    //   res = await Auth.logInUser(userName, password);
+    // } else {
+    //   res = await Auth.logInAdmin(userName, password);
+    // }
+    res = await Auth.logInUser(userName, password);
 
     console.log(res);
 
@@ -68,7 +75,6 @@ export default function Login() {
           <p>Programmed with ♡ by @Muramatsu2602 and @benetche.</p>
         </div>
         <div className="form-portion">
-
           <h1>Login</h1>
           <div className="login-status">
             {/* TODO: maybe a Swal? */}
