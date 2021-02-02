@@ -46,13 +46,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: false,
   }
-
-  // TODO: adding other fields that constitute the User
-  // name: {
-  //   type: String,
-  //   required: true,
-  //   trim: false,
-  // },
 });
 
 /**

@@ -29,7 +29,7 @@ const createUser = async (req, res) => {
       isAdmin: req.body.isAdmin,
       didSellProj: req.body.didSellProj,
       isExecutingProj: req.body.isExecutingProj,
-      weeklyHours: req.body.weeklyHours
+      weeklyHours: req.body.weeklyHours,
     });
 
     await user.save();
@@ -39,13 +39,11 @@ const createUser = async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(400).send({ error });
-    
   }
 };
 
-const testRoute = async (req, res) => {
-  return res.status(200).send(`Saudações, ${req.user.userName}!`);
+const getUser = async (req, res) => {
+  return res.status(200).send(`${req.user.cash}`);
 };
 
-
-export default { login, createUser, testRoute };
+export default { login, createUser, getUser };
