@@ -46,9 +46,9 @@ const getUser = async (req, res) => {
   try{
     const user = await User.findByCredentials(req.body.userName);
     if (!user) {
-      console.log(`User not found with ${req.body.userName}`);
+      return res.status(404).send({ error: `User not found with ${req.body.userName}`});
     } else {
-      console.log(user);
+      //console.log(user.cash);
       return res.status(200).send({user});
     }
   }
