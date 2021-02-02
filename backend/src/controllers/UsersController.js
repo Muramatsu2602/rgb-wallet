@@ -43,7 +43,13 @@ const createUser = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-  return res.status(200).send(`${req.user.cash}`);
+  const user = await User.findByCredentials(req.body.userName);
+
+  if (user) {
+    console.log(user);
+  } else {
+    console.log("ERROR!");
+  }
 };
 
 export default { login, createUser, getUser };
