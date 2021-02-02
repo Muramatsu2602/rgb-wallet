@@ -3,12 +3,6 @@ import axios from "axios"; //import axios to make
 // TODO: MAKE THIS WORK FOR ADMIN ROUTE!
 const logInUser = async (userLogin, password, isAdmin) => {
   try {
-    if (isAdmin) {
-      alert("ADMIN! Senha: " + password);
-    } else {
-      alert("USER!");
-    }
-
     const res = await axios.post("/", {
       userName: userLogin,
       password,
@@ -19,7 +13,6 @@ const logInUser = async (userLogin, password, isAdmin) => {
 
     localStorage.setItem("user", JSON.stringify({ userName, token }));
     return true;
-    
   } catch (error) {
     console.log(error);
     localStorage.removeItem("user");

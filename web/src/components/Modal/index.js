@@ -41,7 +41,6 @@ export const Modal = ({
           </button>
           <div className="modal-body">
             
-            {/* onChange={onChange} */}
             <Form onSubmit={onSubmit} />
           </div>
         </div>

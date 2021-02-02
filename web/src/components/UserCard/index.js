@@ -57,8 +57,9 @@ async function confirmDelete(e, name) {
 }
 
 export default function UserCard() {
+  
   const [id, setId] = useState(1);
-  const [name, setName] = useState("Fulano da Silva");
+  const [fullName, setFullName] = useState("Fulano da Silva");
   const [userName, setUserName] = useState("Fulanex2593");
   const [didSellProj, setDidSellProj] = useState(true);
   const [isExecutingProj, setIsExecutingProj] = useState(false); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
@@ -71,7 +72,7 @@ export default function UserCard() {
         <Button
           className="custom-btn "
           id="btn-delete"
-          onClick={(e) => confirmDelete(e, name)}
+          onClick={(e) => confirmDelete(e, fullName)}
         >
           <img src={TrashIcon} alt="trash icon" />
         </Button>
@@ -101,7 +102,7 @@ export default function UserCard() {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder={name}
+                    placeholder={fullName}
                   />
                 </Form.Group>
 
