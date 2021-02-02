@@ -10,14 +10,7 @@ import CornerArrow from "../../assets/images/corner-arrow-left.svg";
 
 import "./styles.css";
 
-export default function Header() {
-  // const [name, setName] = useState(""); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
-  // const [is_admin, setIsAdmin] = useState(false);
-
-  // TESTING
-  const [name, setName] = useState("Teste"); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
-  const [is_admin, setIsAdmin] = useState(true);
-
+export default function Header(props) {
   // Auth
   const [redirect, setRedirect] = useState(false);
 
@@ -57,11 +50,17 @@ export default function Header() {
         <img src={CornerLogo} alt="logo RGBWallet" />
       </div>
       <div className="hello-user">
-        <h1>{!is_admin ? `Olá, ${name}` : "Painel de Usuários"}</h1>
+        <h1>
+          {props.isAdmin 
+            ? "Painel de Usuários" 
+            : `Olá, ${props.fullName}`
+          }
+        </h1>
         <p>
-          {!is_admin
-            ? "Esta é sua carteira virtual"
-            : "Consulte e altere os dados dos usuários"}
+          {props.isAdmin
+            ? "Consulte e altere os dados dos usuários"
+            : "Esta é sua carteira virtual"
+          }
         </p>
       </div>
     </div>

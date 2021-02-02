@@ -29,7 +29,7 @@ export default function User() {
           userName: userLogado.userName,
         });
 
-        console.log("Hey", res.data.cash.$numberDecimal);
+        // console.log("Hey", res.data.cash.$numberDecimal);
         setUser(res.data);
       } catch (err) {
         setResponse("Error");
@@ -45,17 +45,14 @@ export default function User() {
   return (
     <div id="user-page">
       <div className="content-wrapper">
-        <Header />
+        <Header isAdmin={false} fullName={user.fullName} />
         <div className="body-wrapper">
           <div className="wallet-wrapper">
-            {/* BACKEND RESPONSE */}
-            <div className="welcome-msg">Olá {user.fullName},</div>
-
             <div className="current-balance">
               <h2>Saldo Atual</h2>
               <h1>
                 <NumberFormat
-                  value={user.cash.$numberDecimal}
+                  value={Number(user.cash.$numberDecimal)}
                   displayType={"text"}
                   thousandSeparator={"."}
                   decimalSeparator={","}

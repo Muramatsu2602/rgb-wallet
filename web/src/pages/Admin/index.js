@@ -104,7 +104,7 @@ export default function Admin() {
   return (
     <div id="admin-page">
       <div className="content-wrapper">
-        <Header />
+        <Header isAdmin={true} fullName="TEST_NAME"/>
         {/* Make search bar a component too? */}
         <div className="navbar-wrapper sticky">
           <div className="search-bar">
