@@ -1,9 +1,9 @@
 import "./styles.css";
 import React from "react";
 import { ToggleButton } from "../ToggleButton";
-import Switch from "react-switch";
 
 export const Form = ({ onSubmit }) => {
+ 
   return (
     <div className="cad-form-container">
       <h1>Cadastrar Usuário</h1>
@@ -21,14 +21,18 @@ export const Form = ({ onSubmit }) => {
         {/* Vendeu algum projeto esse mês? */}
         <div className="form-group">
           <label htmlFor="didSellProj">Vendeu algum projeto esse mês?</label>
-          <ToggleButton id="didSellProj" />
+          {/* <ToggleButton id="didSellProj" /> */}
+          <input id="didSellProj" className="custom-checkbox" type="checkbox"/>
+
         </div>
         {/* Está executando algum projeto? */}
         <div className="form-group">
           <label htmlFor="isExecutingProj">
             Está executando algum projeto?
           </label>
-          <ToggleButton id="isExecutingProj" />
+          {/* <ToggleButton id="isExecutingProj" /> */}
+          <input id="isExecutingProj" className="custom-checkbox" type="checkbox"/>
+
         </div>
         {/* Quantas semanas cumpriu as 10 horas semanais? */}
         <div className="form-group">

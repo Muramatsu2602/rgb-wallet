@@ -21,11 +21,12 @@ import { Container } from "../../components/Container";
 function addUserOnSubmit(event) {
   // event.preventDefault(event);
 
-  // alert(event.target.name.value);
-  // alert(event.target.userName.value);
+  alert(event.target.name.value);
+  alert(event.target.userName.value);
   alert("didSellProj?: " + event.target.didSellProj.checked);
-  // alert("isExecutingProj?: " + event.target.isExecutingProj.checked);
-  // alert(event.target.weeklyHours.value);
+  alert("isExecutingProj?: " + event.target.isExecutingProj.checked);
+  alert(event.target.weeklyHours.value);
+  
 }
 
 /**
