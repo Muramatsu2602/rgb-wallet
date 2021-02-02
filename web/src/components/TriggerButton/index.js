@@ -12,7 +12,7 @@ const Trigger = ({ triggerText, buttonRef, showModal }) => {
       id="triggerButton"
     >
       {triggerText}
-      <img src={CreateUserPic} alt="search arrow" />
+      <img src={CreateUserPic} className="margin-left-img" alt="search arrow" />
     </button>
   );
 };

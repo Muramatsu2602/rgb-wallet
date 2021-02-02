@@ -15,8 +15,8 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.post("/", UserController.login);
 server.post("/admin", UserController.createUser); // we create an user at /admin
 server.post("/searchUser", UserController.getUser);
-
-// server.get("/test", auth, UserController.getUser); 
+// server.get("/showUsers", UserController.getUsers);
+// server.delete("/deleteUser",UserController.deleteUser)
 
 server.listen(3003, () => {
   console.log("App listening on 3003");

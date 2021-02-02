@@ -68,14 +68,8 @@
   transition: background-color 0.2s !important;
 }
 
-.navbar-wrapper .custom-btn img {
-  margin-left: 1rem;
-}
-
 /* Specific customization  */
 #btn_search {
-  padding: 0%;
-
   width: 3.5rem !important;
   height: 3.5rem !important;
   border-radius: 25px !important;
@@ -125,4 +119,8 @@
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1rem !important;
   }
+}
+
+.margin-left-img {
+  margin-left: 1rem;
 }

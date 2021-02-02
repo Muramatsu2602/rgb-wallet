@@ -26,7 +26,6 @@ function addUserOnSubmit(event) {
   alert("didSellProj?: " + event.target.didSellProj.checked);
   alert("isExecutingProj?: " + event.target.isExecutingProj.checked);
   alert(event.target.weeklyHours.value);
-  
 }
 
 /**
@@ -104,7 +103,7 @@ export default function Admin() {
   return (
     <div id="admin-page">
       <div className="content-wrapper">
-        <Header isAdmin={true} fullName="TEST_NAME"/>
+        <Header isAdmin={true} fullName="TEST_NAME" />
         {/* Make search bar a component too? */}
         <div className="navbar-wrapper sticky">
           <div className="search-bar">
@@ -123,12 +122,12 @@ export default function Admin() {
             </Form>
           </div>
 
-          <div className="control-buttons">
-            <Container
-              triggerText="Cadastrar Usuário"
-              id="btnCadUser"
-              onSubmit={addUserOnSubmit}
-            ></Container>
+          <div className="control-buttons ">
+              <Container
+                triggerText="Cadastrar Usuário"
+                id="btnCadUser"
+                onSubmit={addUserOnSubmit}
+              ></Container>
             <Button
               className="custom-btn"
               id="btnAddCred"
@@ -136,7 +135,7 @@ export default function Admin() {
               variant="secondary"
             >
               Adicionar Crédito
-              <img src={AddMoneyPic} alt="search arrow" />
+              <img src={AddMoneyPic} className="margin-left-img" alt="search arrow" />
             </Button>{" "}
             <Button
               className="custom-btn "
@@ -145,7 +144,7 @@ export default function Admin() {
               variant="success"
             >
               Zerar Crédito
-              <img src={EraseMoney} alt="search arrow" />
+              <img src={EraseMoney} className="margin-left-img" alt="search arrow" />
             </Button>{" "}
           </div>
         </div>
