@@ -8,6 +8,7 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     trim: true,
+    lowercase: true,
   },
   password: {
     type: String,
@@ -28,6 +29,23 @@ const userSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  didSellProj: {
+    type: Boolean,
+    required: true,
+  },
+  isExecutingProj: {
+    type: Boolean,
+    required: true,
+  },
+  weeklyHours: {
+    type: Number,
+    required: true,
+  },
+  isAdmin: {
+    type: Boolean,
+    required: true,
+    default: false,
+  }
 
   // TODO: adding other fields that constitute the User
   // name: {
