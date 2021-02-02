@@ -9339,7 +9339,7 @@
     "strip-ansi" "6.0.0"
     "text-table" "0.2.0"
 
-"react-dom@^15.3.0 || ^16.0.0 || ^17.0.0", "react-dom@^17.0.1", "react-dom@>=15.0.0", "react-dom@>=16.0.0":
+"react-dom@^0.14 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0-0", "react-dom@^17.0.1":
   "integrity" "sha512-6eV150oJZ9U2t9svnsspTMrWNyHc6chX0KzDeAOXftRa8bNeOKTTfCJ7KorIwenkHd2xqVTBTCZd79yk/lx/Ug=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.1.tgz"
   "version" "17.0.1"
@@ -9392,6 +9392,13 @@
   "integrity" "sha1-cBW1InNfgXyAUN9bZVLljExqNdQ="
   "resolved" "https://registry.npmjs.org/react-link/-/react-link-1.0.3.tgz"
   "version" "1.0.3"
+
+"react-number-format@^4.4.4":
+  "integrity" "sha512-/MuF1GOs1Z0xBaQie8+TTqCxUTT8xxjc6RqIFVWcWB6FM8GNIenSh2ayzN6Y1J2WMcXUDVwMdDXjweHKVjXm/w=="
+  "resolved" "https://registry.npmjs.org/react-number-format/-/react-number-format-4.4.4.tgz"
+  "version" "4.4.4"
+  dependencies:
+    "prop-types" "^15.7.2"
 
 "react-overlays@^4.1.0":
   "integrity" "sha512-WtJifh081e6M24KnvTQoNjQEpz7HoLxqt8TwZM7LOYIkYJ8i/Ly1Xi7RVte87ZVnmqQ4PFaFiNHZhSINPSpdBQ=="
@@ -9525,7 +9532,7 @@
     "loose-envify" "^1.4.0"
     "prop-types" "^15.6.2"
 
-"react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^17.0.1", "react@>=15.0.0", "react@>=16.0.0":
+"react@^0.14 || ^15.0.0-0 || ^16.0.0-0 || ^17.0.0-0", "react@^17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"

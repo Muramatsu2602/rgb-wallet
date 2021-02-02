@@ -14,7 +14,7 @@ server.use(bodyParser.urlencoded({ extended: true }));
 
 server.post("/", UserController.login);
 server.post("/admin", UserController.createUser); // we create an user at /admin
-server.get("/search", UserController.getUser);
+server.post("/searchUser", UserController.getUser);
 
 // server.get("/test", auth, UserController.getUser); 
 

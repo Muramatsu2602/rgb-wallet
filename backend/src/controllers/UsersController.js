@@ -43,20 +43,22 @@ const createUser = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-  try{
+  try {
     const user = await User.findByCredentials(req.body.userName);
+
+    console.log("USER: ", user);
+
     if (!user) {
-      return res.status(404).send({ error: `User not found with ${req.body.userName}`});
+      return res
+        .status(404)
+        .send({ error: `User not found with ${req.body.userName}` });
     } else {
-      //console.log(user.cash);
-      return res.status(200).send(res.body.userName);
+      return res.status(200).send(user);
     }
-  }
-  catch(error){
+  } catch (error) {
     console.log(error);
-    return res.status(404).send({error});
+    return res.status(404).send({ error });
   }
-  
 };
 
 export default { login, createUser, getUser };

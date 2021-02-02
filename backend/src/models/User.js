@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema({
     trim: false,
   },
   cash: {
-    type: mongoose.Decimal128,
+    type: mongoose.Schema.Types.Decimal128,
     default: 0.0,
   },
   createdAt: {

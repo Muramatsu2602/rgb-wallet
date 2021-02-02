@@ -9,29 +9,35 @@ import { FaAngleDown } from "react-icons/fa";
 
 import Header from "../../components/Header/index";
 import CustomToggle from "../../components/CustomToggle/index";
-
 import { Button, Table, Accordion } from "react-bootstrap/";
 
-export default function User() {
-  const [saldo, setSaldo] = useState(1030.5); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
+import NumberFormat from "react-number-format";
 
+export default function User() {
   //   const [redirect, setRedirect] = useState(false); // IN HEADER!
+  const [user, setUser] = useState({
+    fullName: "",
+    cash: 0,
+  });
   const [response, setResponse] = useState("");
-  const [userName, setUserName] = useState(""); // login, setLogin --> in Notion
-  const [cash, setCash] = useState(0);
 
   useEffect(() => {
     const loadData = async () => {
       try {
-        const res = await axios.get("/search");
-        setResponse(res.data);
+        // post request using logged userName
+        const res = await axios.post("/searchUser", {
+          userName: userLogado.userName,
+        });
+
+        console.log("Hey", res.data.cash.$numberDecimal);
+        setUser(res.data);
       } catch (err) {
         setResponse("Error");
       }
     };
-    const user = Auth.isLogged();
-    setUserName(user.userName);
-    setCash(user.cash);
+
+    // retrieving from localStorage
+    const userLogado = Auth.isLogged();
 
     loadData();
   }, []);
@@ -43,11 +49,19 @@ export default function User() {
         <div className="body-wrapper">
           <div className="wallet-wrapper">
             {/* BACKEND RESPONSE */}
-            <div className="welcome-msg">Hey {userName},</div>
+            <div className="welcome-msg">Olá {user.fullName},</div>
 
             <div className="current-balance">
               <h2>Saldo Atual</h2>
-              <h1>R$ {response}</h1>
+              <h1>
+                <NumberFormat
+                  value={user.cash.$numberDecimal}
+                  displayType={"text"}
+                  thousandSeparator={"."}
+                  decimalSeparator={","}
+                  prefix={"R$ "}
+                />
+              </h1>
             </div>
 
             <div className="transaction-history-wrapper">
