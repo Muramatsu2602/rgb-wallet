@@ -24,7 +24,6 @@ export default function User() {
       try {
         const res = await axios.get("/test");
         setResponse(res.data);
-
       } catch (err) {
         setResponse("Error");
       }
@@ -42,8 +41,8 @@ export default function User() {
         <div className="body-wrapper">
           <div className="wallet-wrapper">
             {/* BACKEND RESPONSE */}
-            {/* <div className="welcome-msg">{response}</div> */}
-            
+            <div className="welcome-msg">Hey {userName},</div>
+
             <div className="current-balance">
               <h2>Saldo Atual</h2>
               <h1>R$ {response}</h1>
