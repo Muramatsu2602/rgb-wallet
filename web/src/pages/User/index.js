@@ -18,6 +18,7 @@ export default function User() {
   //   const [redirect, setRedirect] = useState(false); // IN HEADER!
   const [response, setResponse] = useState("");
   const [userName, setUserName] = useState(""); // login, setLogin --> in Notion
+  const [cash, setCash] = useState(0);
 
   useEffect(() => {
     const loadData = async () => {
@@ -30,6 +31,7 @@ export default function User() {
     };
     const user = Auth.isLogged();
     setUserName(user.userName);
+    setCash(user.cash);
 
     loadData();
   }, []);
