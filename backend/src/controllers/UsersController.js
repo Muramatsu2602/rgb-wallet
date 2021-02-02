@@ -49,7 +49,7 @@ const getUser = async (req, res) => {
       return res.status(404).send({ error: `User not found with ${req.body.userName}`});
     } else {
       //console.log(user.cash);
-      return res.status(200).send({user});
+      return res.status(200).send(res.body.userName);
     }
   }
   catch(error){

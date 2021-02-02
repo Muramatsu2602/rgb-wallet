@@ -22,7 +22,7 @@ export default function User() {
   useEffect(() => {
     const loadData = async () => {
       try {
-        const res = await axios.get("/test");
+        const res = await axios.get("/search");
         setResponse(res.data);
       } catch (err) {
         setResponse("Error");
