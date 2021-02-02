@@ -43,13 +43,20 @@ const createUser = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-  const user = await User.findByCredentials(req.body.userName);
-
-  if (user) {
-    console.log(user);
-  } else {
-    console.log("ERROR!");
+  try{
+    const user = await User.findByCredentials(req.body.userName);
+    if (!user) {
+      console.log(`User not found with ${req.body.userName}`);
+    } else {
+      console.log(user);
+      return res.status(200).send({user});
+    }
   }
+  catch(error){
+    console.log(error);
+    return res.status(404).send({error});
+  }
+  
 };
 
 export default { login, createUser, getUser };
