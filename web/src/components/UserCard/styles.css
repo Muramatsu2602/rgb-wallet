@@ -12,6 +12,10 @@
   padding: 1rem;
 }
 
+.bool-img{
+  height: 2rem!important;
+}
+
 .card-header {
   width: 32rem;
   display: flex;

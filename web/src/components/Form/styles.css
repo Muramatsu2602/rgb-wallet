@@ -53,3 +53,10 @@
   background-color: var(--color-input-background) !important;
   box-sizing: border-box !important;
 }
+
+
+.cad-form-container .form-group{
+ display: flex;
+ flex-direction: column;
+ justify-content: space-between;
+}

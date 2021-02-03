@@ -45,6 +45,9 @@ async function confirmDelete(e, name) {
     cancelButtonText: "Cancelar!",
   }).then((result) => {
     if (result.isConfirmed) {
+
+      // await ...
+
       Swal.fire(
         `Usuário deletado com sucesso!`,
         `Tchau, '${name}'...`,
@@ -56,23 +59,17 @@ async function confirmDelete(e, name) {
   console.log("ASSAS");
 }
 
-export default function UserCard() {
+export default function UserCard(props) {
   
-  const [id, setId] = useState(1);
-  const [fullName, setFullName] = useState("Fulano da Silva");
-  const [userName, setUserName] = useState("Fulanex2593");
-  const [didSellProj, setDidSellProj] = useState(true);
-  const [isExecutingProj, setIsExecutingProj] = useState(false); // MUDAR ASSIM QUE ESTIVER FUNCIONANDO!
-  const [weeklyHours, setWeeklyHours] = useState(1000);
 
   return (
     <div id="custom-card">
       <div className="btn-delete-container">
-        <p>ID: {id}</p>
+        <p>ID: {props.id}</p>
         <Button
           className="custom-btn "
           id="btn-delete"
-          onClick={(e) => confirmDelete(e, fullName)}
+          onClick={(e) => confirmDelete(e, props.fullName)}
         >
           <img src={TrashIcon} alt="trash icon" />
         </Button>
@@ -80,8 +77,8 @@ export default function UserCard() {
 
       <div className="card-header">
         <div className="current-balance">
-          <p>Fulano Da Silva</p>
-          <h1>R$ 2000,00</h1>
+          <p>{props.fullName}</p>
+          <h1>R${props.cash}</h1>
         </div>
         <img src={ProfilePic} />
       </div>
@@ -102,7 +99,7 @@ export default function UserCard() {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder={fullName}
+                    placeholder={props.fullName}
                   />
                 </Form.Group>
 
@@ -113,7 +110,7 @@ export default function UserCard() {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder={userName}
+                    placeholder={props.userName}
                   />
                 </Form.Group>
 
@@ -121,14 +118,14 @@ export default function UserCard() {
                   <Form.Label className="custom-card-lbl">
                     Venda de projeto nesse mês?
                   </Form.Label>
-                  <img src={didSellProj ? TrueIcon : FalseIcon} />
+                  <img class="bool-img"src={props.didSellProj ? TrueIcon : FalseIcon} />
                 </Form.Group>
 
                 <Form.Group controlId="formIsExecProj">
                   <Form.Label className="custom-card-lbl">
                     Algum projeto em execução?
                   </Form.Label>
-                  <img src={isExecutingProj ? TrueIcon : FalseIcon} />
+                  <img class="bool-img"src={props.isExecutingProj ? TrueIcon : FalseIcon} />
                 </Form.Group>
 
                 <Form.Group controlId="formHowManyWeeks">
@@ -138,14 +135,13 @@ export default function UserCard() {
                   <Form.Control
                     className="custom-card-input"
                     type="number"
-                    placeholder={weeklyHours}
+                    placeholder={props.weeklyHours}
                   />
                 </Form.Group>
 
                 <div className="form-buttons">
                   <Button
                     // Disable if one of the fields is untouched
-                    // {disabled}
                     className="custom-card-btn"
                     variant="primary"
                     type="submit"
