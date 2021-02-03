@@ -73,12 +73,13 @@
 .switch-label {
   display: block;
   width: 52px !important;
-  height: 26px !important;
+  height: 3rem !important;
   text-indent: -150%;
   clip: rect(0 0 0 0);
   color: transparent;
   user-select: none;
 }
+
 .switch-label::before,
 .switch-label::after {
   content: "";
@@ -89,19 +90,19 @@
 .switch-label::before {
   width: 55px !important;
   height: 3.5rem !important;
-  background-color: var(--color-input-background);
+  background-color: var(--color-red);
   border-radius: 9999em;
   -webkit-transition: background-color 0.25s ease;
   transition: background-color 0.25s ease;
 }
 .switch-label::after {
   top: 0.2rem;
-  left: 0rem;
+  left: 0.1rem;
   right: 0rem;
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #fff;
+  background-color: var(--color-input-background);
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
   -webkit-transition: left 0.25s ease;
   transition: left 0.25s ease;
