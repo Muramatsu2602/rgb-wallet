@@ -23,43 +23,53 @@ import { FaAngleDown } from "react-icons/fa";
 
 import "./styles.css";
 
-async function handleUserUpdate(e) {
-  e.preventDefault();
-
-  try {
-    // const response = await api
-    console.log("only a sketch of the handle the update user form");
-  } catch (e) {
-    await Swal.fire("Erro no Login", `Detalhes=${e.message}`, "error");
-  }
-}
-
-async function confirmDelete(e, name) {
-  Swal.fire({
-    title: `Deletar Usuário`,
-    text: `Deseja mesmo deletar ${name}?`,
-    icon: "error",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Sim!",
-    cancelButtonText: "Cancelar!",
-  }).then((result) => {
-    if (result.isConfirmed) {
-      // await ...
-
-      Swal.fire(
-        `Usuário deletado com sucesso!`,
-        `Tchau, '${name}'...`,
-        "success"
-      );
-    }
-  });
-
-  console.log("ASSAS");
-}
-
 export default function UserCard(props) {
+
+  /**
+   * updating user's data when submiting form
+   * @param {*} e 
+   */
+  async function handleUserUpdate(e) {
+    e.preventDefault();
+
+    try {
+      // const response = await api
+      console.log("only a sketch of the handle the update user form");
+    } catch (e) {
+      await Swal.fire("Erro no Login", `Detalhes=${e.message}`, "error");
+    }
+  }
+
+  /**
+   * User deletion using their name
+   * @param {*} e 
+   * @param {*} name 
+   */
+  async function confirmDelete(e, name) {
+    Swal.fire({
+      title: `Deletar Usuário`,
+      text: `Deseja mesmo deletar ${name}?`,
+      icon: "error",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Sim!",
+      cancelButtonText: "Cancelar!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // await ...
+
+        Swal.fire(
+          `Usuário deletado com sucesso!`,
+          `Tchau, '${name}'...`,
+          "success"
+        );
+      }
+    });
+
+    console.log("ASSAS");
+  }
+
   return (
     <div id="custom-card">
       <div className="btn-delete-container">
