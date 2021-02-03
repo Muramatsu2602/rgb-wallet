@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import NumberFormat from "react-number-format";
 
 import CustomToggle from "../CustomToggle/index";
 
@@ -45,7 +46,6 @@ async function confirmDelete(e, name) {
     cancelButtonText: "Cancelar!",
   }).then((result) => {
     if (result.isConfirmed) {
-
       // await ...
 
       Swal.fire(
@@ -60,8 +60,6 @@ async function confirmDelete(e, name) {
 }
 
 export default function UserCard(props) {
-  
-
   return (
     <div id="custom-card">
       <div className="btn-delete-container">
@@ -78,7 +76,17 @@ export default function UserCard(props) {
       <div className="card-header">
         <div className="current-balance">
           <p>{props.fullName}</p>
-          <h1>R${props.cash}</h1>
+          <h1>
+            {" "}
+            <NumberFormat
+              // value={Number(props.cash.$numberDecimal)}
+              value={Number(props.cash)}
+              displayType={"text"}
+              thousandSeparator={"."}
+              decimalSeparator={","}
+              prefix={"R$ "}
+            />
+          </h1>
         </div>
         <img src={ProfilePic} />
       </div>
@@ -118,14 +126,20 @@ export default function UserCard(props) {
                   <Form.Label className="custom-card-lbl">
                     Venda de projeto nesse mês?
                   </Form.Label>
-                  <img class="bool-img"src={props.didSellProj ? TrueIcon : FalseIcon} />
+                  <img
+                    class="bool-img"
+                    src={props.didSellProj ? TrueIcon : FalseIcon}
+                  />
                 </Form.Group>
 
                 <Form.Group controlId="formIsExecProj">
                   <Form.Label className="custom-card-lbl">
                     Algum projeto em execução?
                   </Form.Label>
-                  <img class="bool-img"src={props.isExecutingProj ? TrueIcon : FalseIcon} />
+                  <img
+                    class="bool-img"
+                    src={props.isExecutingProj ? TrueIcon : FalseIcon}
+                  />
                 </Form.Group>
 
                 <Form.Group controlId="formHowManyWeeks">

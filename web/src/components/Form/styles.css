@@ -54,9 +54,61 @@
   box-sizing: border-box !important;
 }
 
+.cad-form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-.cad-form-container .form-group{
- display: flex;
- flex-direction: column;
- justify-content: space-between;
+/*
+  CHECKBOX
+*/
+.switch {
+  position: relative !important;
+  display: inline-block !important;
+}
+.switch-input {
+  display: none !important;
+}
+.switch-label {
+  display: block;
+  width: 52px !important;
+  height: 26px !important;
+  text-indent: -150%;
+  clip: rect(0 0 0 0);
+  color: transparent;
+  user-select: none;
+}
+.switch-label::before,
+.switch-label::after {
+  content: "";
+  display: block !important;
+  position: absolute !important;
+  cursor: pointer;
+}
+.switch-label::before {
+  width: 55px !important;
+  height: 3.5rem !important;
+  background-color: var(--color-input-background);
+  border-radius: 9999em;
+  -webkit-transition: background-color 0.25s ease;
+  transition: background-color 0.25s ease;
+}
+.switch-label::after {
+  top: 0.2rem;
+  left: 0rem;
+  right: 0rem;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+  -webkit-transition: left 0.25s ease;
+  transition: left 0.25s ease;
+}
+.switch-input:checked + .switch-label::before {
+  background-color: var(--color-green);
+}
+.switch-input:checked + .switch-label::after {
+  left: 24px;
 }

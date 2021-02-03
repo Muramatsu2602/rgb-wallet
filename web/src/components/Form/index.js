@@ -3,7 +3,6 @@ import React from "react";
 import { ToggleButton } from "../ToggleButton";
 
 export const Form = ({ onSubmit }) => {
- 
   return (
     <div className="cad-form-container">
       <h1>Cadastrar Usuário</h1>
@@ -18,22 +17,33 @@ export const Form = ({ onSubmit }) => {
           <label htmlFor="userName">Nome de Usuário</label>
           <input required className="form-control" id="userName" />
         </div>
-        {/* Vendeu algum projeto esse mês? */}
-        <div className="form-group">
-          <label htmlFor="didSellProj">Vendeu algum projeto esse mês?</label>
-          {/* <ToggleButton id="didSellProj" /> */}
-          <input id="didSellProj" className="custom-checkbox" type="checkbox"/>
 
+        {/* Vendeu algum projeto esse mês? */}
+        {/* <ToggleButton id="didSellProj" /> */}
+        <div className="form-group">
+          <label htmlFor="didSellProj"> Vendeu algum projeto esse mês?</label>
+          <div class="switch">
+            <input id="didSellProj" type="checkbox" class="switch-input" />
+            <label for="didSellProj" class="switch-label">
+              Switch
+            </label>
+          </div>
         </div>
+
         {/* Está executando algum projeto? */}
+        {/* <ToggleButton id="isExecutingProj" /> */}
         <div className="form-group">
           <label htmlFor="isExecutingProj">
             Está executando algum projeto?
           </label>
-          {/* <ToggleButton id="isExecutingProj" /> */}
-          <input id="isExecutingProj" className="custom-checkbox" type="checkbox"/>
-
+          <div class="switch">
+            <input id="isExecutingProj" type="checkbox" class="switch-input" />
+            <label for="isExecutingProj" class="switch-label">
+              Switch
+            </label>
+          </div>
         </div>
+
         {/* Quantas semanas cumpriu as 10 horas semanais? */}
         <div className="form-group">
           <label htmlFor="weeklyHours">
