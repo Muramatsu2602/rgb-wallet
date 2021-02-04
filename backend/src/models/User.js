@@ -78,14 +78,11 @@ userSchema.statics.findByCredentials = async (userName, password, isAdmin) => {
 /**
  * Method to get all users from DB
  */
-userSchema.statics.find = async () => {
-  
-  // const users = await User.find({
-  //   isAdmin: { $exists: true },
-  // }).exec();
+userSchema.statics.findAllUsers = async (isAdminField) => {
 
-  const users = await User.find({});
-
+  const users = await User.find({
+    isAdmin: isAdminField,
+  });
   if (!users) return undefined;
 
   return users;
@@ -105,6 +102,5 @@ userSchema.pre("save", async function (next) {
 
 // Creating the model and exporting it
 const User = mongoose.model("User", userSchema);
-// module.exports = User;
 
 export default User;

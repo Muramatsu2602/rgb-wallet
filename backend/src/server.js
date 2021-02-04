@@ -15,7 +15,7 @@ server.use(bodyParser.urlencoded({ extended: true }));
 server.post("/", UserController.login);
 server.post("/admin", UserController.createUser);
 server.post("/searchUser", UserController.getUser);
-server.get("/showUsers", UserController.getAllUsers);
+server.get("/allUsers", UserController.getUsers);
 // server.delete("/deleteUser",UserController.deleteUser)
 
 server.listen(3003, () => {

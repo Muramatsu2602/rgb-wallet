@@ -82,23 +82,16 @@ const getUser = async (req, res) => {
  * @param {*} req
  * @param {*} res
  */
-const getAllUsers = async (req, res) => {
+const getUsers = async (req, res) => {
   try {
-    const users = await User.find();
-    
-    console.log("ALL USERS", users);
 
-    if (!user) {
-      return res
-        .status(404)
-        .send({ error: `User not found with ${req.body.userName}` });
-    } else {
-      return res.status(200).send(user);
-    }
-  } catch (error) {
-    console.log(error);
-    return res.status(404).send({ error });
+    const users = await User.findAllUsers(false);
+
+    console.log("users", users);
+    return res.status(200).send(users);
+  } catch (e) {
+    console.log("erro", e);
   }
 };
 
-export default { login, createUser, getUser, getAllUsers };
+export default { login, createUser, getUser, getUsers };
