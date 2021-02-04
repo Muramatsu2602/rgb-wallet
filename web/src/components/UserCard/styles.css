@@ -10,6 +10,14 @@
 
   border: 0.2rem solid var(--color-primary-light);
   padding: 1rem;
+
+  transition: border 0.3s !important;
+}
+
+#custom-card:hover {
+  
+  border: 2px solid var(--color-red-lighter);
+  /* box-shadow: 3px 3px 3px #999; */
 }
 
 .bool-img {

@@ -178,7 +178,7 @@ export default function Admin() {
               <InputGroup>
                 <FormControl
                   className="custom-input"
-                  placeholder="Pesquisar..."
+                  placeholder="Pesquisar por nome..."
                   aria-label="Username"
                   aria-describedby="basic-addon1"
                 />
