@@ -1,5 +1,10 @@
 import User from "../models/User";
 
+/**
+ * checks credentials are grants acess to system
+ * @param {*} req
+ * @param {*} res
+ */
 const login = async (req, res) => {
   try {
     // checks in db to see if credentials are valid
@@ -20,6 +25,11 @@ const login = async (req, res) => {
   }
 };
 
+/**
+ * creates a new user from the admin/ pannel
+ * @param {*} req
+ * @param {*} res
+ */
 const createUser = async (req, res) => {
   try {
     const user = new User({
@@ -43,11 +53,16 @@ const createUser = async (req, res) => {
   }
 };
 
+/**
+ * returns information regarding a single user given their userName. It's used on the /user page
+ * @param {*} req
+ * @param {*} res
+ */
 const getUser = async (req, res) => {
   try {
     const user = await User.findByCredentials(req.body.userName);
 
-    console.log("USER: ", user);
+    // console.log("USER: ", user);
 
     if (!user) {
       return res
@@ -62,4 +77,19 @@ const getUser = async (req, res) => {
   }
 };
 
-export default { login, createUser, getUser };
+/**
+ * returns all users (those with !isAdmin) on the database
+ * @param {*} req 
+ * @param {*} res 
+ */
+const getAllUsers = async (req, res) => {
+  try {
+    
+  } catch (error) {
+    console.log(error);
+    return res.status(404).send({ error });
+  }
+
+};
+
+export default { login, createUser, getUser, getAllUsers };

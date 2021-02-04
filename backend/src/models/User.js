@@ -59,7 +59,7 @@ userSchema.methods.generateAuthToken = async function () {
 };
 
 /**
- * Method to create an User based on their username and password
+ * Method to return an User based on their username and password
  * @param {*} userName
  * @param {*} password
  */
