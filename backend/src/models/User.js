@@ -45,7 +45,7 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     required: true,
     default: false,
-  }
+  },
 });
 
 /**
@@ -73,6 +73,22 @@ userSchema.statics.findByCredentials = async (userName, password, isAdmin) => {
   }
 
   return user;
+};
+
+/**
+ * Method to get all users from DB
+ */
+userSchema.statics.find = async () => {
+  
+  // const users = await User.find({
+  //   isAdmin: { $exists: true },
+  // }).exec();
+
+  const users = await User.find({});
+
+  if (!users) return undefined;
+
+  return users;
 };
 
 /**

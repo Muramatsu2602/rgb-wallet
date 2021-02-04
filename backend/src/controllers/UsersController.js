@@ -79,17 +79,26 @@ const getUser = async (req, res) => {
 
 /**
  * returns all users (those with !isAdmin) on the database
- * @param {*} req 
- * @param {*} res 
+ * @param {*} req
+ * @param {*} res
  */
 const getAllUsers = async (req, res) => {
   try {
+    const users = await User.find();
     
+    console.log("ALL USERS", users);
+
+    if (!user) {
+      return res
+        .status(404)
+        .send({ error: `User not found with ${req.body.userName}` });
+    } else {
+      return res.status(200).send(user);
+    }
   } catch (error) {
     console.log(error);
     return res.status(404).send({ error });
   }
-
 };
 
 export default { login, createUser, getUser, getAllUsers };
