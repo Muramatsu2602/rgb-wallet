@@ -1,15 +1,12 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React from "react";
 import Swal from "sweetalert2";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import NumberFormat from "react-number-format";
 
 import CustomToggle from "../CustomToggle/index";
 
 import {
   Button,
-  Card,
-  ListGroup,
-  ListGroupItem,
   Accordion,
   Form,
 } from "react-bootstrap/";
@@ -98,7 +95,7 @@ export default function UserCard(props) {
             />
           </h1>
         </div>
-        <img src={ProfilePic} />
+        <img src={ProfilePic} alt="profile"/>
       </div>
 
       <div className="card-body">
@@ -137,8 +134,9 @@ export default function UserCard(props) {
                     Venda de projeto nesse mês?
                   </Form.Label>
                   <img
-                    class="bool-img"
+                    className="bool-img"
                     src={props.didSellProj ? TrueIcon : FalseIcon}
+                    alt ="boolean"
                   />
                 </Form.Group>
 
@@ -147,8 +145,9 @@ export default function UserCard(props) {
                     Algum projeto em execução?
                   </Form.Label>
                   <img
-                    class="bool-img"
+                    className="bool-img"
                     src={props.isExecutingProj ? TrueIcon : FalseIcon}
+                    alt ="boolean"
                   />
                 </Form.Group>
 

@@ -1,7 +1,7 @@
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import Auth from "../../services/AuthService";
 import { Redirect } from "react-router-dom";
 

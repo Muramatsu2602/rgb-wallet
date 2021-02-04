@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -22,41 +23,39 @@ export default function Admin() {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
-  const users = [
-    {
-      id: 1,
-      isAdmin: false,
-      fullName: "Pedro Soares",
-      userName: "user1",
-      didSellProj: false,
-      isExecutingProj: false,
-      weeklyHours: 10,
-      createdAt: "19/02/22",
-      cash: 10.32,
-    },
-    {
-      id: 2,
-      isAdmin: false,
-      fullName: "Johnson McRibs",
-      userName: "user2",
-      didSellProj: false,
-      isExecutingProj: true,
-      weeklyHours: 10,
-      createdAt: "19/02/22",
-      cash: 100032.89,
-    },
-    {
-      id: 3,
-      isAdmin: false,
-      fullName: "Maria Smith",
-      userName: "user3",
-      didSellProj: true,
-      isExecutingProj: true,
-      weeklyHours: 132,
-      createdAt: "19/02/22",
-      cash: 1990.34,
-    },
-  ];
+  // All users from DB
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const res = await axios.get("/allUsers");
+
+        console.log("hey", res.data);
+        setUsers(res.data);
+
+        setSuccess(true);
+        setError(false);
+
+        setResponse("Displaying all users!");
+
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: response,
+          showConfirmButton: false,
+          timer: 1000
+        })
+      } catch (err) {
+        setResponse("Error");
+      }
+    };
+
+    // retrieving from localStorage
+    // const userLogado = Auth.isLogged();
+
+    loadData();
+  }, []);
 
   /**
    * onSubmit function for addUserForm
@@ -218,8 +217,9 @@ export default function Admin() {
         </div>
 
         <div className="body-wrapper">
-          {users.map((user, index) => (
-            <UserCard id={index} {...user} />
+          {error && <span style={{ color: "red"}}>Erro ao carregar usuários!</span>}
+          {success && users.map((user, index) => (
+            <UserCard key={index} {...user} />
           ))}
         </div>
       </div>

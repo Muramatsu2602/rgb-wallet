@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-
-import axios from "axios";
 import Auth from "../../services/AuthService";
-
-import { Link } from "react-router-dom";
 import { Redirect } from "react-router-dom";
 
 import logoImg from "../../assets/images/login-logo.svg";
