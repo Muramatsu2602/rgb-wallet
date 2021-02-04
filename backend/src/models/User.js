@@ -94,6 +94,20 @@ userSchema.statics.findAllUsers = async (isAdminField) => {
 };
 
 /**
+ * method to delete an user given their userName
+ */
+userSchema.statics.deleteUser = async (userName) => {
+  // https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/
+  const response = await User.deleteOne({ userName });
+
+  console.log("HEY MEU CHAPA", users);
+  if (!response) return undefined;
+
+  // boolean
+  return response;
+};
+
+/**
  * method that shall be called before saving the user, so that we cryptograph the password
  */
 userSchema.pre("save", async function (next) {

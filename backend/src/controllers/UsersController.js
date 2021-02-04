@@ -95,4 +95,21 @@ const getUsers = async (req, res) => {
   }
 };
 
-export default { login, createUser, getUser, getUsers };
+/**
+ * deletes user given their userName
+ * @param {} req 
+ * @param {*} res 
+ */
+const deleteUser = async (req,res) => {
+  try {
+
+    const result = await User.deleteUser(req.body.userName);
+
+    console.log("Deleted?:", result);
+    return res.status(200).send(result);
+  } catch (e) {
+    console.log("erro", e);
+  }
+};
+
+export default { login, createUser, getUser, getUsers, deleteUser };

@@ -37,10 +37,10 @@ export default function UserCard(props) {
    * @param {*} e
    * @param {*} name
    */
-  async function confirmDelete(e, name) {
+  async function confirmDelete(e,props) {
     Swal.fire({
       title: `Deletar Usuário`,
-      text: `Deseja mesmo deletar ${name}?`,
+      text: `Deseja mesmo deletar ${props.fullName}?`,
       icon: "error",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -49,13 +49,23 @@ export default function UserCard(props) {
       cancelButtonText: "Cancelar!",
     }).then((result) => {
       if (result.isConfirmed) {
-        // await ...
+        try {
+          
+          // TODO: auth?
+          // const res = await axios.delete("/deleteUser", props.userName);
 
-        Swal.fire(
-          `Usuário deletado com sucesso!`,
-          `Tchau, '${name}'...`,
-          "success"
-        );
+          Swal.fire(
+            `Usuário deletado com sucesso!`,
+            `Tchau, '${props.fullName}'...`,
+            "success"
+          );
+        } catch (error) {
+          Swal.fire(
+            `Erro ao apagar Usuário!`,
+            `'${props.fullName}' continua aqui...`,
+            "error"
+          );
+        }
       }
     });
 
@@ -72,7 +82,7 @@ export default function UserCard(props) {
         <Button
           className="custom-btn "
           id="btn-delete"
-          onClick={(e) => confirmDelete(e, props.fullName)}
+          onClick={(e) => confirmDelete(e, props)}
         >
           <img src={TrashIcon} alt="trash icon" />
         </Button>
