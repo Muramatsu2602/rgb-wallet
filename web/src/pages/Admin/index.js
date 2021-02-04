@@ -228,8 +228,9 @@ export default function Admin() {
           {error && (
             <span style={{ color: "red" }}>Erro ao carregar usuários!</span>
           )}
+          {/* using chave=index to avoid error when displaying that */}
           {success &&
-            users.map((user, index) => <UserCard key={index} {...user} />)}
+            users.map((user, index) => <UserCard key={index} chave={index} {...user} />)}
         </div>
       </div>
     </div>

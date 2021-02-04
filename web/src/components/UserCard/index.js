@@ -1,10 +1,10 @@
 import React from "react";
 import Swal from "sweetalert2";
-// import { Link } from "react-router-dom";
+
 import NumberFormat from "react-number-format";
+import Moment from "react-moment";
 
 import CustomToggle from "../CustomToggle/index";
-
 import { Button, Accordion, Form } from "react-bootstrap/";
 
 import ProfilePic from "../../assets/images/profile-icon.svg";
@@ -65,12 +65,10 @@ export default function UserCard(props) {
   return (
     <div id="custom-card">
       <div className="btn-delete-container">
-        <p>({props.createdAt})</p>
-
-        {/* IF THIS IS NEEDED change justify-content to space-between */}
-        {/* {!props.isAdmin && <p>User</p>}
-        {props.isAdmin && <p> Admin</p>} */}
-
+        <p>ID: {props.chave}</p>
+        <span>
+          Joined: <Moment format="DD/MM/YY">{props.createdAt}</Moment>
+        </span>
         <Button
           className="custom-btn "
           id="btn-delete"
