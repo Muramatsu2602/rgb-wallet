@@ -26,6 +26,9 @@ export default function Admin() {
   // All users from DB
   const [users, setUsers] = useState([]);
 
+  /**
+   * loading all users as cards in the page
+   */
   useEffect(() => {
     const loadData = async () => {
       try {
@@ -34,20 +37,30 @@ export default function Admin() {
         console.log("hey", res.data);
         setUsers(res.data);
 
+        // setting statuses
         setSuccess(true);
         setError(false);
-
         setResponse("Displaying all users!");
 
         Swal.fire({
-          position: 'top-end',
-          icon: 'success',
+          position: "top-end",
+          icon: "success",
           title: response,
           showConfirmButton: false,
-          timer: 1000
-        })
+          timer: 1000,
+        });
       } catch (err) {
-        setResponse("Error");
+        setSuccess(false);
+        setError(true);
+        setResponse("Could not load all users!");
+
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: response,
+          showConfirmButton: false,
+          timer: 1000,
+        });
       }
     };
 
@@ -217,10 +230,11 @@ export default function Admin() {
         </div>
 
         <div className="body-wrapper">
-          {error && <span style={{ color: "red"}}>Erro ao carregar usuários!</span>}
-          {success && users.map((user, index) => (
-            <UserCard key={index} {...user} />
-          ))}
+          {error && (
+            <span style={{ color: "red" }}>Erro ao carregar usuários!</span>
+          )}
+          {success &&
+            users.map((user, index) => <UserCard key={index} {...user} />)}
         </div>
       </div>
     </div>
