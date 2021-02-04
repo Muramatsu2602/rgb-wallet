@@ -10,25 +10,23 @@ const userSchema = new mongoose.Schema({
     trim: true,
     lowercase: true,
   },
+  fullName: {
+    type: String,
+    required: true,
+    trim: false,
+  },
   password: {
     type: String,
     required: false,
     trim: true,
     minlength: 6,
   },
-  fullName: {
-    type: String,
+  isAdmin: {
+    type: Boolean,
     required: true,
-    trim: false,
+    default: false,
   },
-  cash: {
-    type: mongoose.Schema.Types.Decimal128,
-    required: true,
-  },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-  },
+
   didSellProj: {
     type: Boolean,
     required: true,
@@ -41,10 +39,13 @@ const userSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  isAdmin: {
-    type: Boolean,
+  cash: {
+    type: mongoose.Schema.Types.Decimal128,
     required: true,
-    default: false,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
   },
 });
 
@@ -82,6 +83,9 @@ userSchema.statics.findAllUsers = async (isAdminField) => {
   const users = await User.find({
     isAdmin: isAdminField,
   });
+
+  // find all
+  // const users = await User.find({});
 
   console.log("HEY MEU CHAPA", users);
   if (!users) return undefined;

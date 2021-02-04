@@ -62,9 +62,6 @@ export default function Admin() {
       }
     };
 
-    // retrieving from localStorage
-    // const userLogado = Auth.isLogged();
-
     loadData();
   }, []);
 

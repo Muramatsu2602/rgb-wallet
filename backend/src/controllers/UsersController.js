@@ -41,6 +41,7 @@ const createUser = async (req, res) => {
       isExecutingProj: req.body.isExecutingProj,
       weeklyHours: req.body.weeklyHours,
       cash: req.body.cash,
+      createdAt: req.body.createdAt
     });
 
     await user.save();

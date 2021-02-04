@@ -5,11 +5,7 @@ import NumberFormat from "react-number-format";
 
 import CustomToggle from "../CustomToggle/index";
 
-import {
-  Button,
-  Accordion,
-  Form,
-} from "react-bootstrap/";
+import { Button, Accordion, Form } from "react-bootstrap/";
 
 import ProfilePic from "../../assets/images/profile-icon.svg";
 import TrashIcon from "../../assets/images/trash-icon.svg";
@@ -21,10 +17,9 @@ import { FaAngleDown } from "react-icons/fa";
 import "./styles.css";
 
 export default function UserCard(props) {
-
   /**
    * updating user's data when submiting form
-   * @param {*} e 
+   * @param {*} e
    */
   async function handleUserUpdate(e) {
     e.preventDefault();
@@ -39,8 +34,8 @@ export default function UserCard(props) {
 
   /**
    * User deletion using their name
-   * @param {*} e 
-   * @param {*} name 
+   * @param {*} e
+   * @param {*} name
    */
   async function confirmDelete(e, name) {
     Swal.fire({
@@ -70,7 +65,12 @@ export default function UserCard(props) {
   return (
     <div id="custom-card">
       <div className="btn-delete-container">
-        <p>ID: {props.id}</p>
+        <p>({props.createdAt})</p>
+
+        {/* IF THIS IS NEEDED change justify-content to space-between */}
+        {/* {!props.isAdmin && <p>User</p>}
+        {props.isAdmin && <p> Admin</p>} */}
+
         <Button
           className="custom-btn "
           id="btn-delete"
@@ -95,7 +95,7 @@ export default function UserCard(props) {
             />
           </h1>
         </div>
-        <img src={ProfilePic} alt="profile"/>
+        <img src={ProfilePic} alt="profile" />
       </div>
 
       <div className="card-body">
@@ -136,7 +136,7 @@ export default function UserCard(props) {
                   <img
                     className="bool-img"
                     src={props.didSellProj ? TrueIcon : FalseIcon}
-                    alt ="boolean"
+                    alt="boolean"
                   />
                 </Form.Group>
 
@@ -147,7 +147,7 @@ export default function UserCard(props) {
                   <img
                     className="bool-img"
                     src={props.isExecutingProj ? TrueIcon : FalseIcon}
-                    alt ="boolean"
+                    alt="boolean"
                   />
                 </Form.Group>
 
