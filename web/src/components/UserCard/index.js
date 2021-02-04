@@ -37,7 +37,7 @@ export default function UserCard(props) {
    * @param {*} e
    * @param {*} name
    */
-  async function confirmDelete(e,props) {
+  async function confirmDelete(e, props) {
     Swal.fire({
       title: `Deletar Usuário`,
       text: `Deseja mesmo deletar ${props.fullName}?`,
@@ -50,7 +50,6 @@ export default function UserCard(props) {
     }).then((result) => {
       if (result.isConfirmed) {
         try {
-          
           // TODO: auth?
           // const res = await axios.delete("/deleteUser", props.userName);
 

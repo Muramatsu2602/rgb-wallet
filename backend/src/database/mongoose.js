@@ -1,5 +1,4 @@
-const mongoose = require('mongoose');
-
+const mongoose = require("mongoose");
 
 /*BENETI's */
 const uri = `mongodb+srv://vitorbeneti:M1xuKFwu99lVKGmY@rgbwallet.dgsze.mongodb.net/rgbwallet?retryWrites=true&w=majority`;
@@ -9,7 +8,7 @@ const uri = `mongodb+srv://vitorbeneti:M1xuKFwu99lVKGmY@rgbwallet.dgsze.mongodb.
 
 mongoose.connect(uri, {
   useNewUrlParser: true,
-  useCreateIndex: true, 
+  useCreateIndex: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
 });

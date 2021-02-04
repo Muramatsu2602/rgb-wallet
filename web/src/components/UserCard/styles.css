@@ -12,8 +12,8 @@
   padding: 1rem;
 }
 
-.bool-img{
-  height: 2rem!important;
+.bool-img {
+  height: 2rem !important;
 }
 
 .card-header {
@@ -24,7 +24,6 @@
 }
 
 .btn-delete-container {
-  
   width: 32rem;
   padding-bottom: 1rem;
   margin-bottom: 1rem;
@@ -88,8 +87,9 @@
   box-sizing: border-box !important;
 }
 .form-control::-webkit-input-placeholder {
-  color:var(--color-text-base);
+  color: var(--color-text-base);
 }
+
 .card-body {
   display: flex;
   flex-direction: column;

@@ -16,7 +16,7 @@ server.post("/", UserController.login);
 server.post("/admin", UserController.createUser);
 server.post("/searchUser", UserController.getUser);
 server.get("/allUsers", UserController.getUsers);
-server.delete("/deleteUser",UserController.deleteUser)
+server.delete("/deleteUser", UserController.deleteUser);
 // server.post("/updateUser", UserController.updateUser);
 
 server.listen(3003, () => {

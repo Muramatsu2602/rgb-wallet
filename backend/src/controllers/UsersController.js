@@ -41,7 +41,7 @@ const createUser = async (req, res) => {
       isExecutingProj: req.body.isExecutingProj,
       weeklyHours: req.body.weeklyHours,
       cash: req.body.cash,
-      createdAt: req.body.createdAt
+      createdAt: req.body.createdAt,
     });
 
     await user.save();
@@ -85,7 +85,6 @@ const getUser = async (req, res) => {
  */
 const getUsers = async (req, res) => {
   try {
-
     const users = await User.findAllUsers(false);
 
     console.log("users", users);
@@ -97,12 +96,11 @@ const getUsers = async (req, res) => {
 
 /**
  * deletes user given their userName
- * @param {} req 
- * @param {*} res 
+ * @param {} req
+ * @param {*} res
  */
-const deleteUser = async (req,res) => {
+const deleteUser = async (req, res) => {
   try {
-
     const result = await User.deleteUser(req.body.userName);
 
     console.log("Deleted?:", result);
