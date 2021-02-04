@@ -95,7 +95,7 @@ export default function UserCard(props) {
             {" "}
             <NumberFormat
               // value={Number(props.cash.$numberDecimal)}
-              value={Number(props.cash)}
+              value={Number(props.cash ? props.cash.$numberDecimal : 0)}
               displayType={"text"}
               thousandSeparator={"."}
               decimalSeparator={","}
