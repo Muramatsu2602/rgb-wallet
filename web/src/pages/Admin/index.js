@@ -18,13 +18,11 @@ import { Container } from "../../components/Container";
 export default function Admin() {
   // Req variables
   const [response, setResponse] = useState("");
-
   // State Variables
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-
   // All users from DB
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState({});
 
   /**
    * loading all users as cards in the page
@@ -34,7 +32,7 @@ export default function Admin() {
       try {
         const res = await axios.get("/allUsers");
 
-        // console.log("hey", res.data);
+        console.log("hey", res.data);
         setUsers(res.data);
 
         // setting statuses

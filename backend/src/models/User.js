@@ -79,10 +79,11 @@ userSchema.statics.findByCredentials = async (userName, password, isAdmin) => {
  * Method to get all users from DB
  */
 userSchema.statics.findAllUsers = async (isAdminField) => {
-
   const users = await User.find({
     isAdmin: isAdminField,
   });
+
+  console.log("HEY MEU CHAPA", users);
   if (!users) return undefined;
 
   return users;
