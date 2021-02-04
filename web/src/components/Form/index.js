@@ -22,9 +22,9 @@ export const Form = ({ onSubmit }) => {
         {/* <ToggleButton id="didSellProj" /> */}
         <div className="form-group">
           <label htmlFor="didSellProj"> Vendeu algum projeto esse mês?</label>
-          <div class="switch">
-            <input id="didSellProj" type="checkbox" class="switch-input" />
-            <label for="didSellProj" class="switch-label">
+          <div className="switch">
+            <input id="didSellProj" type="checkbox" className="switch-input" />
+            <label htmlFor="didSellProj" className="switch-label">
               Switch
             </label>
           </div>
@@ -36,9 +36,13 @@ export const Form = ({ onSubmit }) => {
           <label htmlFor="isExecutingProj">
             Está executando algum projeto?
           </label>
-          <div class="switch">
-            <input id="isExecutingProj" type="checkbox" class="switch-input" />
-            <label for="isExecutingProj" class="switch-label">
+          <div className="switch">
+            <input
+              id="isExecutingProj"
+              type="checkbox"
+              className="switch-input"
+            />
+            <label htmlFor="isExecutingProj" className="switch-label">
               Switch
             </label>
           </div>

@@ -34,12 +34,12 @@ export default function Admin() {
       try {
         const res = await axios.get("/allUsers");
 
-        console.log("hey", res.data);
+        // console.log("hey", res.data);
         setUsers(res.data);
 
         // setting statuses
         setSuccess(true);
-        setError(false);
+        setError(false); 
         setResponse("Displaying all users!");
 
         Swal.fire({
@@ -47,7 +47,7 @@ export default function Admin() {
           icon: "success",
           title: response,
           showConfirmButton: false,
-          timer: 1000,
+          timer: 1500,
         });
       } catch (err) {
         setSuccess(false);
@@ -59,7 +59,7 @@ export default function Admin() {
           icon: "error",
           title: response,
           showConfirmButton: false,
-          timer: 1000,
+          timer: 2500,
         });
       }
     };
