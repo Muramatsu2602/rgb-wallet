@@ -22,15 +22,15 @@
 .hello-user {
   padding-top: 2rem;
   padding-left: 10rem;
-  padding-bottom: 3rem;
+  padding-bottom: 2rem;
 }
 
 .hello-user h1 {
-  font-size: var(--text-thicc);
+  font-size: var(--text-extra-thicc);
 }
 
 .hello-user p {
-  font-size: var(--text-medium);
+  font-size: var(--text-big);
 }
 
 #arrow:hover {
