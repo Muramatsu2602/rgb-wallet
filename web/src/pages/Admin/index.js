@@ -82,13 +82,11 @@ export default function Admin() {
       // const res = await axios.post("/admin", {
       //   userName: userLogado.userName,
       // });
-
-      alert(e.target.name.value);
-      alert(e.target.userName.value);
-      alert("didSellProj?: " + e.target.didSellProj.checked);
-      alert("isExecutingProj?: " + e.target.isExecutingProj.checked);
-      alert(e.target.weeklyHours.value);
-    } catch (err) {
+      await axios.post("/admin", {fullName: e.target.name.value, userName: e.target.userName.value,
+        didSellProj: e.target.didSellProj.checked, isExecutingProj: e.target.isExecutingProj.checked,
+        weeklyHours: e.target.weeklyHours.value});   
+    } 
+    catch (err) {
       setResponse("Error");
     }
 

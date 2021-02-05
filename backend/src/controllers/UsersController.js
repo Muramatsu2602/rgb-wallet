@@ -40,7 +40,6 @@ const createUser = async (req, res) => {
       didSellProj: req.body.didSellProj,
       isExecutingProj: req.body.isExecutingProj,
       weeklyHours: req.body.weeklyHours,
-      cash: req.body.cash,
       createdAt: req.body.createdAt,
     });
 
@@ -87,7 +86,7 @@ const getUsers = async (req, res) => {
   try {
     const users = await User.findAllUsers(false);
 
-    console.log("users", users);
+    //console.log("users", users);
     return res.status(200).send(users);
   } catch (e) {
     console.log("erro", e);
