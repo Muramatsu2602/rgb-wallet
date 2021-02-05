@@ -107,9 +107,21 @@ userSchema.statics.deleteUser = async (userNameField) => {
  * method to add credit to all users according to their properties
  */
 userSchema.statics.addCred = async () => {
-  // ISSO PARECE SER UTIL
+  // ONE OF THESE SHALL WORK
   // https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/
+  // https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/
   // const response = ????
+};
+
+/**
+ * method to delete an user given their userName
+ */
+userSchema.statics.eraseCred = async () => {
+  const response = await User.updateMany({ cash: 0 });
+
+  if (!response) return undefined;
+  // boolean
+  return response;
 };
 
 /**

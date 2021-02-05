@@ -18,7 +18,9 @@ server.post("/searchUser", UserController.getUser);
 server.get("/allUsers", UserController.getUsers);
 server.post("/deleteUser", UserController.deleteUser);
 // server.post("/updateUser", UserController.updateUser);
-server.post("/addCred",UserController.addCred)
+server.post("/addCred",UserController.addCred);
+server.get("/eraseCred",UserController.eraseCred)
+
 
 server.listen(3003, () => {
   console.log("App listening on 3003");

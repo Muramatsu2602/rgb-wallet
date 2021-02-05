@@ -125,4 +125,29 @@ const addCred = async (req, res) => {
   }
 };
 
-export default { login, createUser, getUser, getUsers, deleteUser, addCred };
+/**
+ * updates cash field of ALL users to 0
+ * @param {*} req
+ * @param {*} res
+ */
+const eraseCred = async (req, res) => {
+  try {
+    const result = await User.eraseCred();
+
+    console.log(result);
+
+    return res.status(200).send(result);
+  } catch (error) {
+    console.log("erro", e);
+  }
+};
+
+export default {
+  login,
+  createUser,
+  getUser,
+  getUsers,
+  deleteUser,
+  addCred,
+  eraseCred,
+};

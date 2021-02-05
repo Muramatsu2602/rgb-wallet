@@ -162,9 +162,18 @@ export default function Admin() {
       cancelButtonColor: "#d33",
       confirmButtonText: "Sim!",
       cancelButtonText: "Cancelar!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        Swal.fire({
+        const res = true;
+
+        try {
+          res = await axios.get("/eraseCred");
+        } catch (err) {
+          setResponse("Error");
+        }
+
+        // success alert
+        await Swal.fire({
           title: "Crédito Zerado com Sucesso!",
           text: "LET IT BUUURN!!!!",
           imageUrl:
@@ -174,7 +183,10 @@ export default function Admin() {
           imageAlt: "Burning Money...",
         });
 
-        //  this.myMethod(); // this should execute now
+        // forcefully reloading page
+        window.location.reload();
+
+        setResponse(res);
       }
     });
   };
