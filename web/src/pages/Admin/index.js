@@ -31,39 +31,57 @@ export default function Admin() {
     const loadData = async () => {
       try {
         const res = await axios.get("/allUsers");
-
-        // console.log("hey", res.data);
         setUsers(res.data);
-
-        // setting statuses
-        setSuccess(true);
-        setError(false);
-        setResponse("Displaying all users!");
 
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: response,
+          title: "Displaying all users",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 1000,
         });
-      } catch (err) {
-        setSuccess(false);
-        setError(true);
-        setResponse("Could not load all users!");
 
-        Swal.fire({
+        // setting statuses
+        setSuccess(true);
+        setError(false);
+      } catch (err) {
+        await Swal.fire({
           position: "top-end",
           icon: "error",
-          title: response,
+          title: "Error when loading users!",
           showConfirmButton: false,
           timer: 2500,
         });
+        setSuccess(false);
+        setError(true);
       }
     };
 
     loadData();
   }, []);
+
+  /**
+   * onSubmit function when looking for name(s) in the searchbar
+   * @param {*} e
+   */
+  const searchUsersOnSubmit = async (e) => {
+    setError(false);
+    setSuccess(false);
+
+    const res = true;
+
+    try {
+      // res = await axios.post("/", {
+      // });
+    } catch (err) {
+      setResponse("Error");
+    }
+
+    if (!res) setError(true);
+    else setSuccess(true);
+
+    setResponse(res);
+  };
 
   /**
    * onSubmit function for addUserForm
@@ -207,7 +225,12 @@ export default function Admin() {
                   aria-describedby="basic-addon1"
                 />
               </InputGroup>
-              <Button className="custom-btn " id="btn_search" type="submit">
+              <Button
+                className="custom-btn "
+                id="btn_search"
+                type="submit"
+                onSubmit={searchUsersOnSubmit}
+              >
                 <img src={MagnifyingGlass} alt="search arrow" />
               </Button>
             </Form>
