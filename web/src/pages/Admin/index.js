@@ -32,7 +32,7 @@ export default function Admin() {
       try {
         const res = await axios.get("/allUsers");
 
-        console.log("hey", res.data);
+        // console.log("hey", res.data);
         setUsers(res.data);
 
         // setting statuses

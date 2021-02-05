@@ -85,10 +85,6 @@ userSchema.statics.findAllUsers = async (isAdminField) => {
     isAdmin: isAdminField,
   });
 
-  // find all
-  // const users = await User.find({});
-
-  console.log("HEY MEU CHAPA", users);
   if (!users) return undefined;
 
   return users;
@@ -97,12 +93,12 @@ userSchema.statics.findAllUsers = async (isAdminField) => {
 /**
  * method to delete an user given their userName
  */
-userSchema.statics.deleteUser = async (userName) => {
+userSchema.statics.deleteUser = async (userNameField) => {
   // https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/
-  const response = await User.deleteOne({ userName });
+  const response = await User.deleteOne({ userName: userNameField });
 
   if (!response) return undefined;
-
+  console.log("DELETED?", response);
   // boolean
   return response;
 };
@@ -110,10 +106,11 @@ userSchema.statics.deleteUser = async (userName) => {
 /**
  * method to add credit to all users according to their properties
  */
-userSchema.statics.addCred = async ()=>{
+userSchema.statics.addCred = async () => {
   // ISSO PARECE SER UTIL
   // https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/
-}
+  // const response = ????
+};
 
 /**
  * method that shall be called before saving the user, so that we cryptograph the password

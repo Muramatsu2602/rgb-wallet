@@ -102,7 +102,6 @@ const deleteUser = async (req, res) => {
   try {
     const result = await User.deleteUser(req.body.userName);
 
-    console.log("Deleted?:", result);
     return res.status(200).send(result);
   } catch (e) {
     console.log("erro", e);
@@ -110,20 +109,20 @@ const deleteUser = async (req, res) => {
 };
 
 /**
- * Adds cash to all users (everyone one gets a different amount) based on this equation: 
+ * Adds cash to all users (everyone one gets a different amount) based on this equation:
  * saldo += (40 +( 5 * semanasCumpridas)) * (1 + (vendeuProjeto && 0,2) + (executandoProjeto && 0,1))
- * @param {*} req 
- * @param {*} res 
+ * @param {*} req
+ * @param {*} res
  */
-const addCred = async (req,res) =>{
+const addCred = async (req, res) => {
   try {
     const result = await User.addCred(req.body.userName);
     // ....
-    
+
     return res.status(200).send(result);
   } catch (error) {
     console.log("erro", e);
   }
-}
+};
 
-export default { login, createUser, getUser, getUsers, deleteUser,  addCred };
+export default { login, createUser, getUser, getUsers, deleteUser, addCred };

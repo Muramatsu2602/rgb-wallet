@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 import NumberFormat from "react-number-format";
 import Moment from "react-moment";
@@ -17,6 +18,12 @@ import { FaAngleDown } from "react-icons/fa";
 import "./styles.css";
 
 export default function UserCard(props) {
+  // Req variables
+  const [response, setResponse] = useState("");
+  // State Variables
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   /**
    * updating user's data when submiting form
    * @param {*} e
@@ -38,6 +45,9 @@ export default function UserCard(props) {
    * @param {*} name
    */
   async function confirmDelete(e, props) {
+    setError(false);
+    setSuccess(false);
+
     Swal.fire({
       title: `Deletar Usuário`,
       text: `Deseja mesmo deletar ${props.fullName}?`,
@@ -47,28 +57,32 @@ export default function UserCard(props) {
       cancelButtonColor: "#d33",
       confirmButtonText: "Sim!",
       cancelButtonText: "Cancelar!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          // TODO: auth?
-          // const res = await axios.delete("/deleteUser", props.userName);
+          const res = await axios.post("/deleteUser", {
+            userName: props.userName,
+          });
 
-          Swal.fire(
+          await Swal.fire(
             `Usuário deletado com sucesso!`,
             `Tchau, '${props.fullName}'...`,
             "success"
           );
+
+          // forcefully reloading page
+          window.location.reload();
+
+          // setting states
+          if (!res) setError(true);
+          else setSuccess(true);
+          setResponse(res);
         } catch (error) {
-          Swal.fire(
-            `Erro ao apagar Usuário!`,
-            `'${props.fullName}' continua aqui...`,
-            "error"
-          );
+          Swal.fire(`Erro ao apagar Usuário!`, `${error}`, "error");
+          setResponse("ERROR");
         }
       }
     });
-
-    console.log("ASSAS");
   }
 
   return (
