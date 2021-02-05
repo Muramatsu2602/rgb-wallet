@@ -101,7 +101,6 @@ userSchema.statics.deleteUser = async (userName) => {
   // https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/
   const response = await User.deleteOne({ userName });
 
-  console.log("HEY MEU CHAPA", users);
   if (!response) return undefined;
 
   // boolean

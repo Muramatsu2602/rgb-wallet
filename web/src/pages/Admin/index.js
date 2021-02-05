@@ -25,7 +25,7 @@ export default function Admin() {
   const [users, setUsers] = useState({});
 
   /**
-   * loading all users as cards in the page
+   * loading all users as cards in the page 
    */
   useEffect(() => {
     const loadData = async () => {
@@ -37,7 +37,7 @@ export default function Admin() {
 
         // setting statuses
         setSuccess(true);
-        setError(false); 
+        setError(false);
         setResponse("Displaying all users!");
 
         Swal.fire({
@@ -70,7 +70,8 @@ export default function Admin() {
    * @param {*} event
    */
   const addUserOnSubmit = async (e) => {
-    e.preventDefault(e);
+    // this refreshes the whole page
+    // e.preventDefault(e);
 
     setError(false);
     setSuccess(false);
@@ -78,15 +79,14 @@ export default function Admin() {
     const res = true;
 
     try {
-      // check server.js
-      // const res = await axios.post("/admin", {
-      //   userName: userLogado.userName,
-      // });
-      await axios.post("/admin", {fullName: e.target.name.value, userName: e.target.userName.value,
-        didSellProj: e.target.didSellProj.checked, isExecutingProj: e.target.isExecutingProj.checked,
-        weeklyHours: e.target.weeklyHours.value});   
-    } 
-    catch (err) {
+      await axios.post("/admin", {
+        fullName: e.target.name.value,
+        userName: e.target.userName.value,
+        didSellProj: e.target.didSellProj.checked,
+        isExecutingProj: e.target.isExecutingProj.checked,
+        weeklyHours: e.target.weeklyHours.value,
+      });
+    } catch (err) {
       setResponse("Error");
     }
 
@@ -228,7 +228,9 @@ export default function Admin() {
           )}
           {/* using chave=index to avoid error when displaying that */}
           {success &&
-            users.map((user, index) => <UserCard key={index} chave={index} {...user} />)}
+            users.map((user, index) => (
+              <UserCard key={index} chave={index} {...user} />
+            ))}
         </div>
       </div>
     </div>
