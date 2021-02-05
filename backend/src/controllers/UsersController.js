@@ -109,4 +109,21 @@ const deleteUser = async (req, res) => {
   }
 };
 
-export default { login, createUser, getUser, getUsers, deleteUser };
+/**
+ * Adds cash to all users (everyone one gets a different amount) based on this equation: 
+ * saldo += (40 +( 5 * semanasCumpridas)) * (1 + (vendeuProjeto && 0,2) + (executandoProjeto && 0,1))
+ * @param {*} req 
+ * @param {*} res 
+ */
+const addCred = async (req,res) =>{
+  try {
+    const result = await User.addCred(req.body.userName);
+    // ....
+    
+    return res.status(200).send(result);
+  } catch (error) {
+    console.log("erro", e);
+  }
+}
+
+export default { login, createUser, getUser, getUsers, deleteUser,  addCred };

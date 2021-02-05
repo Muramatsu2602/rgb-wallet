@@ -25,7 +25,7 @@ export default function Admin() {
   const [users, setUsers] = useState({});
 
   /**
-   * loading all users as cards in the page 
+   * loading all users as cards in the page
    */
   useEffect(() => {
     const loadData = async () => {
@@ -79,7 +79,7 @@ export default function Admin() {
     const res = true;
 
     try {
-      await axios.post("/admin", {
+      res = await axios.post("/admin", {
         fullName: e.target.name.value,
         userName: e.target.userName.value,
         didSellProj: e.target.didSellProj.checked,
@@ -92,6 +92,8 @@ export default function Admin() {
 
     if (!res) setError(true);
     else setSuccess(true);
+
+    setResponse(res);
   };
 
   /**
@@ -101,23 +103,35 @@ export default function Admin() {
   const confirmAddCred = async (e) => {
     Swal.fire({
       allowOutsideClick: false,
-      title: "Adicionar Crédito",
-      html: `<input type="number" id="credito" class="swal2-input"  placeholder="Insira um valor em R$">
-          `,
+      title: "Adicionar Crédito para Todos?",
+      width: "75rem",
+      icon: "question",
+      html:
+        "<h3>A adição de saldo obedece a equação:</h3> <p>saldo += (40 +( 5 * semanasCumpridas))</p><p> * (1 + (vendeuProjeto && 0,2) + (executandoProjeto && 0,1))</p>",
       showCancelButton: true,
-      confirmButtonText: "Adicionar!",
-      cancelButtonText: "Nem!",
+      confirmButtonText: "Sim",
+      cancelButtonText: "Não",
       cancelButtonColor: "#d33",
-      focusConfirm: false,
-      preConfirm: () => {
-        const credito = Swal.getPopup().querySelector("#credito").value;
-        if (!credito) {
-          Swal.showValidationMessage(`Por Favor insira um valor!`);
-        }
-        return { credito: credito };
-      },
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
+        // execute
+        setError(false);
+        setSuccess(false);
+
+        const res = true;
+
+        try {
+          // ta certo? precisa de mais args sera?
+          res = await axios.post("/addCred");
+        } catch (err) {
+          setResponse("Error");
+        }
+
+        if (!res) setError(true);
+        else setSuccess(true);
+        setResponse(res);
+
+        // SUCCESS
         Swal.fire({
           title: "Crédito Adicionado com Sucesso!",
           text: "Todos os usuários receberão a quantia escolhida",

@@ -108,6 +108,14 @@ userSchema.statics.deleteUser = async (userName) => {
 };
 
 /**
+ * method to add credit to all users according to their properties
+ */
+userSchema.statics.addCred = async ()=>{
+  // ISSO PARECE SER UTIL
+  // https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/
+}
+
+/**
  * method that shall be called before saving the user, so that we cryptograph the password
  */
 userSchema.pre("save", async function (next) {
