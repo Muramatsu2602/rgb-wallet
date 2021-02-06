@@ -2,7 +2,10 @@
 # 💰RGBWallet💡
 Trainee admission project for ICMC Jr Junior Enterprise @USP.  It's a web-based project consisting of a simple CRUD for a digital wallet, with ADMIN and USER funcions.
 
-![RGBWallet Logo](web/public/logo.png)
+<center> 
+      <img src="web/public/logo.png" alt="RGBWallet logo"/>
+</center> 
+
 
 ## 🛠️ Tools
 What we used to make this project possible
