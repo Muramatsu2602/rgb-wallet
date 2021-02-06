@@ -44,6 +44,12 @@ export default function UserCard(props) {
   async function userUpdateOnSubmit(event) {
     event.preventDefault();
 
+    Swal.fire(
+      "Deseja Salvar Alterações?",
+      `Alterando dados de ${props.fullName}...`,
+      "question"
+    );
+
     try {
       // const response = await api
       console.log("only a sketch of the handle the update user form");
