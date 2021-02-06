@@ -9,6 +9,10 @@
   color: var(--color-box-base);
 }
 
+.logo-container {
+  cursor: pointer;
+}
+
 .top-icons {
   display: flex;
   flex-direction: row;
