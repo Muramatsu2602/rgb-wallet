@@ -82,9 +82,14 @@
   background-color: var(--color-red) !important;
 }
 
+#btnAddCred,
+#btn_search{
+  background: var(--color-primary-dark) !important;
+}
+
 #btnAddCred:hover,
 #btn_search:hover {
-  background: var(--color-text-base-lighter) !important;
+  background: var(--color-primary-medium) !important;
 }
 
 #btnZeraCred:hover {
