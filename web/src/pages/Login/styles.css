@@ -36,8 +36,9 @@
 
 .logo-portion img {
   align-self: center;
+  margin-bottom: 15rem;
 
-  height: 22rem;
+  height: 35rem;
   min-height: 15rem;
 }
 
@@ -169,7 +170,8 @@
     height: 50px !important;
   }
   .logo-portion img {
+    margin-bottom: 5rem;
     align-self: center;
-    height: 15rem;
+    height: 25rem;
   }
 }
