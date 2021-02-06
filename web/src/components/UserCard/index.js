@@ -14,6 +14,7 @@ import TrueIcon from "../../assets/images/true-icon.svg";
 import FalseIcon from "../../assets/images/false-icon.svg";
 
 import { FaAngleDown } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 import "./styles.css";
 
@@ -24,18 +25,30 @@ export default function UserCard(props) {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
 
+  // Form Variables
+  const [isEdited, setIsEdited] = useState(false);
+
+  async function allowFormEditOnClick(event) {
+    // toggle behaviour
+    if (isEdited) {
+      setIsEdited(false);
+    } else {
+      setIsEdited(true);
+    }
+  }
+
   /**
    * updating user's data when submiting form
-   * @param {*} e
+   * @param {*} event
    */
-  async function handleUserUpdate(e) {
-    e.preventDefault();
+  async function userUpdateOnSubmit(event) {
+    event.preventDefault();
 
     try {
       // const response = await api
       console.log("only a sketch of the handle the update user form");
-    } catch (e) {
-      await Swal.fire("Erro no Login", `Detalhes=${e.message}`, "error");
+    } catch (event) {
+      await Swal.fire("Erro no Login", `Detalhes=${event.message}`, "error");
     }
   }
 
@@ -127,7 +140,13 @@ export default function UserCard(props) {
 
           <Accordion.Collapse eventKey="1">
             <div className="card-details">
-              <Form onSubmit={(e) => handleUserUpdate(e)}>
+              <div className="card-commands">
+                <Button className="btn-edit" onClick={allowFormEditOnClick}>
+                  Editar <FaEdit />
+                </Button>
+              </div>
+
+              <Form onSubmit={(e) => userUpdateOnSubmit(e)}>
                 <Form.Group controlId="formFullName">
                   <Form.Label className="custom-card-lbl">
                     Nome Completo
@@ -135,7 +154,8 @@ export default function UserCard(props) {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder={props.fullName}
+                    value={!isEdited ? props.fullName : null}
+                    disabled={!isEdited}
                   />
                 </Form.Group>
 
@@ -146,7 +166,8 @@ export default function UserCard(props) {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder={props.userName}
+                    value={!isEdited ? props.userName : null}
+                    disabled={!isEdited}
                   />
                 </Form.Group>
 
@@ -179,7 +200,8 @@ export default function UserCard(props) {
                   <Form.Control
                     className="custom-card-input"
                     type="number"
-                    placeholder={props.weeklyHours}
+                    value={!isEdited ? props.weeklyHours : null}
+                    disabled={!isEdited}
                   />
                 </Form.Group>
 
@@ -189,6 +211,7 @@ export default function UserCard(props) {
                     className="custom-card-btn"
                     variant="primary"
                     type="submit"
+                    disabled={!isEdited}
                   >
                     Salvar
                   </Button>{" "}
