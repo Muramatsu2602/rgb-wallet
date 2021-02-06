@@ -36,7 +36,7 @@ export default function Header(props) {
 
   const logoOnClick = async (e) => {
     Swal.fire({
-      title: "Créditos à Designer",
+      title: "Créditos do Logo",
       text: "Esse logo incrível foi feito pela Luisa Urfali.",
       html:
         "<a className='design-pic' href='https://www.behance.net/urfali_luisa'>Clique aqui pra ver mais ideias de Luisa Urfali!<a/>",
