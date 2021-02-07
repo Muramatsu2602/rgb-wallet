@@ -42,8 +42,6 @@ export default function UserCard(props) {
    * @param {*} e
    */
   async function userUpdateOnSubmit(e) {
-    e.preventDefault();
-
     setError(false);
     setSuccess(false);
 
@@ -51,7 +49,7 @@ export default function UserCard(props) {
 
     try {
       res = await axios.post("/updateUser", {
-        originalFullName: props.fullName,
+        originalUserName: props.userName,
         fullName: e.target.formFullName.value,
         userName: e.target.formFullUsername.value,
         didSellProj: e.target.formDidSellProj.checked,
@@ -62,9 +60,6 @@ export default function UserCard(props) {
       setResponse("Error");
       await Swal.fire(`ERROR!`, `Detalhes: '${err}'`, "error");
     }
-
-    // forcefully reloading page
-    window.location.reload();
 
     if (!res) setError(true);
     else setSuccess(true);
@@ -102,10 +97,6 @@ export default function UserCard(props) {
             `Tchau, '${props.fullName}'...`,
             "success"
           );
-
-          // forcefully reloading page
-          window.location.reload();
-
           // setting states
           if (!res) setError(true);
           else setSuccess(true);

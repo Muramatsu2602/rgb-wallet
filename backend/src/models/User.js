@@ -98,7 +98,6 @@ userSchema.statics.deleteUser = async (userNameField) => {
   const response = await User.deleteOne({ userName: userNameField });
 
   if (!response) return undefined;
-  console.log("DELETED?", response);
   // boolean
   return response;
 };
@@ -107,9 +106,8 @@ userSchema.statics.deleteUser = async (userNameField) => {
  * method to update user given their userName
  */
 userSchema.statics.updateUser = async (editedUser) => {
-  
   const response = await User.findOneAndUpdate(
-    { fullName: editedUser.originalFullName },
+    { userName: editedUser.originalUserName },
     {
       fullName: editedUser.fullName,
       userName: editedUser.userName,
@@ -120,7 +118,6 @@ userSchema.statics.updateUser = async (editedUser) => {
   );
 
   if (!response) return undefined;
-  console.log("UPDATED?", response);
   // boolean
   return response;
 };

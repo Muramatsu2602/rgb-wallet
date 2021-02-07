@@ -100,19 +100,18 @@ const getUsers = async (req, res) => {
  */
 const updateUser = async (req, res) => {
   try {
-    console.log("JESUS", req.body);
-    const editedUser = new User({
-      originalFullName: req.body.originalFullName, // fullName before update
+    const editedUser = {
+      originalUserName: req.body.originalUserName, // fullName before update
       fullName: req.body.fullName,
       userName: req.body.userName,
       didSellProj: req.body.didSellProj,
       isExecutingProj: req.body.isExecutingProj,
       weeklyHours: req.body.weeklyHours,
-    });
+    };
 
-    const result = User.updateUser(editedUser);
+    await User.updateUser(editedUser);
 
-    return res.status(200).send(result);
+    // return res.status(200).send(result);
   } catch (e) {
     console.log("erro", e);
   }
