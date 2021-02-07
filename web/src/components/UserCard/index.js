@@ -51,15 +51,20 @@ export default function UserCard(props) {
 
     try {
       res = await axios.post("/updateUser", {
-        fullName: e.target.name.value,
-        userName: e.target.userName.value,
-        didSellProj: e.target.didSellProj.checked,
-        isExecutingProj: e.target.isExecutingProj.checked,
-        weeklyHours: e.target.weeklyHours.value,
+        originalFullName: props.fullName,
+        fullName: e.target.formFullName.value,
+        userName: e.target.formFullUsername.value,
+        didSellProj: e.target.formDidSellProj.checked,
+        isExecutingProj: e.target.formIsExecProj.checked,
+        weeklyHours: e.target.formHowManyWeeks.value,
       });
     } catch (err) {
       setResponse("Error");
+      await Swal.fire(`ERROR!`, `Detalhes: '${err}'`, "error");
     }
+
+    // forcefully reloading page
+    window.location.reload();
 
     if (!res) setError(true);
     else setSuccess(true);
@@ -161,7 +166,7 @@ export default function UserCard(props) {
                 </Button>
               </div>
 
-              <Form onSubmit={(e) => userUpdateOnSubmit(e)}>
+              <Form onSubmit={userUpdateOnSubmit}>
                 <Form.Group controlId="formFullName">
                   <Form.Label className="custom-card-lbl">
                     Nome Completo
@@ -199,11 +204,11 @@ export default function UserCard(props) {
                   ) : (
                     <div className="switch">
                       <input
-                        id="didSellProj"
+                        id="formDidSellProj"
                         type="checkbox"
                         className="switch-input"
                       />
-                      <label htmlFor="didSellProj" className="switch-label">
+                      <label htmlFor="formDidSellProj" className="switch-label">
                         Switch
                       </label>
                     </div>
@@ -223,11 +228,11 @@ export default function UserCard(props) {
                   ) : (
                     <div className="switch">
                       <input
-                        id="isExecutingProj"
+                        id="formIsExecProj"
                         type="checkbox"
                         className="switch-input"
                       />
-                      <label htmlFor="isExecutingProj" className="switch-label">
+                      <label htmlFor="formIsExecProj" className="switch-label">
                         Switch
                       </label>
                     </div>

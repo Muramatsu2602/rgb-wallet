@@ -107,8 +107,23 @@ userSchema.statics.deleteUser = async (userNameField) => {
  * method to update user given their userName
  */
 userSchema.statics.updateUser = async (editedUser) => {
-  //
-}
+  
+  const response = await User.findOneAndUpdate(
+    { fullName: editedUser.originalFullName },
+    {
+      fullName: editedUser.fullName,
+      userName: editedUser.userName,
+      didSellProj: editedUser.didSellProj,
+      isExecutingProj: editedUser.isExecutingProj,
+      weeklyHours: editedUser.weeklyHours,
+    }
+  );
+
+  if (!response) return undefined;
+  console.log("UPDATED?", response);
+  // boolean
+  return response;
+};
 
 /**
  * method to add credit to all users according to their properties
