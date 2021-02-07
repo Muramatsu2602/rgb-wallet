@@ -104,6 +104,13 @@ userSchema.statics.deleteUser = async (userNameField) => {
 };
 
 /**
+ * method to update user given their userName
+ */
+userSchema.statics.updateUser = async (editedUser) => {
+  //
+}
+
+/**
  * method to add credit to all users according to their properties
  */
 userSchema.statics.addCred = async () => {

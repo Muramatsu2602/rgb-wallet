@@ -39,23 +39,32 @@ export default function UserCard(props) {
 
   /**
    * updating user's data when submiting form
-   * @param {*} event
+   * @param {*} e
    */
-  async function userUpdateOnSubmit(event) {
-    event.preventDefault();
+  async function userUpdateOnSubmit(e) {
+    e.preventDefault();
 
-    Swal.fire(
-      "Deseja Salvar Alterações?",
-      `Alterando dados de ${props.fullName}...`,
-      "question"
-    );
+    setError(false);
+    setSuccess(false);
+
+    const res = true;
 
     try {
-      // const response = await api
-      console.log("only a sketch of the handle the update user form");
-    } catch (event) {
-      await Swal.fire("Erro no Login", `Detalhes=${event.message}`, "error");
+      res = await axios.post("/updateUser", {
+        fullName: e.target.name.value,
+        userName: e.target.userName.value,
+        didSellProj: e.target.didSellProj.checked,
+        isExecutingProj: e.target.isExecutingProj.checked,
+        weeklyHours: e.target.weeklyHours.value,
+      });
+    } catch (err) {
+      setResponse("Error");
     }
+
+    if (!res) setError(true);
+    else setSuccess(true);
+
+    setResponse(res);
   }
 
   /**
@@ -181,22 +190,48 @@ export default function UserCard(props) {
                   <Form.Label className="custom-card-lbl">
                     Venda de projeto nesse mês?
                   </Form.Label>
-                  <img
-                    className="bool-img"
-                    src={props.didSellProj ? TrueIcon : FalseIcon}
-                    alt="boolean"
-                  />
+                  {!isEdited ? (
+                    <img
+                      className="bool-img"
+                      src={props.didSellProj ? TrueIcon : FalseIcon}
+                      alt="boolean"
+                    />
+                  ) : (
+                    <div className="switch">
+                      <input
+                        id="didSellProj"
+                        type="checkbox"
+                        className="switch-input"
+                      />
+                      <label htmlFor="didSellProj" className="switch-label">
+                        Switch
+                      </label>
+                    </div>
+                  )}
                 </Form.Group>
 
                 <Form.Group controlId="formIsExecProj">
                   <Form.Label className="custom-card-lbl">
                     Algum projeto em execução?
                   </Form.Label>
-                  <img
-                    className="bool-img"
-                    src={props.isExecutingProj ? TrueIcon : FalseIcon}
-                    alt="boolean"
-                  />
+                  {!isEdited ? (
+                    <img
+                      className="bool-img"
+                      src={props.isExecutingProj ? TrueIcon : FalseIcon}
+                      alt="boolean"
+                    />
+                  ) : (
+                    <div className="switch">
+                      <input
+                        id="isExecutingProj"
+                        type="checkbox"
+                        className="switch-input"
+                      />
+                      <label htmlFor="isExecutingProj" className="switch-label">
+                        Switch
+                      </label>
+                    </div>
+                  )}
                 </Form.Group>
 
                 <Form.Group controlId="formHowManyWeeks">
