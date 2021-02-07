@@ -65,28 +65,20 @@ export default function Admin() {
    * @param {*} e
    */
   const searchUsersOnSubmit = async (e) => {
-
     alert("SEARCH BAR:", e.target.formSearchBar.value);
-    // setError(false);
-    // setSuccess(false);
+    setError(false);
+    setSuccess(false);
 
-    // const res = true;
+    const res = true;
 
-    // try {
-    //   console.log("SEARCH BAR:", e.target.searchBar.value);
-    //   const SearchedUser = await axios.post("/searchUser", {
-    //     userName: e.target.searchBar.value,
-    //   });
+    // trying to change filter
+    // https://dev.to/asimdahall/simple-search-form-in-react-using-hooks-42pg
+    
 
-    //   setUsers(SearchedUser);
-    // } catch (err) {
-    //   setResponse("Error");
-    // }
+    if (!res) setError(true);
+    else setSuccess(true);
 
-    // if (!res) setError(true);
-    // else setSuccess(true);
-
-    // setResponse(res);
+    setResponse(res);
   };
 
   /**
