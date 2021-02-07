@@ -65,22 +65,28 @@ export default function Admin() {
    * @param {*} e
    */
   const searchUsersOnSubmit = async (e) => {
-    setError(false);
-    setSuccess(false);
 
-    const res = true;
+    alert("SEARCH BAR:", e.target.formSearchBar.value);
+    // setError(false);
+    // setSuccess(false);
 
-    try {
-      // res = await axios.post("/", {
-      // });
-    } catch (err) {
-      setResponse("Error");
-    }
+    // const res = true;
 
-    if (!res) setError(true);
-    else setSuccess(true);
+    // try {
+    //   console.log("SEARCH BAR:", e.target.searchBar.value);
+    //   const SearchedUser = await axios.post("/searchUser", {
+    //     userName: e.target.searchBar.value,
+    //   });
 
-    setResponse(res);
+    //   setUsers(SearchedUser);
+    // } catch (err) {
+    //   setResponse("Error");
+    // }
+
+    // if (!res) setError(true);
+    // else setSuccess(true);
+
+    // setResponse(res);
   };
 
   /**
@@ -216,21 +222,16 @@ export default function Admin() {
         {/* Make search bar a component too? */}
         <div className="navbar-wrapper sticky">
           <div className="search-bar">
-            <Form inline>
-              <InputGroup>
+            <Form onSubmit={searchUsersOnSubmit} inline>
+              <Form.Group controlId="formSearchBar">
                 <FormControl
                   className="custom-input"
                   placeholder="Pesquisar por nome..."
                   aria-label="Username"
                   aria-describedby="basic-addon1"
                 />
-              </InputGroup>
-              <Button
-                className="custom-btn "
-                id="btn_search"
-                type="submit"
-                onSubmit={searchUsersOnSubmit}
-              >
+              </Form.Group>
+              <Button className="custom-btn" id="btn_search" type="submit">
                 <img src={MagnifyingGlass} alt="search arrow" />
               </Button>
             </Form>
