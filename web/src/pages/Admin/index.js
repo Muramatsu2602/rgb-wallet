@@ -160,8 +160,6 @@ export default function Admin() {
           imageHeight: 200,
           imageAlt: "Burning Money...",
         });
-
-        window.location.reload();
       }
     });
   };
