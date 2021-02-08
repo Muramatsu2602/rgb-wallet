@@ -45,7 +45,8 @@ const createUser = async (req, res) => {
 
     await user.save();
     const token = await user.generateAuthToken();
-
+    console.log("User successfully created:");
+    console.log(user);
     return res.status(201).send({ token, userName: user.userName });
   } catch (error) {
     console.log(error);
