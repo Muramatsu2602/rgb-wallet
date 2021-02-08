@@ -248,9 +248,13 @@ export default function UserCard(props) {
                     className="custom-card-btn"
                     variant="primary"
                     type="submit"
-                    disabled={!isEdited}
+                    style={
+                      !isEdited
+                        ? { visibility: "hidden" }
+                        : { visibility: "visible" }
+                    }
                   >
-                    Salvar
+                    Salvar Alterações
                   </Button>{" "}
                 </div>
               </Form>
