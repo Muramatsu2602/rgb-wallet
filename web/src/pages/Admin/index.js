@@ -5,7 +5,6 @@ import axios from "axios";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import MagnifyingGlass from "../../assets/images/magnifying-glass-1.svg";
 import AddMoneyPic from "../../assets/images/adicionar-credito.svg";
 import EraseMoney from "../../assets/images/no-money.svg";
 
@@ -31,12 +30,21 @@ export default function Admin() {
    * search bar
    */
   useEffect(() => {
+    setError(false);
+    setSuccess(true);
+
+    // filtering users and returning 'result'
     if (searchQuery.trim().length) {
       const result = filteredUsers.filter((str) => {
         return str.fullName.toLowerCase().includes(searchQuery.toLowerCase());
       });
 
-      setFilteredUsers(result);
+      if (result == "") {
+        setError(true);
+        setSuccess(false);
+      } else {
+        setFilteredUsers(result);
+      }
     } else {
       setFilteredUsers(users);
     }
@@ -49,7 +57,9 @@ export default function Admin() {
     const loadData = async () => {
       try {
         const res = await axios.get("/allUsers");
+        // fixed: this will always contain all users
         setUsers(res.data);
+        // variable: changes with userEffect
         setFilteredUsers(res.data);
 
         Swal.fire({
@@ -263,7 +273,7 @@ export default function Admin() {
 
         <div className="body-wrapper">
           {error && (
-            <span style={{ color: "red" }}>Erro ao carregar usuários!</span>
+            <div className="error-message">Erro ao carregar usuários!</div>
           )}
           {/* using chave=index to avoid error when displaying that */}
           {success &&
