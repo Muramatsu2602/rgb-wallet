@@ -22,7 +22,21 @@ export default function Admin() {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   // All users from DB
-  const [users, setUsers] = useState({});
+  const [users, setUsers] = useState([]);
+  const [filteredUsers, setFilteredUsers] = useState([]);
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  /**
+   * search bar
+   */
+  useEffect(() => {
+    const result = users.filter((str) => {
+      return str.fullName.toLowerCase().includes(searchQuery.toLowerCase());
+    });
+
+    setFilteredUsers(result);
+  }, [searchQuery]);
 
   /**
    * loading all users as cards in the page
@@ -66,14 +80,13 @@ export default function Admin() {
    */
   const searchUsersOnSubmit = async (e) => {
     alert("SEARCH BAR:", e.target.formSearchBar.value);
+
     setError(false);
     setSuccess(false);
 
     const res = true;
 
     // trying to change filter
-    // https://dev.to/asimdahall/simple-search-form-in-react-using-hooks-42pg
-    
 
     if (!res) setError(true);
     else setSuccess(true);
@@ -215,18 +228,19 @@ export default function Admin() {
         {/* Make search bar a component too? */}
         <div className="navbar-wrapper sticky">
           <div className="search-bar">
-            <Form onSubmit={searchUsersOnSubmit} inline>
+            <Form inline>
               <Form.Group controlId="formSearchBar">
                 <FormControl
                   className="custom-input"
                   placeholder="Pesquisar por nome..."
                   aria-label="Username"
                   aria-describedby="basic-addon1"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                  }}
                 />
               </Form.Group>
-              <Button className="custom-btn" id="btn_search" type="submit">
-                <img src={MagnifyingGlass} alt="search arrow" />
-              </Button>
             </Form>
           </div>
 
@@ -271,7 +285,7 @@ export default function Admin() {
           )}
           {/* using chave=index to avoid error when displaying that */}
           {success &&
-            users.map((user, index) => (
+            filteredUsers.map((user, index) => (
               <UserCard key={index} chave={index} {...user} />
             ))}
         </div>
