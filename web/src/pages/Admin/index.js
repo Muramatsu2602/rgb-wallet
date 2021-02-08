@@ -160,6 +160,9 @@ export default function Admin() {
           imageHeight: 200,
           imageAlt: "Burning Money...",
         });
+
+        // forcefully reloading page
+        window.location.reload();
       }
     });
   };
@@ -241,7 +244,6 @@ export default function Admin() {
               className="custom-btn"
               id="btnAddCred"
               onClick={(e) => confirmAddCred(e)}
-
               variant="secondary"
             >
               Adicionar Crédito
