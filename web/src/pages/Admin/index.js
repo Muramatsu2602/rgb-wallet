@@ -148,11 +148,10 @@ export default function Admin() {
 
         if (!res) setError(true);
         else setSuccess(true);
-        window.location.reload();
         setResponse(res);
 
         // SUCCESS
-        Swal.fire({
+        await Swal.fire({
           title: "Crédito Adicionado com Sucesso!",
           text: "Todos os usuários receberão a quantia escolhida",
           imageUrl:
@@ -162,7 +161,7 @@ export default function Admin() {
           imageAlt: "Burning Money...",
         });
 
-        //  this.myMethod(); // this should execute now
+        window.location.reload();
       }
     });
   };
