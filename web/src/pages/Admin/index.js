@@ -20,11 +20,9 @@ export default function Admin() {
   // State Variables
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-  // All users from DB
   const [filteredUsers, setFilteredUsers] = useState([]);
-
-  const [users, setUsers] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [users, setUsers] = useState(""); // All users from DB
+  const [searchQuery, setSearchQuery] = useState(""); // content from searchbar
 
   /**
    * search bar
@@ -33,7 +31,6 @@ export default function Admin() {
     setError(false);
     setSuccess(true);
 
-    // filtering users and returning 'result'
     if (searchQuery.trim().length) {
       const result = filteredUsers.filter((str) => {
         return str.fullName.toLowerCase().includes(searchQuery.toLowerCase());
