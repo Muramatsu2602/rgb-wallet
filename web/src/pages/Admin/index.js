@@ -21,7 +21,7 @@ export default function Admin() {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [filteredUsers, setFilteredUsers] = useState([]);
-  const [users, setUsers] = useState(""); // All users from DB
+  const [users, setUsers] = useState([]); // All users from DB
   const [searchQuery, setSearchQuery] = useState(""); // content from searchbar
 
   /**
