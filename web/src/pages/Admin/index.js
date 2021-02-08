@@ -31,34 +31,29 @@ export default function Admin() {
     const loadData = async () => {
       try {
         const res = await axios.get("/allUsers");
-
-        console.log("hey", res.data);
         setUsers(res.data);
-
-        // setting statuses
-        setSuccess(true);
-        setError(false); 
-        setResponse("Displaying all users!");
 
         Swal.fire({
           position: "top-end",
           icon: "success",
-          title: response,
+          title: "Displaying all users",
           showConfirmButton: false,
-          timer: 1500,
+          timer: 1000,
         });
-      } catch (err) {
-        setSuccess(false);
-        setError(true);
-        setResponse("Could not load all users!");
 
-        Swal.fire({
+        // setting statuses
+        setSuccess(true);
+        setError(false);
+      } catch (err) {
+        await Swal.fire({
           position: "top-end",
           icon: "error",
-          title: response,
+          title: "Error when loading users!",
           showConfirmButton: false,
           timer: 2500,
         });
+        setSuccess(false);
+        setError(true);
       }
     };
 
@@ -66,11 +61,33 @@ export default function Admin() {
   }, []);
 
   /**
+   * onSubmit function when looking for name(s) in the searchbar
+   * @param {*} e
+   */
+  const searchUsersOnSubmit = async (e) => {
+    alert("SEARCH BAR:", e.target.formSearchBar.value);
+    setError(false);
+    setSuccess(false);
+
+    const res = true;
+
+    // trying to change filter
+    // https://dev.to/asimdahall/simple-search-form-in-react-using-hooks-42pg
+    
+
+    if (!res) setError(true);
+    else setSuccess(true);
+
+    setResponse(res);
+  };
+
+  /**
    * onSubmit function for addUserForm
    * @param {*} event
    */
   const addUserOnSubmit = async (e) => {
-    e.preventDefault(e);
+    // this refreshes the whole page
+    // e.preventDefault(e);
 
     setError(false);
     setSuccess(false);
@@ -78,20 +95,21 @@ export default function Admin() {
     const res = true;
 
     try {
-      // check server.js
-      // const res = await axios.post("/admin", {
-      //   userName: userLogado.userName,
-      // });
-      await axios.post("/admin", {fullName: e.target.name.value, userName: e.target.userName.value,
-        didSellProj: e.target.didSellProj.checked, isExecutingProj: e.target.isExecutingProj.checked,
-        weeklyHours: e.target.weeklyHours.value});   
-    } 
-    catch (err) {
+      res = await axios.post("/admin", {
+        fullName: e.target.name.value,
+        userName: e.target.userName.value,
+        didSellProj: e.target.didSellProj.checked,
+        isExecutingProj: e.target.isExecutingProj.checked,
+        weeklyHours: e.target.weeklyHours.value,
+      });
+    } catch (err) {
       setResponse("Error");
     }
 
     if (!res) setError(true);
     else setSuccess(true);
+
+    setResponse(res);
   };
 
   /**
@@ -101,23 +119,36 @@ export default function Admin() {
   const confirmAddCred = async (e) => {
     Swal.fire({
       allowOutsideClick: false,
-      title: "Adicionar Crédito",
-      html: `<input type="number" id="credito" class="swal2-input"  placeholder="Insira um valor em R$">
-          `,
+      title: "Adicionar Crédito para Todos?",
+      width: "75rem",
+      icon: "question",
+      html:
+        "<h3>A adição de saldo obedece a equação:</h3> <p>saldo += (40 +( 5 * semanasCumpridas))</p><p> * (1 + (vendeuProjeto && 0,2) + (executandoProjeto && 0,1))</p>",
       showCancelButton: true,
-      confirmButtonText: "Adicionar!",
-      cancelButtonText: "Nem!",
+      confirmButtonText: "Sim",
+      cancelButtonText: "Não",
       cancelButtonColor: "#d33",
-      focusConfirm: false,
-      preConfirm: () => {
-        const credito = Swal.getPopup().querySelector("#credito").value;
-        if (!credito) {
-          Swal.showValidationMessage(`Por Favor insira um valor!`);
-        }
-        return { credito: credito };
-      },
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
+        // execute
+        setError(false);
+        setSuccess(false);
+
+        const res = true;
+
+        // TODO: implement backend
+        try {
+          // ta certo? precisa de mais args sera?
+          res = await axios.post("/addCred");
+        } catch (err) {
+          setResponse("Error");
+        }
+
+        if (!res) setError(true);
+        else setSuccess(true);
+        setResponse(res);
+
+        // SUCCESS
         Swal.fire({
           title: "Crédito Adicionado com Sucesso!",
           text: "Todos os usuários receberão a quantia escolhida",
@@ -148,9 +179,18 @@ export default function Admin() {
       cancelButtonColor: "#d33",
       confirmButtonText: "Sim!",
       cancelButtonText: "Cancelar!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
-        Swal.fire({
+        const res = true;
+
+        try {
+          res = await axios.get("/eraseCred");
+        } catch (err) {
+          setResponse("Error");
+        }
+
+        // success alert
+        await Swal.fire({
           title: "Crédito Zerado com Sucesso!",
           text: "LET IT BUUURN!!!!",
           imageUrl:
@@ -160,7 +200,10 @@ export default function Admin() {
           imageAlt: "Burning Money...",
         });
 
-        //  this.myMethod(); // this should execute now
+        // forcefully reloading page
+        window.location.reload();
+
+        setResponse(res);
       }
     });
   };
@@ -172,16 +215,16 @@ export default function Admin() {
         {/* Make search bar a component too? */}
         <div className="navbar-wrapper sticky">
           <div className="search-bar">
-            <Form inline>
-              <InputGroup>
+            <Form onSubmit={searchUsersOnSubmit} inline>
+              <Form.Group controlId="formSearchBar">
                 <FormControl
                   className="custom-input"
                   placeholder="Pesquisar por nome..."
                   aria-label="Username"
                   aria-describedby="basic-addon1"
                 />
-              </InputGroup>
-              <Button className="custom-btn " id="btn_search" type="submit">
+              </Form.Group>
+              <Button className="custom-btn" id="btn_search" type="submit">
                 <img src={MagnifyingGlass} alt="search arrow" />
               </Button>
             </Form>
@@ -228,7 +271,9 @@ export default function Admin() {
           )}
           {/* using chave=index to avoid error when displaying that */}
           {success &&
-            users.map((user, index) => <UserCard key={index} chave={index} {...user} />)}
+            users.map((user, index) => (
+              <UserCard key={index} chave={index} {...user} />
+            ))}
         </div>
       </div>
     </div>

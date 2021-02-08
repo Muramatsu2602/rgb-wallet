@@ -95,6 +95,30 @@ const getUsers = async (req, res) => {
 };
 
 /**
+ * updates user based on given userName
+ * @param {*} req
+ * @param {*} res
+ */
+const updateUser = async (req, res) => {
+  try {
+    const editedUser = {
+      originalUserName: req.body.originalUserName, // fullName before update
+      fullName: req.body.fullName,
+      userName: req.body.userName,
+      didSellProj: req.body.didSellProj,
+      isExecutingProj: req.body.isExecutingProj,
+      weeklyHours: req.body.weeklyHours,
+    };
+
+    await User.updateUser(editedUser);
+
+    // return res.status(200).send(result);
+  } catch (e) {
+    console.log("erro", e);
+  }
+};
+
+/**
  * deletes user given their userName
  * @param {} req
  * @param {*} res
@@ -103,11 +127,53 @@ const deleteUser = async (req, res) => {
   try {
     const result = await User.deleteUser(req.body.userName);
 
-    console.log("Deleted?:", result);
     return res.status(200).send(result);
   } catch (e) {
     console.log("erro", e);
   }
 };
 
-export default { login, createUser, getUser, getUsers, deleteUser };
+/**
+ * Adds cash to all users (everyone one gets a different amount) based on this equation:
+ * saldo += (40 +( 5 * semanasCumpridas)) * (1 + (vendeuProjeto && 0,2) + (executandoProjeto && 0,1))
+ * @param {*} req
+ * @param {*} res
+ */
+const addCred = async (req, res) => {
+  try {
+    const result = await User.addCred(req.body.userName);
+    // ....
+
+    return res.status(200).send(result);
+  } catch (error) {
+    console.log("erro", e);
+  }
+};
+
+/**
+ * updates cash field of ALL users to 0
+ * @param {*} req
+ * @param {*} res
+ */
+const eraseCred = async (req, res) => {
+  try {
+    const result = await User.eraseCred();
+
+    console.log(result);
+
+    return res.status(200).send(result);
+  } catch (error) {
+    console.log("erro", e);
+  }
+};
+
+export default {
+  login,
+  createUser,
+  getUser,
+  getUsers,
+  updateUser,
+  deleteUser,
+  addCred,
+  eraseCred,
+};

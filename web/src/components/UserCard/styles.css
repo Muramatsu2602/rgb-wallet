@@ -15,7 +15,6 @@
 }
 
 #custom-card:hover {
-  
   border: 2px solid var(--color-red-lighter);
   /* box-shadow: 3px 3px 3px #999; */
 }
@@ -114,6 +113,32 @@
   border-style: none !important;
 
   transition: background-color 0.2s !important;
+}
+
+.card-commands {
+  margin-top: 1rem;
+  padding-top: 0.5rem;
+  border-top: 2px solid var(--color-input-background);
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.btn-edit {
+  background-color: var(--color-secondary-medium);
+  border: none;
+  border-radius: 25px !important;
+
+  font-weight: 700 !important;
+  font-size: var(--text-medium) !important;
+
+  transition: background-color 0.2s !important;
+}
+
+.btn-edit:hover {
+  background-color: var(--color-secondary-light);
+  border: none;
 }
 
 .custom-card-btn:hover {

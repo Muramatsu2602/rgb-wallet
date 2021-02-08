@@ -3,6 +3,8 @@ import Auth from "../../services/AuthService";
 import { Redirect } from "react-router-dom";
 
 import logoImg from "../../assets/images/login-logo.svg";
+import logoImg2 from "../../assets/images/logo-login-top.svg";
+
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Swal from "sweetalert2";
@@ -62,7 +64,7 @@ export default function Login() {
     <div id="login-page">
       <div className="content-wrapper">
         <div className="logo-portion">
-          <img src={logoImg} alt="logo RGBWallet" />
+          <img src={logoImg2} alt="logo RGBWallet" />
 
           <p>Programmed with ♡ by @Muramatsu2602 and @benetche.</p>
         </div>

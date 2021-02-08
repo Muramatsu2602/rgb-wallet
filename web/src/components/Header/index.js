@@ -34,6 +34,20 @@ export default function Header(props) {
     });
   };
 
+  const logoOnClick = async (e) => {
+    Swal.fire({
+      title: "Créditos do Logo",
+      text: "Esse logo incrível foi feito pela Luisa Urfali.",
+      html:
+        "<a className='design-pic' href='https://www.behance.net/urfali_luisa'>Clique aqui pra ver mais ideias de Luisa Urfali!<a/>",
+      imageUrl:
+        "https://media-exp1.licdn.com/dms/image/C4D03AQGZ4z9HM4D60g/profile-displayphoto-shrink_400_400/0/1583366064988?e=1617840000&v=beta&t=FUB_10Rvpv0KMx7UUqZ96h7KqwX-0bW1XOr_BY8tNzI",
+      imageWidth: 200,
+      imageHeight: 200,
+      imageAlt: "Custom image",
+    });
+  };
+
   return (
     <div className="header-wrapper">
       <div className="top-icons">
@@ -46,21 +60,18 @@ export default function Header(props) {
           />
           {redirect && <Redirect to="/" />}
         </div>
-
-        <img src={CornerLogo} alt="logo RGBWallet" />
+        <div className="logo-container" onClick={logoOnClick}>
+          <img src={CornerLogo} alt="logo RGBWallet" />
+        </div>
       </div>
       <div className="hello-user">
         <h1>
-          {props.isAdmin 
-            ? "Painel de Usuários" 
-            : `Olá, ${props.fullName}`
-          }
+          {props.isAdmin ? "Painel de Usuários" : `Olá, ${props.fullName}`}
         </h1>
         <p>
           {props.isAdmin
             ? "Consulte e altere os dados dos usuários"
-            : "Esta é sua carteira virtual"
-          }
+            : "Esta é sua carteira virtual"}
         </p>
       </div>
     </div>

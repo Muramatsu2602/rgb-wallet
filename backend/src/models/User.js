@@ -85,10 +85,6 @@ userSchema.statics.findAllUsers = async (isAdminField) => {
     isAdmin: isAdminField,
   });
 
-  // find all
-  // const users = await User.find({});
-
-  console.log("HEY MEU CHAPA", users);
   if (!users) return undefined;
 
   return users;
@@ -97,13 +93,52 @@ userSchema.statics.findAllUsers = async (isAdminField) => {
 /**
  * method to delete an user given their userName
  */
-userSchema.statics.deleteUser = async (userName) => {
+userSchema.statics.deleteUser = async (userNameField) => {
   // https://docs.mongodb.com/manual/reference/method/db.collection.deleteOne/
-  const response = await User.deleteOne({ userName });
+  const response = await User.deleteOne({ userName: userNameField });
 
-  console.log("HEY MEU CHAPA", users);
   if (!response) return undefined;
+  // boolean
+  return response;
+};
 
+/**
+ * method to update user given their userName
+ */
+userSchema.statics.updateUser = async (editedUser) => {
+  const response = await User.findOneAndUpdate(
+    { userName: editedUser.originalUserName },
+    {
+      fullName: editedUser.fullName,
+      userName: editedUser.userName,
+      didSellProj: editedUser.didSellProj,
+      isExecutingProj: editedUser.isExecutingProj,
+      weeklyHours: editedUser.weeklyHours,
+    }
+  );
+
+  if (!response) return undefined;
+  // boolean
+  return response;
+};
+
+/**
+ * method to add credit to all users according to their properties
+ */
+userSchema.statics.addCred = async () => {
+  // ONE OF THESE SHALL WORK
+  // https://docs.mongodb.com/manual/reference/method/db.collection.findAndModify/
+  // https://docs.mongodb.com/manual/reference/method/db.collection.updateMany/
+  // const response = ????
+};
+
+/**
+ * method to delete an user given their userName
+ */
+userSchema.statics.eraseCred = async () => {
+  const response = await User.updateMany({ cash: 0 });
+
+  if (!response) return undefined;
   // boolean
   return response;
 };

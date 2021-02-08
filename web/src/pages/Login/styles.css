@@ -36,8 +36,9 @@
 
 .logo-portion img {
   align-self: center;
+  margin-bottom: 15rem;
 
-  height: 22rem;
+  height: 35rem;
   min-height: 15rem;
 }
 
@@ -86,7 +87,7 @@
 .form-portion a {
   text-decoration: none !important;
   cursor: pointer !important;
-  color: var(--color-small-info);
+  color: var(--color-small-info) !important;
 }
 
 .form-buttons {
@@ -105,6 +106,7 @@
 /*React-Bootstrap*/
 .custom-lbl {
   color: var(--color-text-base) !important;
+  font-size: var(--text-big) !important;
   padding-bottom: 2rem !important;
   padding-top: 1rem !important;
 }
@@ -169,7 +171,12 @@
     height: 50px !important;
   }
   .logo-portion img {
+    margin-bottom: 5rem;
     align-self: center;
-    height: 15rem;
+    height: 25rem;
+  }
+
+  .custom-lbl {
+    font-size: var(--text-medium) !important;
   }
 }

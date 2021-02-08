@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 import NumberFormat from "react-number-format";
 import Moment from "react-moment";
@@ -13,23 +14,57 @@ import TrueIcon from "../../assets/images/true-icon.svg";
 import FalseIcon from "../../assets/images/false-icon.svg";
 
 import { FaAngleDown } from "react-icons/fa";
+import { FaEdit } from "react-icons/fa";
 
 import "./styles.css";
 
 export default function UserCard(props) {
+  // Req variables
+  const [response, setResponse] = useState("");
+  // State Variables
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  // Form Variables
+  const [isEdited, setIsEdited] = useState(false);
+
+  async function allowFormEditOnClick(event) {
+    // toggle behaviour
+    if (isEdited) {
+      setIsEdited(false);
+    } else {
+      setIsEdited(true);
+    }
+  }
+
   /**
    * updating user's data when submiting form
    * @param {*} e
    */
-  async function handleUserUpdate(e) {
-    e.preventDefault();
+  async function userUpdateOnSubmit(e) {
+    setError(false);
+    setSuccess(false);
+
+    const res = true;
 
     try {
-      // const response = await api
-      console.log("only a sketch of the handle the update user form");
-    } catch (e) {
-      await Swal.fire("Erro no Login", `Detalhes=${e.message}`, "error");
+      res = await axios.post("/updateUser", {
+        originalUserName: props.userName,
+        fullName: e.target.formFullName.value,
+        userName: e.target.formFullUsername.value,
+        didSellProj: e.target.formDidSellProj.checked,
+        isExecutingProj: e.target.formIsExecProj.checked,
+        weeklyHours: e.target.formHowManyWeeks.value,
+      });
+    } catch (err) {
+      setResponse("Error");
+      await Swal.fire(`ERROR!`, `Detalhes: '${err}'`, "error");
     }
+
+    if (!res) setError(true);
+    else setSuccess(true);
+
+    setResponse(res);
   }
 
   /**
@@ -38,6 +73,9 @@ export default function UserCard(props) {
    * @param {*} name
    */
   async function confirmDelete(e, props) {
+    setError(false);
+    setSuccess(false);
+
     Swal.fire({
       title: `Deletar Usuário`,
       text: `Deseja mesmo deletar ${props.fullName}?`,
@@ -47,28 +85,28 @@ export default function UserCard(props) {
       cancelButtonColor: "#d33",
       confirmButtonText: "Sim!",
       cancelButtonText: "Cancelar!",
-    }).then((result) => {
+    }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          // TODO: auth?
-          // const res = await axios.delete("/deleteUser", props.userName);
+          const res = await axios.post("/deleteUser", {
+            userName: props.userName,
+          });
 
-          Swal.fire(
+          await Swal.fire(
             `Usuário deletado com sucesso!`,
             `Tchau, '${props.fullName}'...`,
             "success"
           );
+          // setting states
+          if (!res) setError(true);
+          else setSuccess(true);
+          setResponse(res);
         } catch (error) {
-          Swal.fire(
-            `Erro ao apagar Usuário!`,
-            `'${props.fullName}' continua aqui...`,
-            "error"
-          );
+          Swal.fire(`Erro ao apagar Usuário!`, `${error}`, "error");
+          setResponse("ERROR");
         }
       }
     });
-
-    console.log("ASSAS");
   }
 
   return (
@@ -113,7 +151,13 @@ export default function UserCard(props) {
 
           <Accordion.Collapse eventKey="1">
             <div className="card-details">
-              <Form onSubmit={(e) => handleUserUpdate(e)}>
+              <div className="card-commands">
+                <Button className="btn-edit" onClick={allowFormEditOnClick}>
+                  Editar <FaEdit />
+                </Button>
+              </div>
+
+              <Form onSubmit={userUpdateOnSubmit}>
                 <Form.Group controlId="formFullName">
                   <Form.Label className="custom-card-lbl">
                     Nome Completo
@@ -121,7 +165,8 @@ export default function UserCard(props) {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder={props.fullName}
+                    value={!isEdited ? props.fullName : null}
+                    disabled={!isEdited}
                   />
                 </Form.Group>
 
@@ -132,7 +177,8 @@ export default function UserCard(props) {
                   <Form.Control
                     className="custom-card-input"
                     type="text"
-                    placeholder={props.userName}
+                    value={!isEdited ? props.userName : null}
+                    disabled={!isEdited}
                   />
                 </Form.Group>
 
@@ -140,22 +186,48 @@ export default function UserCard(props) {
                   <Form.Label className="custom-card-lbl">
                     Venda de projeto nesse mês?
                   </Form.Label>
-                  <img
-                    className="bool-img"
-                    src={props.didSellProj ? TrueIcon : FalseIcon}
-                    alt="boolean"
-                  />
+                  {!isEdited ? (
+                    <img
+                      className="bool-img"
+                      src={props.didSellProj ? TrueIcon : FalseIcon}
+                      alt="boolean"
+                    />
+                  ) : (
+                    <div className="switch">
+                      <input
+                        id="formDidSellProj"
+                        type="checkbox"
+                        className="switch-input"
+                      />
+                      <label htmlFor="formDidSellProj" className="switch-label">
+                        Switch
+                      </label>
+                    </div>
+                  )}
                 </Form.Group>
 
                 <Form.Group controlId="formIsExecProj">
                   <Form.Label className="custom-card-lbl">
                     Algum projeto em execução?
                   </Form.Label>
-                  <img
-                    className="bool-img"
-                    src={props.isExecutingProj ? TrueIcon : FalseIcon}
-                    alt="boolean"
-                  />
+                  {!isEdited ? (
+                    <img
+                      className="bool-img"
+                      src={props.isExecutingProj ? TrueIcon : FalseIcon}
+                      alt="boolean"
+                    />
+                  ) : (
+                    <div className="switch">
+                      <input
+                        id="formIsExecProj"
+                        type="checkbox"
+                        className="switch-input"
+                      />
+                      <label htmlFor="formIsExecProj" className="switch-label">
+                        Switch
+                      </label>
+                    </div>
+                  )}
                 </Form.Group>
 
                 <Form.Group controlId="formHowManyWeeks">
@@ -165,7 +237,8 @@ export default function UserCard(props) {
                   <Form.Control
                     className="custom-card-input"
                     type="number"
-                    placeholder={props.weeklyHours}
+                    value={!isEdited ? props.weeklyHours : null}
+                    disabled={!isEdited}
                   />
                 </Form.Group>
 
@@ -175,6 +248,7 @@ export default function UserCard(props) {
                     className="custom-card-btn"
                     variant="primary"
                     type="submit"
+                    disabled={!isEdited}
                   >
                     Salvar
                   </Button>{" "}
