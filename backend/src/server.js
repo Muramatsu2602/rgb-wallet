@@ -2,7 +2,6 @@ import express from "express";
 require("./database/mongoose");
 import bodyParser from "body-parser";
 import UserController from "./controllers/UsersController";
-import auth from "./middlewares/auth";
 
 var cors = require("cors");
 

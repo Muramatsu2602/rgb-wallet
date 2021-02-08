@@ -137,6 +137,7 @@ export default function UserCard(props) {
               thousandSeparator={"."}
               decimalSeparator={","}
               prefix={"R$ "}
+              decimalScale={2}
             />
           </h1>
         </div>

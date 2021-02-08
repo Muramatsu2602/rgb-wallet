@@ -148,6 +148,7 @@ export default function Admin() {
 
         if (!res) setError(true);
         else setSuccess(true);
+        window.location.reload();
         setResponse(res);
 
         // SUCCESS
@@ -243,6 +244,7 @@ export default function Admin() {
               className="custom-btn"
               id="btnAddCred"
               onClick={(e) => confirmAddCred(e)}
+
               variant="secondary"
             >
               Adicionar Crédito
