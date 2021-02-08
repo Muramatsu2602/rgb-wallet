@@ -24,21 +24,22 @@ export default function Admin() {
   // All users from DB
   const [filteredUsers, setFilteredUsers] = useState([]);
 
+  const [users, setUsers] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
 
   /**
    * search bar
    */
   useEffect(() => {
-
     if (searchQuery.trim().length) {
       const result = filteredUsers.filter((str) => {
         return str.fullName.toLowerCase().includes(searchQuery.toLowerCase());
       });
 
       setFilteredUsers(result);
+    } else {
+      setFilteredUsers(users);
     }
-
   }, [searchQuery]);
 
   /**
@@ -48,7 +49,7 @@ export default function Admin() {
     const loadData = async () => {
       try {
         const res = await axios.get("/allUsers");
-        // setUsers(res.data);
+        setUsers(res.data);
         setFilteredUsers(res.data);
 
         Swal.fire({
@@ -83,9 +84,6 @@ export default function Admin() {
    * @param {*} event
    */
   const addUserOnSubmit = async (e) => {
-    // this refreshes the whole page
-    // e.preventDefault(e);
-
     setError(false);
     setSuccess(false);
 
