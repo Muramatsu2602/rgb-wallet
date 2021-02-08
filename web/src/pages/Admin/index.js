@@ -22,7 +22,6 @@ export default function Admin() {
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
   // All users from DB
-  const [users, setUsers] = useState([]);
   const [filteredUsers, setFilteredUsers] = useState([]);
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,11 +30,15 @@ export default function Admin() {
    * search bar
    */
   useEffect(() => {
-    const result = users.filter((str) => {
-      return str.fullName.toLowerCase().includes(searchQuery.toLowerCase());
-    });
 
-    setFilteredUsers(result);
+    if (searchQuery.trim().length) {
+      const result = filteredUsers.filter((str) => {
+        return str.fullName.toLowerCase().includes(searchQuery.toLowerCase());
+      });
+
+      setFilteredUsers(result);
+    }
+
   }, [searchQuery]);
 
   /**
@@ -45,7 +48,8 @@ export default function Admin() {
     const loadData = async () => {
       try {
         const res = await axios.get("/allUsers");
-        setUsers(res.data);
+        // setUsers(res.data);
+        setFilteredUsers(res.data);
 
         Swal.fire({
           position: "top-end",
@@ -73,26 +77,6 @@ export default function Admin() {
 
     loadData();
   }, []);
-
-  /**
-   * onSubmit function when looking for name(s) in the searchbar
-   * @param {*} e
-   */
-  const searchUsersOnSubmit = async (e) => {
-    alert("SEARCH BAR:", e.target.formSearchBar.value);
-
-    setError(false);
-    setSuccess(false);
-
-    const res = true;
-
-    // trying to change filter
-
-    if (!res) setError(true);
-    else setSuccess(true);
-
-    setResponse(res);
-  };
 
   /**
    * onSubmit function for addUserForm
