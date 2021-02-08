@@ -5,7 +5,6 @@ import axios from "axios";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import MagnifyingGlass from "../../assets/images/magnifying-glass-1.svg";
 import AddMoneyPic from "../../assets/images/adicionar-credito.svg";
 import EraseMoney from "../../assets/images/no-money.svg";
 
@@ -21,8 +20,32 @@ export default function Admin() {
   // State Variables
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-  // All users from DB
-  const [users, setUsers] = useState({});
+  const [filteredUsers, setFilteredUsers] = useState([]);
+  const [users, setUsers] = useState([]); // All users from DB
+  const [searchQuery, setSearchQuery] = useState(""); // content from searchbar
+
+  /**
+   * search bar
+   */
+  useEffect(() => {
+    setError(false);
+    setSuccess(true);
+
+    if (searchQuery.trim().length) {
+      const result = filteredUsers.filter((str) => {
+        return str.fullName.toLowerCase().includes(searchQuery.toLowerCase());
+      });
+
+      if (result == "") {
+        setError(true);
+        setSuccess(false);
+      } else {
+        setFilteredUsers(result);
+      }
+    } else {
+      setFilteredUsers(users);
+    }
+  }, [searchQuery]);
 
   /**
    * loading all users as cards in the page
@@ -31,7 +54,10 @@ export default function Admin() {
     const loadData = async () => {
       try {
         const res = await axios.get("/allUsers");
+        // fixed: this will always contain all users
         setUsers(res.data);
+        // variable: changes with userEffect
+        setFilteredUsers(res.data);
 
         Swal.fire({
           position: "top-end",
@@ -61,34 +87,10 @@ export default function Admin() {
   }, []);
 
   /**
-   * onSubmit function when looking for name(s) in the searchbar
-   * @param {*} e
-   */
-  const searchUsersOnSubmit = async (e) => {
-    alert("SEARCH BAR:", e.target.formSearchBar.value);
-    setError(false);
-    setSuccess(false);
-
-    const res = true;
-
-    // trying to change filter
-    // https://dev.to/asimdahall/simple-search-form-in-react-using-hooks-42pg
-    
-
-    if (!res) setError(true);
-    else setSuccess(true);
-
-    setResponse(res);
-  };
-
-  /**
    * onSubmit function for addUserForm
    * @param {*} event
    */
   const addUserOnSubmit = async (e) => {
-    // this refreshes the whole page
-    // e.preventDefault(e);
-
     setError(false);
     setSuccess(false);
 
@@ -215,18 +217,19 @@ export default function Admin() {
         {/* Make search bar a component too? */}
         <div className="navbar-wrapper sticky">
           <div className="search-bar">
-            <Form onSubmit={searchUsersOnSubmit} inline>
+            <Form inline>
               <Form.Group controlId="formSearchBar">
                 <FormControl
                   className="custom-input"
                   placeholder="Pesquisar por nome..."
                   aria-label="Username"
                   aria-describedby="basic-addon1"
+                  value={searchQuery}
+                  onChange={(e) => {
+                    setSearchQuery(e.target.value);
+                  }}
                 />
               </Form.Group>
-              <Button className="custom-btn" id="btn_search" type="submit">
-                <img src={MagnifyingGlass} alt="search arrow" />
-              </Button>
             </Form>
           </div>
 
@@ -267,11 +270,11 @@ export default function Admin() {
 
         <div className="body-wrapper">
           {error && (
-            <span style={{ color: "red" }}>Erro ao carregar usuários!</span>
+            <div className="error-message">Erro ao carregar usuários!</div>
           )}
           {/* using chave=index to avoid error when displaying that */}
           {success &&
-            users.map((user, index) => (
+            filteredUsers.map((user, index) => (
               <UserCard key={index} chave={index} {...user} />
             ))}
         </div>

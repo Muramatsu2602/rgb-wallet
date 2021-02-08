@@ -83,7 +83,7 @@
 }
 
 #btnAddCred,
-#btn_search{
+#btn_search {
   background: var(--color-primary-dark) !important;
 }
 
@@ -97,6 +97,7 @@
 }
 
 #admin-page .body-wrapper {
+  width: 100vw;
   display: grid;
   grid-auto-flow: row;
   grid-template-columns: repeat(5, 1fr);
@@ -104,6 +105,17 @@
   grid-auto-flow: dense;
 
   padding: 1rem 2rem 1rem 2rem;
+}
+
+.error-message {
+  align-items: center;
+  width: 100%;
+  color: red;
+  font-size: var(--text-big);
+}
+
+.margin-left-img {
+  margin-left: 1rem;
 }
 
 @media (max-width: 1466px) {
@@ -123,8 +135,4 @@
     grid-template-columns: 1fr 1fr 1fr;
     column-gap: 1rem !important;
   }
-}
-
-.margin-left-img {
-  margin-left: 1rem;
 }
