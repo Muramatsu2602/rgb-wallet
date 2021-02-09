@@ -37,7 +37,7 @@ export default function User() {
       }
     };
 
-    // retrieving from localStorage
+    // retrieving frowm localStorage
     const userLogado = Auth.isLogged();
 
     loadData();

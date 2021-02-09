@@ -103,6 +103,7 @@ export default function Admin() {
         didSellProj: e.target.didSellProj.checked,
         isExecutingProj: e.target.isExecutingProj.checked,
         weeklyHours: e.target.weeklyHours.value,
+        imgUrl: e.target.imgUrl.value,
       });
     } catch (err) {
       setResponse("Error");

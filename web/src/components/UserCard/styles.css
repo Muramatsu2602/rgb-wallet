@@ -30,6 +30,12 @@
   justify-content: space-between;
 }
 
+.profile-pic {
+  height: 100px;
+  width: 100px;
+  border-radius: 25px;
+}
+
 .btn-delete-container {
   width: 32rem;
   padding-bottom: 1rem;

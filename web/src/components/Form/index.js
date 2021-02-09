@@ -10,12 +10,23 @@ export const Form = ({ onSubmit }) => {
         {/* Nome Completo */}
         <div className="form-group">
           <label htmlFor="name">Nome Completo</label>
-          <input required className="form-control" id="name" />
+          <input
+            required
+            className="form-control"
+            id="name"
+            placeholder="Fulano da Silva"
+          />
         </div>
         {/* Nome de Usuário */}
         <div className="form-group">
-          <label htmlFor="userName">Nome de Usuário</label>
-          <input required className="form-control" id="userName" />
+          <label htmlFor="userName">E-mail</label>
+          <input
+            required
+            className="form-control"
+            type="email"
+            id="userName"
+            placeholder="fulano@usp.br"
+          />
         </div>
 
         {/* Vendeu algum projeto esse mês? */}
@@ -58,6 +69,20 @@ export const Form = ({ onSubmit }) => {
             type="number"
             className="form-control"
             id="weeklyHours"
+            placeholder="10"
+          />
+        </div>
+
+        {/* Insira a url para imagem de perfil */}
+        <div className="form-group">
+          <label htmlFor="imgUrl">Insira a url para imagem de perfil</label>
+          <input
+            required
+            // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/url
+            type="url"
+            className="form-control"
+            id="imgUrl"
+            placeholder="https://avatars.githubusercontent.com/u/43243342"
           />
         </div>
 

@@ -8,7 +8,7 @@ import Moment from "react-moment";
 import CustomToggle from "../CustomToggle/index";
 import { Button, Accordion, Form } from "react-bootstrap/";
 
-import ProfilePic from "../../assets/images/profile-icon.svg";
+import defaultProfilePic from "../../assets/images/profile-icon.svg";
 import TrashIcon from "../../assets/images/trash-icon.svg";
 import TrueIcon from "../../assets/images/true-icon.svg";
 import FalseIcon from "../../assets/images/false-icon.svg";
@@ -141,7 +141,11 @@ export default function UserCard(props) {
             />
           </h1>
         </div>
-        <img src={ProfilePic} alt="profile" />
+        <img
+          className="profile-pic"
+          src={props.imgUrl ? props.imgUrl : defaultProfilePic}
+          alt="profile"
+        />
       </div>
 
       <div className="card-body">

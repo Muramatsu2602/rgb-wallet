@@ -79,13 +79,14 @@ export default function Login() {
 
           <Form onSubmit={onSubmit}>
             <Form.Group controlId="formBasicEmail">
-              <Form.Label className="custom-lbl">Nome</Form.Label>
+              <Form.Label className="custom-lbl">E-mail</Form.Label>
               <Form.Control
                 onChange={(e) => setUserName(e.target.value)}
                 required
                 className="custom-input"
                 type="text"
-                placeholder="Digite seu nome"
+                placeholder="Digite seu e-mail"
+                type="email"
               />
               <Form.Text className="text-muted"></Form.Text>
             </Form.Group>

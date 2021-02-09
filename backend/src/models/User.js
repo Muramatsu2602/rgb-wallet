@@ -45,6 +45,11 @@ const userSchema = new mongoose.Schema({
     required: true,
     default: 0,
   },
+  imgUrl: {
+    type: String,
+    required: false,
+    trim: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
@@ -115,6 +120,7 @@ userSchema.statics.updateUser = async (editedUser) => {
       didSellProj: editedUser.didSellProj,
       isExecutingProj: editedUser.isExecutingProj,
       weeklyHours: editedUser.weeklyHours,
+      imgUrl: editedUser.imgUrl,
     }
   );
 

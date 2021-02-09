@@ -41,6 +41,7 @@ const createUser = async (req, res) => {
       didSellProj: req.body.didSellProj,
       isExecutingProj: req.body.isExecutingProj,
       weeklyHours: req.body.weeklyHours,
+      imgUrl: req.body.imgUrl,
       createdAt: req.body.createdAt,
     });
 
@@ -106,6 +107,7 @@ const updateUser = async (req, res) => {
       didSellProj: req.body.didSellProj,
       isExecutingProj: req.body.isExecutingProj,
       weeklyHours: req.body.weeklyHours,
+      // imgUrl: req.body.imgUrl,
     };
 
     await User.updateUser(editedUser);
