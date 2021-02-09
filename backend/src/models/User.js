@@ -127,33 +127,33 @@ userSchema.statics.updateUser = async (editedUser) => {
  * method to add credit to all users according to their properties
  */
 userSchema.statics.addCred = async () => {
-  
   //there's a lot of identifiers, like $inc, $set
-  //$inc - increments the value of the field by the amount specified 
-  try{
-  const users = User.find({
-    isAdmin: isAdminField,
-  });
-  users.forEach(async(user) => {
-    user.cash += (40 +( 5 * user.weeklyHours)) * (1 + (user.didSellProj
-  && 0,2) + (user.isExecutingProj && 0,1));
-    await User.updateOne({fulName: user.fullName}, {$inc:{$cash: user.cash}});
-  })
-  return response.status(200).send();
-  }
-  catch(error){
+  //$inc - increments the value of the field by the amount specified
+  try {
+    const users = User.find({
+      isAdmin: isAdminField,
+    });
+    users.forEach(async (user) => {
+      user.cash +=
+        (40 + 5 * user.weeklyHours) *
+        (1 + (user.didSellProj && 0, 2) + (user.isExecutingProj && 0, 1));
+      await User.updateOne(
+        { fulName: user.fullName },
+        { $inc: { $cash: user.cash } }
+      );
+    });
+    return response.status(200).send();
+  } catch (error) {
     console.log(error);
     return response.status(400).send();
   }
-  
-  
 };
 
 /**
  * method to delete an user given their userName
  */
 userSchema.statics.eraseCred = async () => {
-  const response = await User.updateMany({$set: {cash: 0}});
+  const response = await User.updateMany({ $set: { cash: 0 } });
 
   if (!response) return undefined;
   // boolean

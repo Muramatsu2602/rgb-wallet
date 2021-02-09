@@ -110,7 +110,7 @@ const updateUser = async (req, res) => {
 
     await User.updateUser(editedUser);
     //finding edited user to log _id on console
-    const user = await User.findOne({userName: editedUser.originalUserName});
+    const user = await User.findOne({ userName: editedUser.originalUserName });
     console.log(`User with id: ${user._id} updated`);
   } catch (e) {
     console.log("erro", e);
@@ -139,29 +139,30 @@ const deleteUser = async (req, res) => {
  * @param {*} res
  */
 const addCred = async (req, res) => {
-  
   //there's a lot of identifiers, like $inc, $set
-  //$inc - increments the value of the field by the amount specified 
+  //$inc - increments the value of the field by the amount specified
   const response = true;
-  try{
+  try {
     const users = await User.findAllUsers(false);
-    users.forEach( async(user) => {
-        let taxa = 1;
-        if(user.didSellProj == true){
-            taxa += 0.2;
-        } 
-        if(user.isExecutingProj == true){
-            taxa += 0.1;
-        }
-        let saldo = (40 + 5*(user.weeklyHours)) * taxa;
-        await User.updateOne({_id: ObjectId(user._id)}, {$inc: {cash: saldo}});
-    })
+    users.forEach(async (user) => {
+      let taxa = 1;
+      if (user.didSellProj == true) {
+        taxa += 0.2;
+      }
+      if (user.isExecutingProj == true) {
+        taxa += 0.1;
+      }
+      let saldo = (40 + 5 * user.weeklyHours) * taxa;
+      await User.updateOne(
+        { _id: ObjectId(user._id) },
+        { $inc: { cash: saldo } }
+      );
+    });
     console.log("Credit added for all users");
     return res.status(200).send(users);
-    }
-    catch(error){
-      console.log(error);
-    }
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 /**
