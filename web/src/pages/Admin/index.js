@@ -274,7 +274,7 @@ export default function Admin() {
             <div className="error-message">
               {" "}
               <h2 style={{ color: "red", alignSelf: "center" }}>
-                Erro ao pegar users do banco!!
+                Erro ao pegar user(s) do banco!!
               </h2>
             </div>
           )}

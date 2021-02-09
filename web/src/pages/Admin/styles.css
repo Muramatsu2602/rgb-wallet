@@ -68,10 +68,8 @@
 }
 
 /* Specific customization  */
-#btn_search {
-  width: 3.5rem !important;
-  height: 3.5rem !important;
-  border-radius: 25px !important;
+#drop-down-search {
+  background-color: var(--color-primary-dark) !important;
 }
 
 #btnCadUser {
@@ -88,7 +86,7 @@
 }
 
 #btnAddCred:hover,
-#btn_search:hover {
+#drop-down-search:hover {
   background: var(--color-primary-medium) !important;
 }
 
