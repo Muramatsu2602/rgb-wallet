@@ -271,7 +271,12 @@ export default function Admin() {
 
         <div className="body-wrapper">
           {error && (
-            <div className="error-message">Erro ao carregar usuários!</div>
+            <div className="error-message">
+              {" "}
+              <h2 style={{ color: "red", alignSelf: "center" }}>
+                Erro ao pegar users do banco!!
+              </h2>
+            </div>
           )}
           {/* using chave=index to avoid error when displaying that */}
           {success &&
