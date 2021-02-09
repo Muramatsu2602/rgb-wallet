@@ -55,6 +55,7 @@ export default function UserCard(props) {
         didSellProj: e.target.formDidSellProj.checked,
         isExecutingProj: e.target.formIsExecProj.checked,
         weeklyHours: e.target.formHowManyWeeks.value,
+        imgUrl: e.target.formImgUrl.value,
       });
     } catch (err) {
       setResponse("Error");
@@ -97,6 +98,10 @@ export default function UserCard(props) {
             `Tchau, '${props.fullName}'...`,
             "success"
           );
+
+          // forcefully reloading page
+          window.location.reload();
+
           // setting states
           if (!res) setError(true);
           else setSuccess(true);
@@ -243,6 +248,18 @@ export default function UserCard(props) {
                     className="custom-card-input"
                     type="number"
                     value={!isEdited ? props.weeklyHours : null}
+                    disabled={!isEdited}
+                  />
+                </Form.Group>
+
+                <Form.Group controlId="formImgUrl">
+                  <Form.Label className="custom-card-lbl">
+                    URl da imagem de perfil
+                  </Form.Label>
+                  <Form.Control
+                    className="custom-card-input"
+                    type="url"
+                    value={!isEdited ? props.imgUrl : null}
                     disabled={!isEdited}
                   />
                 </Form.Group>
