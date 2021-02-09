@@ -180,13 +180,14 @@ export default function UserCard(props) {
                   />
                 </Form.Group>
 
+                {/* AKA Email */}
                 <Form.Group controlId="formFullUsername">
                   <Form.Label className="custom-card-lbl">
-                    Nome de Usuário
+                    E-mail
                   </Form.Label>
                   <Form.Control
                     className="custom-card-input"
-                    type="text"
+                    type="email"
                     value={!isEdited ? props.userName : null}
                     disabled={!isEdited}
                   />
