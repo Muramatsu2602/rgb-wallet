@@ -132,7 +132,7 @@ export default function UserCard(props) {
 
       <div className="card-header">
         <div className="current-balance">
-          <p>{props.fullName}</p>
+          <p className="text-overflow">{props.fullName}</p>
           <h1>
             {" "}
             <NumberFormat
@@ -182,9 +182,7 @@ export default function UserCard(props) {
 
                 {/* AKA Email */}
                 <Form.Group controlId="formFullUsername">
-                  <Form.Label className="custom-card-lbl">
-                    E-mail
-                  </Form.Label>
+                  <Form.Label className="custom-card-lbl">E-mail</Form.Label>
                   <Form.Control
                     className="custom-card-input"
                     type="email"
