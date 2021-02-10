@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Auth from "../../services/AuthService";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -44,6 +45,26 @@ export default function User() {
 
     loadData();
   }, []);
+
+  /**
+   * onClick function to ask for more money on account
+   * @param {*} event
+   */
+  const printExtratoOnClick = async (e) => {
+    Swal.fire("Imprimir Extrato?", "Feature em andamento", "question");
+  };
+
+  /**
+   * onClick function to ask for more money on account
+   * @param {*} event
+   */
+  const solicitarTransfOnClick = async (e) => {
+    Swal.fire(
+      "Solicitar Transferencia ao ADMIN?",
+      "Feature em andamento",
+      "question"
+    );
+  };
 
   return (
     <div id="user-page">
@@ -117,10 +138,18 @@ export default function User() {
               </div>
 
               <div className="user-buttons">
-                <Button className="custom-btn" id="solicitar">
+                <Button
+                  onClick={printExtratoOnClick}
+                  className="custom-btn"
+                  id="printExtrato"
+                >
                   Imprimir Extrato
                 </Button>{" "}
-                <Button className="custom-btn" id="extrato">
+                <Button
+                  onClick={solicitarTransfOnClick}
+                  className="custom-btn"
+                  id="solicitarTransf"
+                >
                   Requisitar $
                 </Button>{" "}
               </div>

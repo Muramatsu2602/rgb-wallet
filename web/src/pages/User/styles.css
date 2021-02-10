@@ -20,11 +20,11 @@
 }
 
 /*Overriding Bootstrap Component Styles*/
-#solicitar {
+#solicitarTransf {
   background-color: var(--color-secondary-medium) !important;
 }
 
-#solicitar:hover {
+#solicitarTransf:hover {
   background-color: var(--color-secondary-light) !important;
 }
 
