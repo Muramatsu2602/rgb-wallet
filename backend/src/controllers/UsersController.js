@@ -130,8 +130,9 @@ const updateProfilePic = async (req, res) => {
       userName: req.body.userName,
       imgUrl: req.body.imgUrl,
     });
-
-    console.log("did it update profile pic?: ", response);
+    
+    return res.status(200).send(response);
+    // console.log("did it update profile pic?: ", response);
   } catch (e) {
     console.log("erro", e);
   }

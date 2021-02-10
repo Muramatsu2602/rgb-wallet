@@ -57,7 +57,7 @@ export default function Header(props) {
     Swal.fire({
       allowOutsideClick: false,
       title: "Alterar Foto de perfil",
-      html: `<input type="url" id="newImgUrl" class="swal2-input"  placeholder="https://avatars.githubusercontent.com/u/3723">
+      html: `<input type="text" id="newImgUrl" class="swal2-input"  placeholder="https://avatars.githubusercontent.com/u/3723">
             `,
       showCancelButton: true,
       confirmButtonText: "Adicionar!",
@@ -69,14 +69,13 @@ export default function Header(props) {
         if (!newImgUrl) {
           Swal.showValidationMessage(`Por Favor insira uma url!`);
         }
-        return { newImgUrl: newImgUrl };
       },
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
           const res = await axios.post("/updateProfilePic", {
             userName: props.userName,
-            imgUrl: props.imgUrl,
+            imgUrl: Swal.getPopup().querySelector("#newImgUrl").value,
           });
         } catch (err) {
           setResponse("Error");
