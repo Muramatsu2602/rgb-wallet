@@ -6,6 +6,9 @@ import axios from "axios";
 import Auth from "../../services/AuthService";
 import { Redirect } from "react-router-dom";
 
+import tippy from 'tippy.js';
+import 'tippy.js/dist/tippy.css'; // optional for styling
+
 import defaultProfilePic from "../../assets/images/profile-icon.svg";
 import CornerLogo from "../../assets/images/corner-logo.svg";
 import CornerArrow from "../../assets/images/corner-arrow-left.svg";
@@ -17,6 +20,11 @@ export default function Header(props) {
   const [redirect, setRedirect] = useState(false);
   // Req variables
   const [response, setResponse] = useState("");
+
+  // Edit User pic Tooltip
+  tippy('#myProfilePic', {
+    content: 'Clique para Alterar a Foto!',
+  });
 
   const logOut = (e) => {
     Swal.fire({
@@ -115,6 +123,7 @@ export default function Header(props) {
           <img
             onClick={changeProfilePicOnClick}
             className="profile-pic"
+            id="myProfilePic"
             src={props.imgUrl ? props.imgUrl : defaultProfilePic}
             alt="profile"
           />

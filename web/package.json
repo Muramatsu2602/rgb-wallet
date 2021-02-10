@@ -28,6 +28,7 @@
     "react-switch": "^6.0.0",
     "sweetalert2": "^10.13.1",
     "sweetalert2-react-content": "^3.2.2",
+    "tippy.js": "^6.2.7",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
