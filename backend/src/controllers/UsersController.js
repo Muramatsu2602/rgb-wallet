@@ -120,6 +120,24 @@ const updateUser = async (req, res) => {
 };
 
 /**
+ * Updates profile picture
+ * @param {*} req
+ * @param {*} res
+ */
+const updateProfilePic = async (req, res) => {
+  try {
+    const response = await User.updateProfilePic({
+      userName: req.body.userName,
+      imgUrl: req.body.imgUrl,
+    });
+
+    console.log("did it update profile pic?: ", response);
+  } catch (e) {
+    console.log("erro", e);
+  }
+};
+
+/**
  * deletes user given their userName
  * @param {} req
  * @param {*} res
@@ -190,6 +208,7 @@ export default {
   getUser,
   getUsers,
   updateUser,
+  updateProfilePic,
   deleteUser,
   addCred,
   eraseCred,

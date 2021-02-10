@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 // import { Link } from "react-router-dom";
 import Auth from "../../services/AuthService";
@@ -14,6 +15,8 @@ import "./styles.css";
 export default function Header(props) {
   // Auth
   const [redirect, setRedirect] = useState(false);
+  // Req variables
+  const [response, setResponse] = useState("");
 
   const logOut = (e) => {
     Swal.fire({
@@ -51,7 +54,45 @@ export default function Header(props) {
 
   // changing profile picture upon clicking on the icon
   const changeProfilePicOnClick = async (e) => {
-    Swal.fire(`Change profile picture of ${props.fullName}`, "Are you sure?", "question");
+    Swal.fire({
+      allowOutsideClick: false,
+      title: "Alterar Foto de perfil",
+      html: `<input type="url" id="newImgUrl" class="swal2-input"  placeholder="https://avatars.githubusercontent.com/u/3723">
+            `,
+      showCancelButton: true,
+      confirmButtonText: "Adicionar!",
+      cancelButtonText: "Nem!",
+      cancelButtonColor: "#d33",
+      focusConfirm: false,
+      preConfirm: () => {
+        const newImgUrl = Swal.getPopup().querySelector("#newImgUrl").value;
+        if (!newImgUrl) {
+          Swal.showValidationMessage(`Por Favor insira uma url!`);
+        }
+        return { newImgUrl: newImgUrl };
+      },
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          const res = await axios.post("/updateProfilePic", {
+            userName: props.userName,
+            imgUrl: props.imgUrl,
+          });
+        } catch (err) {
+          setResponse("Error");
+          await Swal.fire(`ERROR!`, `Detalhes: '${err}'`, "error");
+        }
+
+        await Swal.fire({
+          title: "Foto de perfil alterada com sucesso!",
+          text: `${props.fullName} de cara nova!`,
+          icon: "success",
+        });
+
+        // forcefully reloading page
+        window.location.reload();
+      }
+    });
   };
 
   return (

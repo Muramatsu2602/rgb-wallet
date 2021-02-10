@@ -37,11 +37,11 @@
   transition: border 0.5s;
 }
 
-.hello-user-container img:hover{
+.hello-user-container img:hover {
   cursor: pointer;
 
   border: 5px solid var(--color-secondary-medium);
-  opacity: 0.5
+  opacity: 0.5;
 }
 
 .hello-user {
@@ -76,4 +76,9 @@
     padding-left: 2rem;
     padding-bottom: 1rem;
   }
+}
+
+/* Overwritting swal*/
+.swal2-input {
+  width: 100%;
 }

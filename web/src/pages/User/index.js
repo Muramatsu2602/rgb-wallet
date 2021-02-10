@@ -20,6 +20,7 @@ export default function User() {
     cash: 0,
   });
   const [error, setError] = useState(false);
+  const [userName, setUserName] = useState("");
 
   useEffect(() => {
     const loadData = async () => {
@@ -32,6 +33,7 @@ export default function User() {
         // console.log("Hey", res.data.cash.$numberDecimal);
         setUser(res.data);
         setError(false);
+        setUserName(userLogado.userName);
       } catch (err) {
         setError(true);
       }
@@ -47,7 +49,12 @@ export default function User() {
     <div id="user-page">
       <div className="content-wrapper">
         {/* Limited info, so no need to send entire user object like {...user} */}
-        <Header isAdmin={false} imgUrl={user.imgUrl} fullName={user.fullName} />
+        <Header
+          isAdmin={false}
+          imgUrl={user.imgUrl}
+          userName={userName}
+          fullName={user.fullName}
+        />
 
         {!error ? (
           <div className="body-wrapper">

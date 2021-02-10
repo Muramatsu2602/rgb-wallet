@@ -130,6 +130,24 @@ userSchema.statics.updateUser = async (editedUser) => {
 };
 
 /**
+ * updates profile picture given user's fullname
+ */
+userSchema.statics.updateProfilePic = async (userName, imgUrl) => {
+
+  
+  const response = await User.findOneAndUpdate(
+    { userName: userName },
+    {
+      imgUrl: imgUrl,
+    }
+  );
+
+  if (!response) return undefined;
+  // boolean
+  return response;
+};
+
+/**
  * method to add credit to all users according to their properties
  */
 userSchema.statics.addCred = async () => {
