@@ -96,13 +96,11 @@
 
 #admin-page .body-wrapper {
   width: 100vw;
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 
-  grid-auto-flow: dense;
-
-  padding: 1rem 2rem 1rem 2rem;
+  padding: 1rem 3rem 1rem 3rem;
 }
 
 .error-message {
@@ -125,12 +123,5 @@
     height: 3rem !important;
     width: 20.1rem !important;
     font-size: var(--text-small) !important;
-  }
-
-  #admin-page .body-wrapper {
-    padding-right: 9rem;
-    padding-left: 11rem;
-    grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 1rem !important;
   }
 }
