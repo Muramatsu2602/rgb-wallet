@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import Auth from "../../services/AuthService";
 import { Redirect } from "react-router-dom";
 
+import defaultProfilePic from "../../assets/images/profile-icon.svg";
 import CornerLogo from "../../assets/images/corner-logo.svg";
 import CornerArrow from "../../assets/images/corner-arrow-left.svg";
 
@@ -48,6 +49,11 @@ export default function Header(props) {
     });
   };
 
+  // changing profile picture upon clicking on the icon
+  const changeProfilePicOnClick = async (e) => {
+    Swal.fire("Change profile Picture", "Are you sure?", "question");
+  };
+
   return (
     <div className="header-wrapper">
       <div className="top-icons">
@@ -64,15 +70,25 @@ export default function Header(props) {
           <img src={CornerLogo} alt="logo RGBWallet" />
         </div>
       </div>
-      <div className="hello-user">
-        <h1>
-          {props.isAdmin ? "Painel de Usuários" : `Olá, ${props.fullName}`}
-        </h1>
-        <p>
-          {props.isAdmin
-            ? "Consulte e altere os dados dos usuários"
-            : "Esta é sua carteira virtual"}
-        </p>
+      <div className="hello-user-container">
+        {!props.isAdmin ? (
+          <img
+            onClick={changeProfilePicOnClick}
+            className="profile-pic"
+            src={props.imgUrl ? props.imgUrl : defaultProfilePic}
+            alt="profile"
+          />
+        ) : null}
+        <div className="hello-user">
+          <h1>
+            {props.isAdmin ? "Painel de Usuários" : `Olá, ${props.fullName}`}
+          </h1>
+          <p>
+            {props.isAdmin
+              ? "Consulte e altere os dados dos usuários"
+              : "Esta é sua carteira virtual"}
+          </p>
+        </div>
       </div>
     </div>
   );

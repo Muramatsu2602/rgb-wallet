@@ -23,10 +23,31 @@
   transition: opacity 0.5s;
 }
 
+.hello-user-container {
+  display: flex;
+
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.hello-user-container img {
+  margin-left: 2rem;
+
+  transition: border 0.5s;
+}
+
+.hello-user-container img:hover{
+  cursor: pointer;
+
+  border: 5px solid var(--color-secondary-medium);
+  opacity: 0.5
+}
+
 .hello-user {
   padding-top: 2rem;
-  padding-left: 10rem;
   padding-bottom: 2rem;
+  padding-left: 3rem;
 }
 
 .hello-user h1 {
@@ -52,7 +73,7 @@
 
   .hello-user {
     padding-top: 0rem;
-    padding-left: 10rem;
+    padding-left: 2rem;
     padding-bottom: 1rem;
   }
 }
