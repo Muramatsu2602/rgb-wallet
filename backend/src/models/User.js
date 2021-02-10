@@ -10,7 +10,6 @@ const userSchema = new mongoose.Schema({
     required: true,
     trim: true,
     lowercase: true,
-    default: "",
   },
   fullName: {
     type: String,
@@ -49,7 +48,6 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false,
     trim: true,
-    default: "",
   },
   createdAt: {
     type: Date,
@@ -133,17 +131,19 @@ userSchema.statics.updateUser = async (editedUser) => {
 /**
  * updates profile picture given user's fullname
  */
-userSchema.statics.updateProfilePic = async (userName, SentImgUrl) => {
-  console.log("INFO", userName, SentImgUrl);
+userSchema.statics.updateProfilePic = async (userInfo) => {
+  try {
+    const response = await User.findOneAndUpdate(
+      { userName: userInfo.userName },
+      {
+        imgUrl: userInfo.imgUrl,
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    return response.status(400).send();
+  }
 
-  const response = await User.findOneAndUpdate(
-    { userName: userName },
-    {
-      imgUrl: SentImgUrl,
-    }
-  );
-
-  // console.log("updateProfilePic response:", response);
   if (!response) return undefined;
   // boolean
   return response;
