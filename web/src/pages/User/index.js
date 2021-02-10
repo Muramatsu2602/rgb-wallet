@@ -46,7 +46,8 @@ export default function User() {
   return (
     <div id="user-page">
       <div className="content-wrapper">
-        <Header isAdmin={false} fullName={user.fullName} />
+        {/* Limited info, so no need to send entire user object like {...user} */}
+        <Header isAdmin={false} imgUrl={user.imgUrl} fullName={user.fullName} />
 
         {!error ? (
           <div className="body-wrapper">

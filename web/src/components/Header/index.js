@@ -51,7 +51,7 @@ export default function Header(props) {
 
   // changing profile picture upon clicking on the icon
   const changeProfilePicOnClick = async (e) => {
-    Swal.fire("Change profile Picture", "Are you sure?", "question");
+    Swal.fire(`Change profile picture of ${props.fullName}`, "Are you sure?", "question");
   };
 
   return (
