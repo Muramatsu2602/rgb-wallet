@@ -68,7 +68,7 @@ export default function Header(props) {
       html: `<input type="text" id="newImgUrl" class="swal2-input"  placeholder="https://avatars.githubusercontent.com/u/3723">
             `,
       showCancelButton: true,
-      confirmButtonText: "Adicionar!",
+      confirmButtonText: "Alterar!",
       cancelButtonText: "Nem!",
       cancelButtonColor: "#d33",
       focusConfirm: false,
