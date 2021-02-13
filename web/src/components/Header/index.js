@@ -15,6 +15,15 @@ import CornerArrow from "../../assets/images/corner-arrow-left.svg";
 import "./styles.css";
 
 export default function Header(props) {
+  function validURL(str) {
+    var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+      '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+      '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+      '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+      '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+      '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+    return !!pattern.test(str);
+  }
   // Auth
   const [redirect, setRedirect] = useState(false);
   // Req variables
@@ -63,7 +72,7 @@ export default function Header(props) {
   const changeProfilePicOnClick = async (e) => {
     Swal.fire({
       allowOutsideClick: false,
-      title: "Adicionar valor a ser debitado",
+      title: "Insira a URL da nova foto de perfil!",
       html: `<input type="text" id="newImgUrl" class="swal2-input"  placeholder="https://avatars.githubusercontent.com/u/3723">
             `,
       showCancelButton: true,
@@ -74,6 +83,10 @@ export default function Header(props) {
       preConfirm: () => {
         const newImgUrl = Swal.getPopup().querySelector("#newImgUrl").value;
         if (!newImgUrl) {
+          Swal.showValidationMessage(`Não insira URL vazia!`);
+        }
+
+        if (!validURL(newImgUrl)) {
           Swal.showValidationMessage(`Por Favor insira uma url!`);
         }
       },

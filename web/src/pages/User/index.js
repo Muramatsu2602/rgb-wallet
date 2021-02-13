@@ -8,9 +8,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { GiReceiveMoney } from "react-icons/gi";
 import { GiPayMoney } from "react-icons/gi";
+import { FaAngleDown } from "react-icons/fa";
 
 import Header from "../../components/Header/index";
-import { Button } from "react-bootstrap/";
+import CustomToggle from "../../components/CustomToggle/index";
+import { Button, Table, Accordion } from "react-bootstrap/";
 
 import NumberFormat from "react-number-format";
 
@@ -92,6 +94,10 @@ export default function User() {
         if (!newExpense) {
           Swal.showValidationMessage(`Por Favor insira um valor em R$!`);
         }
+
+        if (newExpense < 0) {
+          Swal.showValidationMessage(`Por Favor insira um valor Maior que 0!`);
+        }
       },
     }).then(async (result) => {
       if (result.isConfirmed) {
@@ -154,7 +160,7 @@ export default function User() {
               <div className="transaction-history-wrapper">
                 {/* <Accordion defaultActiveKey="0">
                   <CustomToggle eventKey="1">
-                    Histório de Transações <FaAngleDown />
+                    Visualizar Extrato <FaAngleDown />
                   </CustomToggle>
 
                   <Accordion.Collapse eventKey="1">
