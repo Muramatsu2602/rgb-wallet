@@ -128,7 +128,11 @@ export default function UserCard(props) {
       <div className="card-header">
         <div className="current-balance">
           <p className="text-overflow">{props.fullName}</p>
-          <h1>
+          <h1
+            className={
+              Number(props.cash.$numberDecimal) < 0 ? "negative-cash" : null
+            }
+          >
             {" "}
             <NumberFormat
               value={Number(props.cash ? props.cash.$numberDecimal : 0)}

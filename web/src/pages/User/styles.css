@@ -125,6 +125,11 @@
   border-bottom: 3px solid var(--color-input-background);
 }
 
+.negative-cash{
+  color: var(--color-red) !important;
+}
+
+
 .transaction-history-wrapper {
   display: flex;
   flex-direction: column;

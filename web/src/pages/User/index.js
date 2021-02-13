@@ -134,7 +134,13 @@ export default function User() {
             <div className="wallet-wrapper">
               <div className="current-balance">
                 <h2>Saldo Atual</h2>
-                <h1>
+                <h1
+                  className={
+                    Number(user.cash.$numberDecimal) < 0
+                      ? "negative-cash"
+                      : null
+                  }
+                >
                   <NumberFormat
                     value={Number(user.cash.$numberDecimal)}
                     displayType={"text"}
