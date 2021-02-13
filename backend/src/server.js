@@ -22,7 +22,7 @@ server.get("/eraseCred",UserController.eraseCred)
 
 // EXTRA FEATURES
 server.post("/updateProfilePic",UserController.updateProfilePic);
-// server.post("/declareExpense", UserController.declareExpense);
+server.post("/declareExpense", UserController.declareExpense);
 
 // Starting server
 server.listen(3003, () => {

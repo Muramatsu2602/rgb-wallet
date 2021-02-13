@@ -21,7 +21,9 @@ export default function User() {
     cash: 0,
   });
   const [error, setError] = useState(false);
+  // User properties,actions
   const [userName, setUserName] = useState("");
+  const [expense, setExpense] = useState(0);
 
   useEffect(() => {
     const loadData = async () => {
@@ -51,11 +53,22 @@ export default function User() {
    * @param {*} event
    */
   const requisitarDinheiroOnClick = async (e) => {
-    Swal.fire(
-      "Solicitar Transferencia ao ADMIN?",
-      "Feature em andamento",
-      "question"
-    );
+    Swal.fire({
+      title: "Solicitar $$$ ao ADMIN?",
+      text:
+        "Vamos mandar um e-mail pedindo pra adicionar crédito à sua conta !",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Quero!",
+      cancelButtonText: "Nem!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // Auth
+        // manda notificacao para tal card?
+      }
+    });
   };
 
   /**
@@ -63,7 +76,46 @@ export default function User() {
    * @param {*} event
    */
   const declararGastoOnClick = async (e) => {
-    Swal.fire("Declarar Gasto!", "Feature em andamento", "question");
+    Swal.fire({
+      allowOutsideClick: false,
+      title: "Inserir gasto a ser debitado",
+      html: `<input type="number" id="newExpense" class="swal2-input"  placeholder="30,00">
+            `,
+      showCancelButton: true,
+      confirmButtonText: "Adicionar!",
+      cancelButtonText: "Nem!",
+      cancelButtonColor: "#d33",
+      focusConfirm: false,
+      preConfirm: () => {
+        const newExpense = Swal.getPopup().querySelector("#newExpense").value;
+
+        if (!newExpense) {
+          Swal.showValidationMessage(`Por Favor insira um valor em R$!`);
+        }
+      },
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        const expense = Swal.getPopup().querySelector("#newExpense").value;
+        try {
+          const res = await axios.post("/declareExpense", {
+            userName: userName,
+            cash: user.cash,
+            expense: expense,
+          });
+        } catch (err) {
+          await Swal.fire(`ERROR!`, `Detalhes: '${err}'`, "error");
+        }
+
+        await Swal.fire({
+          title: " Gasto declarado com sucesso!",
+          text: `Debitando ${expense}!`,
+          icon: "success",
+        });
+
+        // forcefully reloading page
+        window.location.reload();
+      }
+    });
   };
 
   return (

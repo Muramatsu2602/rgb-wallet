@@ -20,7 +20,7 @@ export default function Header(props) {
   // Req variables
   const [response, setResponse] = useState("");
 
-  // Edit User pic Tooltip
+  // Nice Tooltip
   tippy("#myProfilePic", {
     content: "Clique para Alterar a Foto!",
   });
@@ -63,7 +63,7 @@ export default function Header(props) {
   const changeProfilePicOnClick = async (e) => {
     Swal.fire({
       allowOutsideClick: false,
-      title: "Alterar Foto de perfil",
+      title: "Adicionar valor a ser debitado",
       html: `<input type="text" id="newImgUrl" class="swal2-input"  placeholder="https://avatars.githubusercontent.com/u/3723">
             `,
       showCancelButton: true,

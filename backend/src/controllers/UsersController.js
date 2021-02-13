@@ -130,7 +130,7 @@ const updateProfilePic = async (req, res) => {
       userName: req.body.userName,
       imgUrl: req.body.imgUrl,
     });
-    
+
     return res.status(200).send(response);
     // console.log("did it update profile pic?: ", response);
   } catch (e) {
@@ -203,6 +203,26 @@ const eraseCred = async (req, res) => {
   }
 };
 
+/**
+ * decreases user's cash given a value
+ * @param {*} req
+ * @param {*} res
+ */
+const declareExpense = async (req, res) => {
+  try {
+    const response = await User.declareExpense({
+      userName: req.body.userName,
+      cash: Number(req.body.cash.$numberDecimal),
+      expense: req.body.expense,
+    });
+
+    return res.status(200).send(response);
+    console.log("did it update profile pic?: ", response);
+  } catch (e) {
+    console.log("erro", e);
+  }
+};
+
 export default {
   login,
   createUser,
@@ -213,4 +233,6 @@ export default {
   deleteUser,
   addCred,
   eraseCred,
+  // extra features
+  declareExpense,
 };

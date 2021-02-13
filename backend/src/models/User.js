@@ -186,6 +186,25 @@ userSchema.statics.eraseCred = async () => {
   return response;
 };
 
+userSchema.statics.declareExpense = async (userInfo) => {
+  try {
+    const response = await User.findOneAndUpdate(
+      { userName: userInfo.userName },
+      {
+        // subtracting value
+        cash: userInfo.cash - userInfo.expense,
+      }
+    );
+  } catch (error) {
+    console.log(error);
+    return response.status(400).send();
+  }
+
+  if (!response) return undefined;
+  // boolean
+  return response;
+};
+
 /**
  * method that shall be called before saving the user, so that we cryptograph the password
  */

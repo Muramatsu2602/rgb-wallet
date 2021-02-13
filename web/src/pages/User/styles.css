@@ -20,6 +20,14 @@
 }
 
 /*Overriding Bootstrap Component Styles*/
+#requisitarDinheiro {
+  background-color: var(--color-green) !important;
+}
+
+#requisitarDinheiro:hover {
+  background-color: var(--color-green-lighter) !important;
+}
+
 #declararGasto {
   background-color: var(--color-red) !important;
 }
