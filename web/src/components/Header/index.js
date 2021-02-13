@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 
-// import { Link } from "react-router-dom";
 import Auth from "../../services/AuthService";
 import { Redirect } from "react-router-dom";
 
-import tippy from 'tippy.js';
-import 'tippy.js/dist/tippy.css'; // optional for styling
+import tippy from "tippy.js";
+import "tippy.js/dist/tippy.css"; // optional for styling the popcorn tooltip text
 
 import defaultProfilePic from "../../assets/images/profile-icon.svg";
 import CornerLogo from "../../assets/images/corner-logo.svg";
@@ -22,8 +21,8 @@ export default function Header(props) {
   const [response, setResponse] = useState("");
 
   // Edit User pic Tooltip
-  tippy('#myProfilePic', {
-    content: 'Clique para Alterar a Foto!',
+  tippy("#myProfilePic", {
+    content: "Clique para Alterar a Foto!",
   });
 
   const logOut = (e) => {

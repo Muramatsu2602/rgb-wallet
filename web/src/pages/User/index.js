@@ -6,11 +6,11 @@ import Swal from "sweetalert2";
 import "./styles.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-import { FaAngleDown } from "react-icons/fa";
+import { GiReceiveMoney } from "react-icons/gi";
+import { GiPayMoney } from "react-icons/gi";
 
 import Header from "../../components/Header/index";
-import CustomToggle from "../../components/CustomToggle/index";
-import { Button, Table, Accordion } from "react-bootstrap/";
+import { Button } from "react-bootstrap/";
 
 import NumberFormat from "react-number-format";
 
@@ -50,20 +50,20 @@ export default function User() {
    * onClick function to ask for more money on account
    * @param {*} event
    */
-  const printExtratoOnClick = async (e) => {
-    Swal.fire("Imprimir Extrato?", "Feature em andamento", "question");
+  const requisitarDinheiroOnClick = async (e) => {
+    Swal.fire(
+      "Solicitar Transferencia ao ADMIN?",
+      "Feature em andamento",
+      "question"
+    );
   };
 
   /**
    * onClick function to ask for more money on account
    * @param {*} event
    */
-  const solicitarTransfOnClick = async (e) => {
-    Swal.fire(
-      "Solicitar Transferencia ao ADMIN?",
-      "Feature em andamento",
-      "question"
-    );
+  const declararGastoOnClick = async (e) => {
+    Swal.fire("Declarar Gasto!", "Feature em andamento", "question");
   };
 
   return (
@@ -94,7 +94,7 @@ export default function User() {
               </div>
 
               <div className="transaction-history-wrapper">
-                <Accordion defaultActiveKey="0">
+                {/* <Accordion defaultActiveKey="0">
                   <CustomToggle eventKey="1">
                     Histório de Transações <FaAngleDown />
                   </CustomToggle>
@@ -134,23 +134,26 @@ export default function User() {
                       </Table>
                     </div>
                   </Accordion.Collapse>
-                </Accordion>
+                </Accordion> */}
               </div>
 
               <div className="user-buttons">
                 <Button
-                  onClick={printExtratoOnClick}
+                  onClick={requisitarDinheiroOnClick}
                   className="custom-btn"
-                  id="printExtrato"
+                  id="requisitarDinheiro"
                 >
-                  Imprimir Extrato
+                  Requisitar
+                  <span>&nbsp;&nbsp;</span>
+                  <GiReceiveMoney size={30} />
                 </Button>{" "}
                 <Button
-                  onClick={solicitarTransfOnClick}
+                  onClick={declararGastoOnClick}
                   className="custom-btn"
-                  id="solicitarTransf"
+                  id="declararGasto"
                 >
-                  Requisitar $
+                  Declarar Gasto
+                  <GiPayMoney size={30} />
                 </Button>{" "}
               </div>
             </div>

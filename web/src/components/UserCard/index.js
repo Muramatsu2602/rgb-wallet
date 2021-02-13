@@ -23,7 +23,6 @@ export default function UserCard(props) {
   const [response, setResponse] = useState("");
   // State Variables
   const [error, setError] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   // Form Variables
   const [isEdited, setIsEdited] = useState(false);
@@ -43,7 +42,6 @@ export default function UserCard(props) {
    */
   async function userUpdateOnSubmit(e) {
     setError(false);
-    setSuccess(false);
 
     const res = true;
 
@@ -63,7 +61,6 @@ export default function UserCard(props) {
     }
 
     if (!res) setError(true);
-    else setSuccess(true);
 
     setResponse(res);
   }
@@ -75,7 +72,6 @@ export default function UserCard(props) {
    */
   async function confirmDelete(e, props) {
     setError(false);
-    setSuccess(false);
 
     Swal.fire({
       title: `Deletar Usuário`,
@@ -104,7 +100,6 @@ export default function UserCard(props) {
 
           // setting states
           if (!res) setError(true);
-          else setSuccess(true);
           setResponse(res);
         } catch (error) {
           Swal.fire(`Erro ao apagar Usuário!`, `${error}`, "error");
@@ -136,7 +131,6 @@ export default function UserCard(props) {
           <h1>
             {" "}
             <NumberFormat
-              // value={Number(props.cash.$numberDecimal)}
               value={Number(props.cash ? props.cash.$numberDecimal : 0)}
               displayType={"text"}
               thousandSeparator={"."}
@@ -160,126 +154,138 @@ export default function UserCard(props) {
           </CustomToggle>
 
           <Accordion.Collapse eventKey="1">
-            <div className="card-details">
-              <div className="card-commands">
-                <Button className="btn-edit" onClick={allowFormEditOnClick}>
-                  Editar <FaEdit />
-                </Button>
-              </div>
-
-              <Form onSubmit={userUpdateOnSubmit}>
-                <Form.Group controlId="formFullName">
-                  <Form.Label className="custom-card-lbl">
-                    Nome Completo
-                  </Form.Label>
-                  <Form.Control
-                    className="custom-card-input"
-                    type="text"
-                    value={!isEdited ? props.fullName : null}
-                    disabled={!isEdited}
-                  />
-                </Form.Group>
-
-                {/* AKA Email */}
-                <Form.Group controlId="formFullUsername">
-                  <Form.Label className="custom-card-lbl">E-mail</Form.Label>
-                  <Form.Control
-                    className="custom-card-input"
-                    type="email"
-                    value={!isEdited ? props.userName : null}
-                    disabled={!isEdited}
-                  />
-                </Form.Group>
-
-                <Form.Group controlId="formDidSellProj">
-                  <Form.Label className="custom-card-lbl">
-                    Venda de projeto nesse mês?
-                  </Form.Label>
-                  {!isEdited ? (
-                    <img
-                      className="bool-img"
-                      src={props.didSellProj ? TrueIcon : FalseIcon}
-                      alt="boolean"
-                    />
-                  ) : (
-                    <div className="switch">
-                      <input
-                        id="formDidSellProj"
-                        type="checkbox"
-                        className="switch-input"
-                      />
-                      <label htmlFor="formDidSellProj" className="switch-label">
-                        Switch
-                      </label>
-                    </div>
-                  )}
-                </Form.Group>
-
-                <Form.Group controlId="formIsExecProj">
-                  <Form.Label className="custom-card-lbl">
-                    Algum projeto em execução?
-                  </Form.Label>
-                  {!isEdited ? (
-                    <img
-                      className="bool-img"
-                      src={props.isExecutingProj ? TrueIcon : FalseIcon}
-                      alt="boolean"
-                    />
-                  ) : (
-                    <div className="switch">
-                      <input
-                        id="formIsExecProj"
-                        type="checkbox"
-                        className="switch-input"
-                      />
-                      <label htmlFor="formIsExecProj" className="switch-label">
-                        Switch
-                      </label>
-                    </div>
-                  )}
-                </Form.Group>
-
-                <Form.Group controlId="formHowManyWeeks">
-                  <Form.Label className="custom-card-lbl">
-                    Quantas semanas cumpriu 10h/semanais?
-                  </Form.Label>
-                  <Form.Control
-                    className="custom-card-input"
-                    type="number"
-                    value={!isEdited ? props.weeklyHours : null}
-                    disabled={!isEdited}
-                  />
-                </Form.Group>
-
-                <Form.Group controlId="formImgUrl">
-                  <Form.Label className="custom-card-lbl">
-                    URl da imagem de perfil
-                  </Form.Label>
-                  <Form.Control
-                    className="custom-card-input"
-                    type="url"
-                    value={!isEdited ? props.imgUrl : null}
-                    disabled={!isEdited}
-                  />
-                </Form.Group>
-
-                <div className="form-buttons">
-                  <Button
-                    // Disable if one of the fields is untouched
-                    className="custom-card-btn"
-                    variant="primary"
-                    type="submit"
-                    style={
-                      !isEdited
-                        ? { visibility: "hidden" }
-                        : { visibility: "visible" }
-                    }
-                  >
-                    Salvar Alterações
-                  </Button>{" "}
+            {!error ? (
+              <div className="card-details">
+                <div className="card-commands">
+                  <Button className="btn-edit" onClick={allowFormEditOnClick}>
+                    Editar <FaEdit />
+                  </Button>
                 </div>
-              </Form>
-            </div>
+
+                <Form onSubmit={userUpdateOnSubmit}>
+                  <Form.Group controlId="formFullName">
+                    <Form.Label className="custom-card-lbl">
+                      Nome Completo
+                    </Form.Label>
+                    <Form.Control
+                      className="custom-card-input"
+                      type="text"
+                      value={!isEdited ? props.fullName : null}
+                      disabled={!isEdited}
+                    />
+                  </Form.Group>
+
+                  {/* AKA Email */}
+                  <Form.Group controlId="formFullUsername">
+                    <Form.Label className="custom-card-lbl">E-mail</Form.Label>
+                    <Form.Control
+                      className="custom-card-input"
+                      type="email"
+                      value={!isEdited ? props.userName : null}
+                      disabled={!isEdited}
+                    />
+                  </Form.Group>
+
+                  <Form.Group controlId="formDidSellProj">
+                    <Form.Label className="custom-card-lbl">
+                      Venda de projeto nesse mês?
+                    </Form.Label>
+                    {!isEdited ? (
+                      <img
+                        className="bool-img"
+                        src={props.didSellProj ? TrueIcon : FalseIcon}
+                        alt="boolean"
+                      />
+                    ) : (
+                      <div className="switch">
+                        <input
+                          id="formDidSellProj"
+                          type="checkbox"
+                          className="switch-input"
+                        />
+                        <label
+                          htmlFor="formDidSellProj"
+                          className="switch-label"
+                        >
+                          Switch
+                        </label>
+                      </div>
+                    )}
+                  </Form.Group>
+
+                  <Form.Group controlId="formIsExecProj">
+                    <Form.Label className="custom-card-lbl">
+                      Algum projeto em execução?
+                    </Form.Label>
+                    {!isEdited ? (
+                      <img
+                        className="bool-img"
+                        src={props.isExecutingProj ? TrueIcon : FalseIcon}
+                        alt="boolean"
+                      />
+                    ) : (
+                      <div className="switch">
+                        <input
+                          id="formIsExecProj"
+                          type="checkbox"
+                          className="switch-input"
+                        />
+                        <label
+                          htmlFor="formIsExecProj"
+                          className="switch-label"
+                        >
+                          Switch
+                        </label>
+                      </div>
+                    )}
+                  </Form.Group>
+
+                  <Form.Group controlId="formHowManyWeeks">
+                    <Form.Label className="custom-card-lbl">
+                      Quantas semanas cumpriu 10h/semanais?
+                    </Form.Label>
+                    <Form.Control
+                      className="custom-card-input"
+                      type="number"
+                      value={!isEdited ? props.weeklyHours : null}
+                      disabled={!isEdited}
+                    />
+                  </Form.Group>
+
+                  <Form.Group controlId="formImgUrl">
+                    <Form.Label className="custom-card-lbl">
+                      URl da imagem de perfil
+                    </Form.Label>
+                    <Form.Control
+                      className="custom-card-input"
+                      type="url"
+                      value={!isEdited ? props.imgUrl : null}
+                      disabled={!isEdited}
+                    />
+                  </Form.Group>
+
+                  <div className="form-buttons">
+                    <Button
+                      // Disable if one of the fields is untouched
+                      className="custom-card-btn"
+                      variant="primary"
+                      type="submit"
+                      style={
+                        !isEdited
+                          ? { visibility: "hidden" }
+                          : { visibility: "visible" }
+                      }
+                    >
+                      Salvar Alterações
+                    </Button>{" "}
+                  </div>
+                </Form>
+              </div>
+            ) : (
+              <h3 style={{ color: "red", alignSelf: "center" }}>
+                Erro ao puxar informações de {props.fullName} !!
+              </h3>
+            )}
           </Accordion.Collapse>
         </Accordion>
       </div>
