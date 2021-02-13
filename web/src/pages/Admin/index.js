@@ -33,7 +33,11 @@ export default function Admin() {
 
     if (searchQuery.trim().length) {
       const result = filteredUsers.filter((str) => {
-        return str.fullName.toLowerCase().includes(searchQuery.toLowerCase());
+        // chosen field for search
+        // TODO: checklist with all fields
+        const field = str.fullName;
+
+        return field.toLowerCase().includes(searchQuery.toLowerCase());
       });
 
       if (result == "") {
