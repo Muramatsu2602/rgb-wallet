@@ -114,7 +114,7 @@ export default function User() {
 
         await Swal.fire({
           title: " Gasto declarado com sucesso!",
-          text: `Debitando ${expense}!`,
+          text: `Você está R$${expense} mais pobre...`,
           icon: "success",
         });
 
