@@ -11,7 +11,7 @@ import EraseMoney from "../../assets/images/no-money.svg";
 import Header from "../../components/Header/index";
 import UserCard from "../../components/UserCard/index";
 
-import { Form, InputGroup, FormControl, Button } from "react-bootstrap/";
+import { Form, FormControl, Button } from "react-bootstrap/";
 import { Container } from "../../components/Container";
 
 export default function Admin() {
@@ -40,7 +40,7 @@ export default function Admin() {
         return field.toLowerCase().includes(searchQuery.toLowerCase());
       });
 
-      if (result == "") {
+      if (result === "") {
         setError(true);
         setSuccess(false);
       } else {

@@ -42,7 +42,7 @@ export default function Header(props) {
     var s = date.getSeconds(); // 0 - 59
     var session = "AM";
 
-    if (h == 0) {
+    if (h === 0) {
       h = 12;
     }
 

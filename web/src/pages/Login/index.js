@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Auth from "../../services/AuthService";
 import { Redirect } from "react-router-dom";
 
-import logoImg from "../../assets/images/login-logo.svg";
 import logoImg2 from "../../assets/images/logo-login-top.svg";
 
 import "./styles.css";
@@ -84,7 +83,6 @@ export default function Login() {
                 onChange={(e) => setUserName(e.target.value)}
                 required
                 className="custom-input"
-                type="text"
                 placeholder="Digite seu e-mail"
                 type="email"
               />

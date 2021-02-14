@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Swal from "sweetalert2";
 import axios from "axios";
 
@@ -14,7 +14,7 @@ import TrueIcon from "../../assets/images/true-icon.svg";
 import FalseIcon from "../../assets/images/false-icon.svg";
 
 import { FaAngleDown } from "react-icons/fa";
-import { FaAngleUp } from "react-icons/fa";
+// import { FaAngleUp } from "react-icons/fa";
 
 import { FaEdit } from "react-icons/fa";
 

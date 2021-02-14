@@ -8,11 +8,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { GiReceiveMoney } from "react-icons/gi";
 import { GiPayMoney } from "react-icons/gi";
-import { FaAngleDown } from "react-icons/fa";
 
 import Header from "../../components/Header/index";
-import CustomToggle from "../../components/CustomToggle/index";
-import { Button, Table, Accordion } from "react-bootstrap/";
+import { Button } from "react-bootstrap/";
 
 import NumberFormat from "react-number-format";
 
@@ -25,7 +23,6 @@ export default function User() {
   const [error, setError] = useState(false);
   // User properties,actions
   const [userName, setUserName] = useState("");
-  const [expense, setExpense] = useState(0);
 
   useEffect(() => {
     const loadData = async () => {
