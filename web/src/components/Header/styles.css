@@ -85,6 +85,7 @@
 
 /*Clock*/
 .clock {
+  cursor: pointer;
   margin-top: 1rem;
   color: var(--color-background-white);
   font-size: var(--text-big);

@@ -118,7 +118,9 @@ export default function Login() {
                 </Button>{" "}
               </div>
 
-              <a onClick={ForgotPasswordAlert}>Esqueci a senha...</a>
+              <a target="_blank" onClick={ForgotPasswordAlert}>
+                Esqueci a senha...
+              </a>
             </div>
           </Form>
         </div>
