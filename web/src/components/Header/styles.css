@@ -82,3 +82,12 @@
 .swal2-input {
   width: 100%;
 }
+
+/*Clock*/
+.clock {
+  margin-top: 1rem;
+  color: var(--color-background-white);
+  font-size: var(--text-big);
+  font-weight: 600;
+  letter-spacing: 7px;
+}
