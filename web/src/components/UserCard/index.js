@@ -14,6 +14,8 @@ import TrueIcon from "../../assets/images/true-icon.svg";
 import FalseIcon from "../../assets/images/false-icon.svg";
 
 import { FaAngleDown } from "react-icons/fa";
+import { FaAngleUp } from "react-icons/fa";
+
 import { FaEdit } from "react-icons/fa";
 
 import "./styles.css";
@@ -26,10 +28,29 @@ export default function UserCard(props) {
 
   // Form Variables
   const [isEdited, setIsEdited] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+
+  /**
+   * Allows form to be edited
+   * @param {} event
+   */
 
   async function allowFormEditOnClick(event) {
     // toggle behaviour
     if (isEdited) {
+      setIsEdited(false);
+    } else {
+      setIsEdited(true);
+    }
+  }
+
+  /**
+   * up and down effect on details button
+   * @param {*} e
+   */
+  async function clickToOpen(e) {
+    // toggle behaviour
+    if (isDetailsOpen) {
       setIsEdited(false);
     } else {
       setIsEdited(true);
@@ -153,8 +174,8 @@ export default function UserCard(props) {
 
       <div className="card-body">
         <Accordion defaultActiveKey="0">
-          <CustomToggle eventKey="1">
-            Detalhes <FaAngleDown />
+          <CustomToggle onClick={clickToOpen} eventKey="1">
+            Detalhes {isDetailsOpen ? <FaAngleUp /> : <FaAngleDown />}
           </CustomToggle>
 
           <Accordion.Collapse eventKey="1">
