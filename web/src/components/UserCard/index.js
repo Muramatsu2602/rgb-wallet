@@ -28,7 +28,6 @@ export default function UserCard(props) {
 
   // Form Variables
   const [isEdited, setIsEdited] = useState(false);
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   /**
    * Allows form to be edited
@@ -38,19 +37,6 @@ export default function UserCard(props) {
   async function allowFormEditOnClick(event) {
     // toggle behaviour
     if (isEdited) {
-      setIsEdited(false);
-    } else {
-      setIsEdited(true);
-    }
-  }
-
-  /**
-   * up and down effect on details button
-   * @param {*} e
-   */
-  async function clickToOpen(e) {
-    // toggle behaviour
-    if (isDetailsOpen) {
       setIsEdited(false);
     } else {
       setIsEdited(true);
@@ -174,8 +160,8 @@ export default function UserCard(props) {
 
       <div className="card-body">
         <Accordion defaultActiveKey="0">
-          <CustomToggle onClick={clickToOpen} eventKey="1">
-            Detalhes {isDetailsOpen ? <FaAngleUp /> : <FaAngleDown />}
+          <CustomToggle eventKey="1">
+            Detalhes <FaAngleDown />
           </CustomToggle>
 
           <Accordion.Collapse eventKey="1">
