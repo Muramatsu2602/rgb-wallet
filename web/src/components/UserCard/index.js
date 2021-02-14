@@ -203,6 +203,7 @@ export default function UserCard(props) {
                     ) : (
                       <div className="switch">
                         <input
+                          defaultChecked={props.didSellProj}
                           id="formDidSellProj"
                           type="checkbox"
                           className="switch-input"
@@ -230,6 +231,7 @@ export default function UserCard(props) {
                     ) : (
                       <div className="switch">
                         <input
+                          defaultChecked={props.isExecutingProj}
                           id="formIsExecProj"
                           type="checkbox"
                           className="switch-input"
