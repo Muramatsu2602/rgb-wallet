@@ -19,7 +19,7 @@ function ForgotPasswordAlert() {
     icon: "error",
     title: "Oops...",
     text: "Deu M****!",
-    footer: `<a href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO'>Por que estou vendo isso?</a>`,
+    footer: `<a target='_blank'href='https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstleyVEVO'>Por que estou vendo isso?</a>`,
   });
 }
 
@@ -118,9 +118,7 @@ export default function Login() {
                 </Button>{" "}
               </div>
 
-              <a target="_blank" onClick={ForgotPasswordAlert}>
-                Esqueci a senha...
-              </a>
+              <a onClick={ForgotPasswordAlert}>Esqueci a senha...</a>
             </div>
           </Form>
         </div>

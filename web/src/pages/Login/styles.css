@@ -93,9 +93,14 @@
 }
 
 .form-portion a {
-  text-decoration: none !important;
+  margin-top: 0.5rem;
+  text-decoration: none;
   cursor: pointer !important;
-  color: var(--color-small-info) !important;
+  color: var(--color-text-complement) !important;
+}
+
+.form-portion a:hover {
+  text-decoration: underline;
 }
 
 .form-buttons {

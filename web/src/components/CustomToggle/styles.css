@@ -5,6 +5,7 @@
   font-size: var(--text-medium) !important;
 
   border-style: none !important;
+  font-weight: 600;
 
   transition: background-color 0.2s !important;
 }
