@@ -106,10 +106,6 @@ export default function Login() {
             </Accordion>
 
             <div className="form-buttons">
-              {/* This will change soon  
-                 - this button will redirect to either: User or Admin pages
-              */}
-
               <div to="/user" className="enter-app">
                 <Button className="custom-btn" variant="primary" type="submit">
                   Entrar

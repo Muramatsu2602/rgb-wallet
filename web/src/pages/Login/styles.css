@@ -104,7 +104,7 @@
 }
 
 .form-buttons {
-  padding-top: 6rem;
+  padding-top: 2rem;
 
   display: flex;
   flex-direction: column;
@@ -191,7 +191,7 @@
 
   .form-portion h1 {
     padding: 0%;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .custom-lbl {
