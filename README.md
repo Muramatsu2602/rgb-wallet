@@ -24,7 +24,7 @@ What we used to make this project possible
 
 ### DB and Server
 * MongoDB
-* 
+* Express
 * Insomnia
 
 ## Usage
