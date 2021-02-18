@@ -8,9 +8,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { GiReceiveMoney } from "react-icons/gi";
 import { GiPayMoney } from "react-icons/gi";
+import { FaAngleDown } from "react-icons/fa";
 
 import Header from "../../components/Header/index";
-import { Button } from "react-bootstrap/";
+import CustomToggle from "../../components/CustomToggle/index";
+import { Button, Accordion, Table } from "react-bootstrap/";
 
 import NumberFormat from "react-number-format";
 
@@ -155,7 +157,7 @@ export default function User() {
               </div>
 
               <div className="transaction-history-wrapper">
-                {/* <Accordion defaultActiveKey="0">
+                <Accordion defaultActiveKey="0">
                   <CustomToggle eventKey="1">
                     Visualizar Extrato <FaAngleDown />
                   </CustomToggle>
@@ -195,7 +197,7 @@ export default function User() {
                       </Table>
                     </div>
                   </Accordion.Collapse>
-                </Accordion> */}
+                </Accordion>
               </div>
 
               <div className="user-buttons">
