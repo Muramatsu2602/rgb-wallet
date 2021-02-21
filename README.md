@@ -45,4 +45,4 @@ The project was assembled by 2 trainee developers and a senior ICMC Jr member, w
 * Kenzo
 
 ## Acknowledgements
-We want to thank, from the bottom of our hearts, all the support we receive from ICMC Jr's senior members. I shall be a pleasure to work in real life project with you guys ;)
+We want to thank, from the bottom of our hearts, all the support we receive from ICMC Jr's senior members. It shall be a pleasure to work in real life project with you guys ;)
