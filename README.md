@@ -43,6 +43,3 @@ The project was assembled by 2 trainee developers and a senior ICMC Jr member, w
 * **Kibe**
 * Beneti
 * Kenzo
-
-## Acknowledgements
-We want to thank, from the bottom of our hearts, all the support we receive from ICMC Jr's senior members. It shall be a pleasure to work in real life project with you guys ;)
