@@ -6,6 +6,14 @@ Trainee admission project for "ICMC Jr" Junior Enterprise @USP.  It's a web-base
       <img src="web/public/logo.png" alt="RGBWallet logo"/>
 </p>
 
+## Pictures
+
+### Admin Dashboard
+
+<p align="center">
+      <img src="dashboard.jpeg" alt="dashboard UI"/>
+</p>
+
 ## 🛠️ Tools
 What we used to make this project possible
 
