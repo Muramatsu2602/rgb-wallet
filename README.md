@@ -43,7 +43,7 @@ npm start
 in both web/ and backend/ folders
 
 ## ✨ Features 
-The document containing the client's description for this project's features can be found [here](https://drive.google.com/file/d/1W3Xj5Vy73h6mo37CGoguPnMa-BOt-mNl/view?usp=sharing)
+The document containing the client's description for this project's features can be found [here](https://drive.google.com/file/d/1W3Xj5Vy73h6mo37CGoguPnMa-BOt-mNl/view?usp=sharing) (Portuguese only)
 
 ## 👥 The Team
 The project was assembled by 2 trainee developers and a senior ICMC Jr member, who will act as the SCRUM Master:
